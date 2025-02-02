@@ -5,6 +5,7 @@
     --nav-text: rgb(19, 18, 18);
     --main-background: rgb(19, 18, 18);
     --main-text: rgb(200, 200, 200);
+    --link-text: rgb(60, 100, 200);
     --text-mobile: 3vw;
     --text-desktop: 1vw;
 }
@@ -68,6 +69,11 @@ section {
     flex-direction: column;
     order: 2;
     transform: translateY(-2vw);
+}
+
+.text-link {
+    color: var(--link-text);
+    text-decoration: underline;
 }
 
 /* images < mobile > */
