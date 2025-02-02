@@ -208,6 +208,10 @@ signature, version {
         font-size: 4vw;
     }
 
+    #desktop-name {
+        text-shadow: 0.1vw 0.1vw 0.25vw rgba(0, 0, 0, 0.5);
+    }
+
     .menu-layout {
         display: flex;
         flex-direction: row;
@@ -224,6 +228,7 @@ signature, version {
         color: var(--main-text);
         padding: 0vw 1vw 0vw;
         border-radius: 0.5vw;
+        text-shadow: 0.1vw 0.1vw 0.25vw rgba(0, 0, 0, 0.5);
         transition: background-color 0.5s ease, color 0.5s ease;
     }
 

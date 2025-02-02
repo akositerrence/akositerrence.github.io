@@ -43,7 +43,7 @@
             <layout id="navbar-desktop-layout">
                 <layout id="desktop-logoside-layout" class="center">
                     <logo id="desktop-logo"> <i class="bi bi-upc"></i> </logo>
-                    <name class="unselectable"> @akositerrence </name>
+                    <name class="unselectable" id="desktop-name"> @akositerrence </name>
                 </layout>
                 <menu>
                     <layout class="menu-layout">
@@ -60,38 +60,43 @@
         <layout id="main-layout">
             <layout id="about-layout">
                 <layout id="introduction-layout">
-                    <img id="home-image" src="/images/profile.webp" alt="terrence andre san gabriel"></img>
+                    <img id="home-image" src="/images/profile.webp" alt="terrence andre san gabriel"></img> <!-- tellmeaboutyourself -->
                     <layout id="introduction-text-block" class="center">
-                        <header> Some stuff about me </header>
-                        <morse class="morse-divider"> -- -.-- ... - --- .-. -.-- </morse> <!-- revise morse -->
+                        <header> Who are you ? </header>
+                        <morse class="morse-divider"> - . .-.. .-.. -- . .- -... --- ..- - -.-- --- ..- .-. ... . .-.. ..-. </morse> 
                         <section id="introduction-text"> 
                             <p>
-                                Hey there! I'm Terrence Andre San Gabriel, a 
-                                sophomore suffering through Mechanical Engineering 
-                                and Physics at North Dakota State University based 
-                                in Fargo, North Dakota. This site's a work in 
-                                progress, made with HTML, CSS, and Javascript.
+                                Hi there! My name is Terrence Andre San Gabriel, a
+                                sophomore undergrad studying Mechanical Engineering at North Dakota State University.
+                                I have a strong passion for the interdisciplinarian approach, aiming for a minor in Computer Science
+                                and Robotics and throwing myself at subjects and projects I know nothing about. Outside of my 
+                                <a rel="stylesheet" target="_blank" href="https://www.shu.edu/documents/Resume-Samples.pdf">Resume</a>, 
+                                I play the Clarinet, Guitar, and do copious amounts of 
+                                <a rel="stylesheet" target="_blank" href="https://www.instagram.com/terracker/">Indoor Bouldering</a>.
                             </p> 
                         </section>
                     </layout>
                 </layout>
                 <layout id="residence-layout" class="center">
-                    <img id="residence-history-map" src="/images/placeholder.webp" usemap="residence-map" alt="previous areas of residence">
+                    <img id="residence-history-map" src="/images/wherefrom.webp" usemap="residence-map" alt="previous areas of residence"> 
                     <map name="residence-map"></map>
                     <layout id="residence-text-block">
                         <layout id="residence-header" class="center">
-                            <header> Some more stuff about me </header>
-                            <morse class="morse-divider"> -- -.-- . -..- .--. . .-. .. . -. -.-. . </morse> <!-- revise morse -->
+                            <header> Where are you from ? </header>
+                            <morse class="morse-divider"> .-- .... . .-. . -.. .. -.. -.-- --- ..- -.-. --- -- . ..-. .-. --- -- </morse> <!-- wheredidyoucomefrom -->
                         </layout>
                         <section id="map-text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing 
-                                elit, sed do eiusmod tempor incididunt ut labore 
-                                et dolore magna aliqua. Ut enim ad minim veniam, 
-                                quis nostrud exercitation ullamco laboris nisi ut 
-                                aliquip ex ea commodo consequat. Duis aute irure 
-                                dolor in reprehenderit in voluptate velit esse 
-                                cillum dolore eu fugiat nulla pariatur. 
+                                Born and raised in the Philippines, I studied at 
+                                <a rel="stylesheet" target="_blank" href="https://www.spusm.edu.ph/">St Paul University at San Miguel</a>
+                                and periodically lived in Singapore every summer. Growing up, I was particularly inclined towards anything 
+                                STEM related, especially aeronautics. I was also pretty addicted to Minecraft and 
+                                unknowingly learned how to manipulate JSON files on a beat up Samsung tablet when I was like 11, 
+                                so maybe that's why I also like programming? Anyway, I was there for 13 years before moving 7,500 miles to the 
+                                United States with my parents back in 2017. I spent my Middle School and 
+                                <a rel="stylesheet" target="_blank" href="https://chs.bismarckschools.org/">High School</a> 
+                                years in Bismarck, North Dakota, very heavily involved in extracurriculars and 
+                                taking as many AP classes as I could before I took off for college.
                             </p>
                         </section>
                     </layout>
@@ -101,16 +106,27 @@
                 <img id="experience-history-interface" src="/images/placeholder2.webp" usemap="experience-map" alt="previous areas of employment">
                 <map name="experience-map"></map>
                 <layout id="experience-header" class="center">
-                    <header> Some stuff about work </header>
-                    <morse class="morse-divider"> -- -.-- . -..- .--. . .-. .. . -. -.-. . </morse> <!-- revise morse -->
+                    <header> What do you do ? </header>
+                    <morse class="morse-divider"> .... --- .-- -.. --- -.-- --- ..- --. . - -- --- -. . -.-- </morse> <!-- howdoyougetmoney -->
                 </layout>
                 <section id="experience-text"> 
                     <p> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing 
-                        elit, sed do eiusmod tempor incididunt ut labore 
-                        et dolore magna aliqua. Ut enim ad minim veniam, 
-                        quis nostrud exercitation ullamco laboris nisi ut 
-                        aliquip ex ea commodo consequat.
+                        Currently, I'm an R&D intern at 
+                        <a rel="stylesheet" target="_blank" href="https://marvincomposites.com/">Marvin Composites</a>, 
+                        applying material science and data analysis to optimize pultrusion processes and improve composite 
+                        performance. At the same time, I work as an undergraduate research assistant in 
+                        <a rel="stylesheet" target="_blank" href="https://www.ndsu.edu/me/">NDSU's Mechanical Engineering</a>
+                        department, developing embedded software and an electrical
+                        system for a project that simulates and speeds up spirit aging by automating
+                        environmental controls and data collection. Previously, I've worked at 
+                        <a rel="stylesheet" target="_blank" href="https://www.aigen.io/">Aigen</a> as a Robot Operator
+                        for their inaugural year of field operations, where I monitored and maintained autonomous agricultural
+                        robots. Before that, I worked at 
+                        <a rel="stylesheet" target="_blank" href="https://www.target.com/sl/bismarck/2194">Target</a> 
+                        and 
+                        <a rel="stylesheet" target="_blank" href="https://restaurants.fiveguys.com/1001-west-interstate-avenue">Five Guys</a>
+                        during high school, saving up for college while
+                        gaining valuable teamwork and customer service experience.
                     </p> 
                 </section>
             </layout>
@@ -120,7 +136,7 @@
             <layout id="footer-layout">    
                 <layout id="stamp-layout">
                     <signature class="unselectable"> Terrence Andre San Gabriel </signature>
-                    <version class="unselectable"> v07.24.24 </version>
+                    <version class="unselectable"> v02.02.25 </version>
                 </layout>
                 <social>
                     <layout id="social-layout">    
