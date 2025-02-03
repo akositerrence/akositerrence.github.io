@@ -39,6 +39,10 @@ header {
     margin-top: 4vw;
 }
 
+italic {
+    font-style: italic;
+}
+
 .morse-divider {
     font-size: var(--text-mobile);
 }
