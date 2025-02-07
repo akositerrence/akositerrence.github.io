@@ -5,6 +5,7 @@
     --nav-text: rgb(19, 18, 18);
     --main-background: rgb(19, 18, 18);
     --main-text: rgb(200, 200, 200);
+    --link-text: rgb(60, 100, 200);
     --text-mobile: 3vw;
     --text-desktop: 1vw;
 }
@@ -16,22 +17,55 @@
     flex-direction: column;
 }
 
-#skills-layout, #project-layout {
+#project-layout {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--main-text);
+    margin-bottom: 10vw;
 }
 
-#skill-grid, #project-grid {
+#project-grid {
+    margin-top: 2.5vw;
     display: flex;
     width: 80vw;
-    gap: 0.5vw;
+    gap: 10vw;
 }
 
-#skills-layout, #project-layout {
-    height: 80vh;
+.project{
+    width: 80vw;
+    height: 80vw;
+    background-color: rgb(41, 42, 42);
+    border-radius: 1vw;
+    text-align: center;
+}
+
+.project-img{
+    width: 80vw;
+    border-radius: 1vw;
+    filter: brightness(30%);
+}
+
+.project-title{
+    width: 80vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(215, 215, 225);
+    font-size: 5vw;
+}
+
+.project-subtitle{
+    width: 80vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: rgb(180, 180, 180);
+    font-style: italic;
+    font-size: 3vw;
 }
 
 /* text style < mobile > */
@@ -61,9 +95,7 @@ li {
 /* desktop configurations */
 
 @media (min-width: 768px) {
-    /* layouts < mobile > */
-
-    #skills-layout, #project-layout {
+    #project-layout {
         height: 80vh;
     }
 
@@ -72,18 +104,54 @@ li {
         flex-direction: column;
     }
 
-    #skills-layout, #project-layout {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    #project-layout {
+        margin-top: 5vw;
+        margin-bottom: 7.5vw;
         align-items: center;
         color: var(--main-text);
     }
 
-    #skill-grid, #project-grid {
+    #project-grid {
+        margin-top: 2.5vw;
         display: flex;
         width: 80vw;
-        gap: 0.5vw;
+        gap: 2vw;
+        align-content: center;
+    }
+
+    .project{
+        width: 15vw;
+        height: 15vw;
+        background-color: rgb(41, 42, 42);
+        border-radius: 1vw;
+        text-align: center;
+    }
+
+    .project-img{
+        width: 15vw;
+        border-radius: 1vw;
+        filter: brightness(30%);
+    }
+
+    .project-title{
+        width: 15vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 1vw;
+        transform: translate(-50%, -50%);
+        color: rgb(215, 215, 225);
+    }
+
+    .project-subtitle{
+        width: 15vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 30%);
+        color: rgb(180, 180, 180);
+        font-style: italic;
+        font-size: 0.75vw;
     }
 
     /* text style < mobile > */
