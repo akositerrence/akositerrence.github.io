@@ -44,7 +44,7 @@
 .project-img{
     width: 80vw;
     border-radius: 1vw;
-    filter: brightness(30%);
+    filter: brightness(45%);
 }
 
 .project-title{
@@ -130,7 +130,7 @@ li {
     .project-img{
         width: 15vw;
         border-radius: 1vw;
-        filter: brightness(30%);
+        filter: brightness(45%);
     }
 
     .project-title{

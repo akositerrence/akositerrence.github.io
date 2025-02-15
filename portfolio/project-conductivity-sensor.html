@@ -60,16 +60,45 @@
         <layout id="main-layout">
             <layout id="project-page-layout">
                 <layout id="project-page-header">
-                    <header> Combat Robot </header>
+                    <header> Conductivity (Redox) Sensor </header>
                     <morse class="morse-divider"> -. -.. ... ..- -.-. --- -- -... .- - .-. --- -... --- - </morse>
-                    <affiliation> NDSU Combat Robotics </affiliation>
-                    <published> Published 12 Feb 2025 </published>
+                    <affiliation> Century High School Science Olympiad </affiliation>
+                    <published> <i class="bi bi-calendar2-event"></i>&nbsp; Published 14 Feb 2025 </published>
                 </layout>
                 <layout id="project-page-content">
                     <section class="project-page-section">
                         <img id="project-main-image" src="/project-images/conductivity-sensor.webp" alt="Conductivity Sensor">
-                        <h2 class="section-header"> schematic </h2>
-                        <p> blah blah </p>
+                        <h2 class="section-header"> Competition </h2>
+                        <p> 
+                            For the 2022 Science Olympiad 
+                            <a class="text-link" rel="stylesheet" target="_blank" href="https://www.soinc.org/detector-building-c">Detector Building</a> event, 
+                            teams were required to build a device that could accurately measure the concentration of sodium 
+                            chloride (NaCl) in ppm within a given set of water samples while also triggering a corresponding LED color, 
+                            essentially building a Redox probe. Teams were tested not only on the device's performance 
+                            but also through an exam related to the construction and theory behind the probe, as well 
+                            as basic general knowledge of electrical engineering topics. We ended up winning in the 
+                            regional and state competitions and placed 28th overall at 
+                            <a class="text-link" rel="stylesheet" target="_blank" href="https://www.soinc.org/sites/default/files/uploaded_files/2022_official_Div_C_master_scoresheet_by_rank.pdf">Nationals</a>.
+                        </p>
+                        <h2 class="section-header"> Construction </h2>
+                        <p> 
+                            The primary components of the device were the TI calculator and the TI-innovator hub, with the 
+                            calculator also serving as the main power source. Initially, magnet wires were used as the two 
+                            electrodes. They were later replaced with pure copper plates to prevent electrons from wrapping 
+                            around the magnet wires and lessen the effects of polarization. These also provided a larger and 
+                            flatter surface area, allowing current to spread evenly across the electrode for improved stability 
+                            and performance. This end was waterproofed and secured using a combination of a rubber stopper, 
+                            good old fashion hot glue, and electrical tape. A plastic fork with two prongs in the middle 
+                            broken off was used to hold the electrodes in place. The circuit uses a voltage divider to make
+                            the voltage measurement more stable.
+                            The software for the sensor was derived from a preexisting TI code library, heavily modified to 
+                            fit the sensor’s inputs. To calibrate the sensor, various solutions with known NaCl concentrations 
+                            were prepared and measured using a commercial meter for accuracy. The sensor was then immersed in 
+                            each solution, with thorough rinsing in distilled water between trials to prevent cross-contamination. 
+                            As the sensor detects the conductivity of each solution, it converts the analog conductivity signal 
+                            into a voltage reading that is displayed on the calculator. Using these readings, a linear equation 
+                            was derived via a best-fit line that correlates the measured voltage to the NaCl concentration in water.
+                        </p>
                     </section>
                 </layout>
             </layout>
