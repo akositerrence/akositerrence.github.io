@@ -37,6 +37,12 @@
     border-radius: 1.5vw;
 }
 
+.project-aux-image {
+    width: 30vw;
+    height: auto;
+    border-radius: 1.5vw;
+}
+
 .project-page-section {
     display: flex;
     flex-direction: column;
@@ -79,6 +85,10 @@ header {
     text-decoration: underline;
 }
 
+.project-description-separator {
+    margin-bottom: 2.5vw;
+}
+
 affiliation{
     color: var(--main-text);
     font-size: var(--text-desktop);
@@ -87,4 +97,12 @@ affiliation{
 published{
     color: var(--main-text);
     font-size: var(--text-desktop);
+}
+
+/* items < desktop > */
+#reverse-engineered-starter-pdf{
+    width: 40vw;
+    height: 50vw;
+    border-radius: 1vw;
+    margin-bottom: 2.5vw;
 }
