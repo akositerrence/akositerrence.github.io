@@ -1,0 +1,16 @@
+{
+  "name": "akositerrencesite",
+  "version": "1.0.0",
+  "description": "portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i ./src/css/head_main.css -o ./src/css/tail_main.css --watch"
+  },
+  "author": "terrence andre san gabriel",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.7",
+    "tailwindcss": "^4.1.7"
+  }
+}
