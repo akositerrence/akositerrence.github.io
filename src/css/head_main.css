@@ -365,5 +365,9 @@ html, body {
 }
 
 .stream-feed {
-    @apply md:m-2.5;
+    @apply md:p-2.5;
+}
+
+#stream-size {
+    @apply w-max;
 }

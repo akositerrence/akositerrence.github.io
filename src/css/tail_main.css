@@ -890,8 +890,11 @@ html, body {
 }
 .stream-feed {
   @media (width >= 48rem) {
-    margin: calc(var(--spacing) * 2.5);
+    padding: calc(var(--spacing) * 2.5);
   }
+}
+#stream-size {
+  width: max-content;
 }
 @property --tw-rotate-x {
   syntax: "*";
