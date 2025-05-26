@@ -1,0 +1,14 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title }} — {{ site.title }}</title>
+</head>
+<body>
+  <nav><a href="/">Home</a> | <a href="/stream.html">Stream</a></nav>
+  <main>{{ content }}</main>
+  <footer><small>© {{ site.time | date: "%Y" }} {{ site.title }}</small></footer>
+</body>
+</html>
