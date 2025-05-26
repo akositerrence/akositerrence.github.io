@@ -1,0 +1,7 @@
+title:  akositerrence
+description:  blog test
+baseurl:  ""
+url:  "https://akositerrence.github.io"
+
+paginate: 5
+paginate_path: "/stream/page:num"
