@@ -369,7 +369,5 @@ html, body {
 }
 
 .full-width {
-  display: block;      
-  width: 100%;        
-  box-sizing: border-box; 
+  @apply inline-block invisible h-0;
 }

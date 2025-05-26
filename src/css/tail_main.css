@@ -176,9 +176,6 @@
   }
 }
 @layer utilities {
-  .invisible {
-    visibility: hidden;
-  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -199,12 +196,6 @@
   }
   .inline {
     display: inline;
-  }
-  .inline-block {
-    display: inline-block;
-  }
-  .h-0 {
-    height: calc(var(--spacing) * 0);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -903,9 +894,9 @@ html, body {
   }
 }
 .full-width {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
+  visibility: hidden;
+  display: inline-block;
+  height: calc(var(--spacing) * 0);
 }
 @property --tw-rotate-x {
   syntax: "*";
