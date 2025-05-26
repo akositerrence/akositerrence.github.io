@@ -5,3 +5,14 @@ url:  "https://akositerrence.github.io"
 
 paginate: 5
 paginate_path: "/stream/page:num"
+
+plugins:
+  - jekyll-paginate-v2
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/stream/page/:num/'
+  title: ':title - page :num'
+  trail:
+    before: 2
+    after: 2
