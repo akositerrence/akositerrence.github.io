@@ -365,7 +365,7 @@ html, body {
 }
 
 .stream-feed {
-    @apply md:p-2.5;
+    @apply -mt-5 md:p-2.5;
 }
 
 .full-width {
