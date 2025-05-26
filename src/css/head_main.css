@@ -78,7 +78,7 @@ html, body {
 }
 
 .scroll-container {
-    @apply bg-green-50 w-0 md:w-[0.25%];
+    @apply bg-green-50 w-0 md:w-[1.5px];
     @apply md:ml-[41.5%];
     @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
     animation: main-name-animation 10s linear infinite;
@@ -368,6 +368,8 @@ html, body {
     @apply md:p-2.5;
 }
 
-#stream-size {
-    @apply w-max;
+.full-width {
+  display: block;      
+  width: 100%;        
+  box-sizing: border-box; 
 }

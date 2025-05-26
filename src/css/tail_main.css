@@ -315,7 +315,7 @@ html, body {
   width: calc(var(--spacing) * 0);
   background-color: var(--color-green-50);
   @media (width >= 48rem) {
-    width: 0.25%;
+    width: 1.5px;
   }
   @media (width >= 48rem) {
     margin-left: 41.5%;
@@ -893,8 +893,10 @@ html, body {
     padding: calc(var(--spacing) * 2.5);
   }
 }
-#stream-size {
-  width: max-content;
+.full-width {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 @property --tw-rotate-x {
   syntax: "*";
