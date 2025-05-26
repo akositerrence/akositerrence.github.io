@@ -357,3 +357,13 @@ html, body {
 .post-img {
     @apply rounded-sm border-1 border-cyan-900/25 h-20 w-20 opacity-75;
 }
+
+
+
+.stream-container {
+    @apply flex flex-col gap-y-5;
+}
+
+.stream-feed {
+    @apply md:p-2.5;
+}

@@ -883,6 +883,16 @@ html, body {
   }
   opacity: 75%;
 }
+.stream-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(var(--spacing) * 5);
+}
+.stream-feed {
+  @media (width >= 48rem) {
+    padding: calc(var(--spacing) * 2.5);
+  }
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;

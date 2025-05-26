@@ -62,15 +62,21 @@ title: Stream
 
         <!-- col3 -->
         <div class="content-container">
-            <h1>Stream</h1>
-            <ul>
-            {% for post in site.posts %}
-            <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-                <small>— {{ post.date | date: "%b %-d, %Y" }}</small>
-            </li>
-            {% endfor %}
-            </ul>
+
+            <!-- stream container -->
+            <div class="stream-container">
+                <h2 class="content-section-header"> ABOUT </h2>
+                <div class="stream-feed">
+                    <ul>
+                    {% for post in site.posts %}
+                    <li>
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                        <small>— {{ post.date | date: "%b %-d, %Y" }}</small>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
 
     <script src="./src/js/stream.js"></script>
