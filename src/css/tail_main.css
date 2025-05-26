@@ -176,6 +176,9 @@
   }
 }
 @layer utilities {
+  .invisible {
+    visibility: hidden;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -196,6 +199,12 @@
   }
   .inline {
     display: inline;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .h-0 {
+    height: calc(var(--spacing) * 0);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -315,7 +324,7 @@ html, body {
   width: calc(var(--spacing) * 0);
   background-color: var(--color-green-50);
   @media (width >= 48rem) {
-    width: 1.5px;
+    width: 5px;
   }
   @media (width >= 48rem) {
     margin-left: 41.5%;
