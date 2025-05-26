@@ -365,5 +365,5 @@ html, body {
 }
 
 .stream-feed {
-    @apply md:p-2.5;
+    @apply md:m-2.5;
 }

@@ -890,7 +890,7 @@ html, body {
 }
 .stream-feed {
   @media (width >= 48rem) {
-    padding: calc(var(--spacing) * 2.5);
+    margin: calc(var(--spacing) * 2.5);
   }
 }
 @property --tw-rotate-x {
