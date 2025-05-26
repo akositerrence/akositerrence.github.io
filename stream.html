@@ -3,12 +3,77 @@ layout: default
 title: Stream
 ---
 
-<h1>Stream</h1>
-<ul>
-{% for post in site.posts %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <small>— {{ post.date | date: "%b %-d, %Y" }}</small>
-  </li>
-{% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./src/css/tail_main.css" rel="stylesheet">
+    <title>akositerrence</title>
+</head>
+
+<body>
+    <!-- background -->
+    <div class="gradient-background">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradient-container">
+            <div class="interactive"></div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="main-container">
+        <!-- col1 -->
+        <div class="title-container">
+            <!-- header container -->
+            <div class="header-container">
+                <header class="main-name"> Terrence Andre San Gabriel </header>
+                <h1 class="main-goal"> Aspiring Aeronautical Engineer </h1>
+            </div>
+
+            <!-- link array -->
+            <div class="links-container">
+                <a href="https://www.linkedin.com/in/tsangabriel/" target="_blank" class="link-icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="link-icon" viewBox="0 0 24 24" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-linkedin"><path fill="none" d="M0 0h24v24H0z"/><path d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm-9 8a1 1 0 0 0-1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0-1-1m6 0a3 3 0 0 0-1.168.236l-.125.057A1 1 0 0 0 11 11v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0-3-3M8 7a1 1 0 0 0-.993.883L7 8.01a1 1 0 0 0 1.993.117L9 8a1 1 0 0 0-1-1"/></svg>
+                </a>
+                <a href="https://github.com/akositerrence" target="_blank" class="link-icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="link-icon" viewBox="0 0 24 24" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path fill="none" d="M0 0h24v24H0z"/><path d="M5.315 2.1c.791-.113 1.9.145 3.333.966l.272.161.16.1.397-.083a13.3 13.3 0 0 1 4.59-.08l.456.08.396.083.161-.1c1.385-.84 2.487-1.17 3.322-1.148l.164.008.147.017.076.014.05.011.144.047a1 1 0 0 1 .53.514 5.2 5.2 0 0 1 .397 2.91l-.047.267-.046.196.123.163c.574.795.93 1.728 1.03 2.707l.023.295L21 9.5c0 3.855-1.659 5.883-4.644 6.68l-.245.061-.132.029.014.161.008.157.004.365-.002.213L16 21a1 1 0 0 1-.883.993L15 22H9a1 1 0 0 1-.993-.883L8 21v-.734c-1.818.26-3.03-.424-4.11-1.878l-.535-.766c-.28-.396-.455-.579-.589-.644l-.048-.019a1 1 0 0 1 .564-1.918c.642.188 1.074.568 1.57 1.239l.538.769c.76 1.079 1.36 1.459 2.609 1.191L8 17.562l-.018-.168a5.03 5.03 0 0 1-.021-.824l.017-.185.019-.12-.108-.024c-2.976-.71-4.703-2.573-4.875-6.139l-.01-.31L3 9.5a5.6 5.6 0 0 1 .908-3.051l.152-.222.122-.163-.045-.196a5.2 5.2 0 0 1 .145-2.642l.1-.282.106-.253a1 1 0 0 1 .529-.514l.144-.047.154-.03z"/></svg>
+                </a>
+                <a href="https://open.spotify.com/user/4sfglejibi9w340p3ba0lixvb" target="_blank" class="link-icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="link-icon" viewBox="0 0 24 24" class="icon icon-tabler icons-tabler-filled icon-tabler-brand-spotify"><path fill="none" d="M0 0h24v24H0z"/><path d="M17 3.34A10 10 0 1 1 2 12l.005-.324A10 10 0 0 1 17 3.34m-2.168 11.605c-1.285-1.927-4.354-2.132-6.387-.777a1 1 0 0 0 1.11 1.664c1.195-.797 3.014-.675 3.613.223a1 1 0 1 0 1.664-1.11M16.1 11.7c-2.469-1.852-5.895-2.187-8.608-.589a1 1 0 0 0 1.016 1.724c1.986-1.171 4.544-.92 6.392.465a1 1 0 0 0 1.2-1.6m1.43-3.048C13.853 6.354 9.764 6.5 6.553 8.106a1 1 0 0 0 .894 1.788c2.635-1.317 5.997-1.437 9.023.454a1 1 0 1 0 1.06-1.696"/></svg>
+                </a>
+                <a href="mailto:terrsangabriel@gmail.com" target="_blank" class="link-icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="link-icon" viewBox="0 0 24 24" class="icon icon-tabler icons-tabler-filled icon-tabler-mail"><path fill="none" d="M0 0h24v24H0z"/><path d="M22 7.535V17a3 3 0 0 1-2.824 2.995L19 20H5a3 3 0 0 1-2.995-2.824L2 17V7.535l9.445 6.297.116.066a1 1 0 0 0 .878 0l.116-.066L22 7.535z"/><path d="M19 4c1.08 0 2.027.57 2.555 1.427L12 11.797l-9.555-6.37a2.999 2.999 0 0 1 2.354-1.42L5 4h14z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- col2 -->
+        <div class="scroll-container"></div>
+
+        <!-- col3 -->
+        <div class="content-container">
+            <h1>Stream</h1>
+            <ul>
+            {% for post in site.posts %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                <small>— {{ post.date | date: "%b %-d, %Y" }}</small>
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+
+    <script src="./src/js/stream.js"></script>
+</body>
+
+</html>
