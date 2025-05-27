@@ -83,7 +83,7 @@ html, body {
     @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
     animation: main-name-animation 10s linear infinite;
     background-size: 200% 200%;
-    opacity: 0.5;
+    opacity: 0.25;
 }
 
 .content-container {
@@ -370,4 +370,12 @@ html, body {
 
 .full-width {
   @apply inline-block invisible h-0;
+}
+
+.post-feed-img {
+    @apply h-40 w-40;
+}
+
+.stream-grid {
+    @apply flex flex-wrap gap-1;
 }

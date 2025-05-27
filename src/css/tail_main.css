@@ -331,7 +331,7 @@ html, body {
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   animation: main-name-animation 10s linear infinite;
   background-size: 200% 200%;
-  opacity: 0.5;
+  opacity: 0.25;
 }
 .content-container {
   display: flex;
@@ -898,6 +898,15 @@ html, body {
   visibility: hidden;
   display: inline-block;
   height: calc(var(--spacing) * 0);
+}
+.post-feed-img {
+  height: calc(var(--spacing) * 40);
+  width: calc(var(--spacing) * 40);
+}
+.stream-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--spacing) * 1);
 }
 @property --tw-rotate-x {
   syntax: "*";
