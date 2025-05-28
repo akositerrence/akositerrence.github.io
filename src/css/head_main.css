@@ -78,7 +78,7 @@ html, body {
 }
 
 .scroll-container {
-    @apply bg-green-50 w-0 md:w-[5px];
+    @apply bg-green-50 w-0 md:w-[2.5px];
     @apply md:ml-[41.5%];
     @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
     animation: main-name-animation 10s linear infinite;
@@ -235,7 +235,7 @@ html, body {
 }
 
 .portfolio-img {
-    @apply rounded-sm border-2 border-cyan-900/25;
+    @apply border-1 border-cyan-900/25;
     @apply h-15 w-30;
     @apply mb-5;
     opacity: 0.75;
@@ -327,7 +327,7 @@ html, body {
 }
 
 .posts-grid {
-    @apply grid grid-cols-3 grid-rows-2 gap-1 justify-end;
+    @apply grid grid-cols-3 grid-rows-2 gap-0.25 justify-end;
     @apply md:p-2.5;
     overflow: hidden;
 }
@@ -355,7 +355,7 @@ html, body {
 }
 
 .post-img {
-    @apply rounded-sm border-1 border-cyan-900/25 h-20 w-20 opacity-75;
+    @apply border-1 border-cyan-900/25 h-20 w-20 opacity-75;
 }
 
 
