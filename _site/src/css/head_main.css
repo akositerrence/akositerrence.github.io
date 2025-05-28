@@ -369,13 +369,13 @@ html, body {
 }
 
 .full-width {
-  @apply inline-block invisible h-0;
-}
-
-.post-feed-img {
-    @apply h-40 w-40;
+    @apply inline-block invisible h-0;
 }
 
 .stream-grid {
-    @apply flex flex-wrap gap-1;
+    @apply grid grid-cols-[repeat(auto-fill,12.5rem)] auto-rows-[12.5rem] gap-1;
+}
+
+.post-feed-img:hover {
+    @apply opacity-50 transition duration-250;
 }
