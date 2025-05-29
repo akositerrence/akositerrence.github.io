@@ -17,13 +17,15 @@
     --color-cyan-900: oklch(39.8% 0.07 227.392);
     --color-sky-100: oklch(95.1% 0.026 236.824);
     --color-sky-200: oklch(90.1% 0.058 230.902);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-900: oklch(21% 0.034 264.665);
     --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-extralight: 200;
-    --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --radius-md: 0.375rem;
@@ -212,6 +214,21 @@
   }
   .scroll-smooth {
     scroll-behavior: smooth;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
   }
   .blur {
     --tw-blur: blur(8px);
@@ -968,6 +985,7 @@ html, body {
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   background-clip: text;
   padding-right: calc(var(--spacing) * 5);
+  padding-left: calc(var(--spacing) * 5);
   font-size: 0.875em;
   --tw-font-weight: var(--font-weight-normal);
   font-weight: var(--font-weight-normal);
@@ -997,6 +1015,10 @@ html, body {
   inherits: false;
 }
 @property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
   syntax: "*";
   inherits: false;
 }
@@ -1050,10 +1072,6 @@ html, body {
   initial-value: 100%;
 }
 @property --tw-drop-shadow-size {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-font-weight {
   syntax: "*";
   inherits: false;
 }
@@ -1116,6 +1134,7 @@ html, body {
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-font-weight: initial;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -1129,7 +1148,6 @@ html, body {
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
-      --tw-font-weight: initial;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
       --tw-gradient-via: #0000;
