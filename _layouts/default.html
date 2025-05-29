@@ -8,14 +8,14 @@
 </head>
 <body>
   <article class="post-modal">
-    <iframe
+    <iframe class="modal-video-embed"
+      width="0" height="0"
       src="https://www.youtube.com/embed/{{ page.video }}"
       title="{{ page.title }}"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
-
     {{ content }}
     <br>
     <time datetime="{{ page.date | date_to_xmlschema }}">

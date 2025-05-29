@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const wrapper = e.target.closest(".post-wrapper");
         if (!wrapper) return;
 
+        console.log("flag1");
+
         const post_url = wrapper.dataset.url;
         if (!post_url) {
             console.warn("no data-url")
@@ -50,12 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const html = await fetched_content.text();
             const doc = new DOMParser().parseFromString(html, "text/html");
             const article = doc.querySelector(".post-modal");
+            const video_embed = doc.querySelector(".modal-video-embed");
 
             content.innerHTML = article
                 ? article.innerHTML
                 : "<p>Error loading post</p>";
 
+            console.log("flag2");
+            console.log("test");
+            console.log(video_embed);
             modal.style.display = "flex";
+            video_embed.style.width ="24";
+            video_embed.style.height ="24";
             document.body.style.overflow = "hidden";
         } catch (err) {
             modal.style.display = "flex";
