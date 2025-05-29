@@ -17,11 +17,15 @@
     --color-cyan-900: oklch(39.8% 0.07 227.392);
     --color-sky-100: oklch(95.1% 0.026 236.824);
     --color-sky-200: oklch(90.1% 0.058 230.902);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-900: oklch(21% 0.034 264.665);
     --spacing: 0.25rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-extralight: 200;
+    --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-semibold: 600;
-    --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
     --radius-xl: 0.75rem;
     --default-transition-duration: 150ms;
@@ -193,6 +197,12 @@
     @media (width >= 96rem) {
       max-width: 96rem;
     }
+  }
+  .flex {
+    display: flex;
+  }
+  .hidden {
+    display: none;
   }
   .inline {
     display: inline;
@@ -910,6 +920,63 @@ html, body {
   transition-duration: var(--tw-duration, var(--default-transition-duration));
   --tw-duration: 250ms;
   transition-duration: 250ms;
+}
+#post-modal-container {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  inset: calc(var(--spacing) * 0);
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 250ms ease;
+  display: none;
+}
+#post-modal-center {
+  position: relative;
+  max-height: 100%;
+  width: calc(3/4 * 100%);
+  overflow: auto;
+  background-color: rgb(20,25,20);
+  padding: calc(var(--spacing) * 4);
+  @media (width >= 48rem) {
+    width: calc(1/2 * 100%);
+  }
+}
+#modal-close {
+  position: absolute;
+  top: calc(var(--spacing) * 2);
+  right: calc(var(--spacing) * 2);
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
+  color: var(--color-gray-600);
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-gray-900);
+    }
+  }
+}
+#modal-content {
+  --tw-gradient-position: to left in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
+  --tw-gradient-from: var(--color-sky-100);
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  --tw-gradient-via: var(--color-amber-100);
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+  --tw-gradient-to: var(--color-green-100);
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  background-clip: text;
+  font-size: 0.875em;
+  --tw-font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-light);
+  color: transparent;
+  animation: main-name-animation 10s linear infinite;
+  background-size: 200% 200%;
+  opacity: 0.625;
+}
+#close-button {
+  color: var(--color-amber-50);
+  opacity: 62.5%;
 }
 @property --tw-rotate-x {
   syntax: "*";

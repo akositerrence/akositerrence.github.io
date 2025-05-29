@@ -1,0 +1,32 @@
+<!-- creo user exam -->
+<div class="certifications-instance">
+    <div class="certifications-col">
+        <div class="certifications-title standard-text">
+            <a class="content-title-link" href="" target="_blank">
+                Creo User Exam
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="content-link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-link"><path stroke="none" d="M0 0h24v24H0z"/><path d="m9 15 6-6M11 6l.463-.536a5 5 0 0 1 7.071 7.072L18 13M13 18l-.397.534a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L6 11"/></svg>
+            </a>
+        </div>
+        <div class="certificate-source standard-text"> MAY 2025 ⋅ PTC </div>
+        <p class="certifications-description standard-text">
+            Demonstrate understanding of fundamental tools and functions of Creo, 
+            including sketch features, assembly, model properties, and analysis tools.
+        </p>
+    </div>
+</div>
+<!-- rocketry certification -->
+<div class="certifications-instance">
+    <div class="certifications-col">
+        <div class="certifications-title standard-text">
+            <a class="content-title-link" href="" target="_blank">
+                HPR L1 Rocket Certification
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="content-link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-link"><path stroke="none" d="M0 0h24v24H0z"/><path d="m9 15 6-6M11 6l.463-.536a5 5 0 0 1 7.071 7.072L18 13M13 18l-.397.534a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L6 11"/></svg>
+            </a>
+        </div>
+        <div class="certificate-source standard-text"> AUG 2025 ⋅ National Association of Rocketry </div>
+        <p class="certifications-description standard-text">
+            Independently build, launch and safely recover a rocket using a certified
+            HPR (High Powered Rocketry) motor in the H to I impulse range.
+        </p>
+    </div>
+</div>

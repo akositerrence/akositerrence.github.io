@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Stream — jekyll test</title>
+  <title>Stream — akositerrence</title>
 </head>
 <body>
-  <main><!DOCTYPE html>
+  <article class="post-modal"><!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -86,44 +86,36 @@
                 <div class="stream-feed">
                     <ul class="stream-grid">
                     
-                    <li class="post-wrapper" >
-                        <a href="/2025/05/23/jekyll.html">
-                            <img
-                                class="post-feed-img"
-                                src="/src/media/posts/test.png" 
-                                alt="test post"
-                            >
-                        </a>
+                    <li class="post-wrapper" data-url="/2025/05/23/jekyll.html" >
+                        <img
+                            class="post-feed-img"
+                            src="/src/media/posts/test.png" 
+                            alt="test post"
+                        >
                     </li>
                     
-                    <li class="post-wrapper" >
-                        <a href="/2025/05/22/test3.html">
-                            <img
-                                class="post-feed-img"
-                                src="/src/media/posts/test.png" 
-                                alt="test post"
-                            >
-                        </a>
+                    <li class="post-wrapper" data-url="/2025/05/22/test3.html" >
+                        <img
+                            class="post-feed-img"
+                            src="/src/media/posts/test.png" 
+                            alt="test post"
+                        >
                     </li>
                     
-                    <li class="post-wrapper" >
-                        <a href="/2025/05/21/test.html">
-                            <img
-                                class="post-feed-img"
-                                src="/src/media/posts/test.png" 
-                                alt="test post"
-                            >
-                        </a>
+                    <li class="post-wrapper" data-url="/2025/05/21/test.html" >
+                        <img
+                            class="post-feed-img"
+                            src="/src/media/posts/test.png" 
+                            alt="test post"
+                        >
                     </li>
                     
-                    <li class="post-wrapper" >
-                        <a href="/2025/05/20/test.html">
-                            <img
-                                class="post-feed-img"
-                                src="/src/media/posts/test.png" 
-                                alt="test post"
-                            >
-                        </a>
+                    <li class="post-wrapper" data-url="/2025/05/20/test.html" >
+                        <img
+                            class="post-feed-img"
+                            src="/src/media/posts/test.png" 
+                            alt="test post"
+                        >
                     </li>
                     
                     </ul>
@@ -131,9 +123,19 @@
             </div>
         </div>
 
+        <!-- modal -->
+        <div id="post-modal-container">
+            <div id="post-modal-center">
+                <button id="modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="close-button" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z"/><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+
     <script src="./src/js/stream.js"></script>
 </body>
 
-</html></main>
+</html></article>
 </body>
 </html>

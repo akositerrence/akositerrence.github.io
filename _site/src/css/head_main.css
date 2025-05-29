@@ -78,7 +78,7 @@ html, body {
 }
 
 .scroll-container {
-    @apply bg-green-50 w-0 md:w-[5px];
+    @apply bg-green-50 w-0 md:w-[2.5px];
     @apply md:ml-[41.5%];
     @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
     animation: main-name-animation 10s linear infinite;
@@ -235,7 +235,7 @@ html, body {
 }
 
 .portfolio-img {
-    @apply rounded-sm border-2 border-cyan-900/25;
+    @apply border-1 border-cyan-900/25;
     @apply h-15 w-30;
     @apply mb-5;
     opacity: 0.75;
@@ -327,7 +327,7 @@ html, body {
 }
 
 .posts-grid {
-    @apply grid grid-cols-3 grid-rows-2 gap-1 justify-end;
+    @apply grid grid-cols-3 grid-rows-2 gap-0.25 justify-end;
     @apply md:p-2.5;
     overflow: hidden;
 }
@@ -355,7 +355,7 @@ html, body {
 }
 
 .post-img {
-    @apply rounded-sm border-1 border-cyan-900/25 h-20 w-20 opacity-75;
+    @apply border-1 border-cyan-900/25 h-20 w-20 opacity-75;
 }
 
 
@@ -378,4 +378,33 @@ html, body {
 
 .post-feed-img:hover {
     @apply opacity-50 transition duration-250;
+}
+
+
+
+#post-modal-container {
+    background-color: rgba(0,0,0,0.5);
+    @apply fixed inset-0 z-50 items-center justify-center;
+    transition: opacity 250ms ease;
+    display: none;
+}
+
+#post-modal-center {
+    @apply relative bg-[rgb(20,25,20)] overflow-auto max-h-full w-3/4 md:w-1/2 p-4;
+}
+
+#modal-close {
+    @apply absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl;
+}
+
+#modal-content {
+    @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
+    @apply bg-clip-text text-transparent text-[0.875em] font-light;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+    opacity: 0.625;
+}
+
+#close-button {
+    @apply text-amber-50 opacity-62.5;
 }

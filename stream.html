@@ -82,18 +82,26 @@ title: Stream
                 <div class="stream-feed">
                     <ul class="stream-grid">
                     {% for post in site.posts %}
-                    <li class="post-wrapper" >
-                        <a href="{{ post.url }}">
-                            <img
-                                class="post-feed-img"
-                                src="{{ post.image | relative_url }}" 
-                                alt="{{ post.title }}"
-                            >
-                        </a>
+                    <li class="post-wrapper" data-url="{{ post.url | relative_url }}" >
+                        <img
+                            class="post-feed-img"
+                            src="{{ post.image | relative_url }}" 
+                            alt="{{ post.title }}"
+                        >
                     </li>
                     {% endfor %}
                     </ul>
                 </div>
+            </div>
+        </div>
+
+        <!-- modal -->
+        <div id="post-modal-container">
+            <div id="post-modal-center">
+                <button id="modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="close-button" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z"/><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+                <div id="modal-content"></div>
             </div>
         </div>
 
