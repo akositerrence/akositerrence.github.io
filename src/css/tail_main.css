@@ -969,8 +969,8 @@ html, body {
   background-clip: text;
   padding-right: calc(var(--spacing) * 5);
   font-size: 0.875em;
-  --tw-font-weight: var(--font-weight-light);
-  font-weight: var(--font-weight-light);
+  --tw-font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-normal);
   color: transparent;
   animation: main-name-animation 10s linear infinite;
   background-size: 200% 200%;

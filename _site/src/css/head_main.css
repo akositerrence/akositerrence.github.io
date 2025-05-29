@@ -399,7 +399,7 @@ html, body {
 
 #modal-content {
     @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
-    @apply pr-5 bg-clip-text text-transparent text-[0.875em] font-light;
+    @apply pr-5 bg-clip-text text-transparent text-[0.875em] font-normal;
     animation: main-name-animation 10s linear infinite;
     background-size: 200% 200%;
     opacity: 0.625;
