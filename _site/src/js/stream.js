@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = "hidden";
 
             const video_embed = content.querySelector(".modal-video-embed");
-            video_embed.style.width ="40rem";
-            video_embed.style.height ="calc(40rem * 2 / 3)";
+            video_embed.style.width ="55rem";
+            video_embed.style.height ="calc(55rem * 2 / 3)";
             video_embed.style.paddingTop ="2.5rem";
             video_embed.style.paddingBottom ="2.5rem";
             video_embed.style.paddingRight ="2.5rem";
