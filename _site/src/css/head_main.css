@@ -390,16 +390,17 @@ html, body {
 }
 
 #post-modal-center {
-    @apply relative bg-[rgb(20,25,20)] overflow-auto max-h-full w-3/4 md:w-1/2 p-4;
+    @apply relative bg-[rgb(20,25,20)] overflow-auto max-h-full w-3/4 p-4;
 }
 
 #modal-close {
-    @apply absolute z-51 top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl;
+    @apply absolute z-51 top-5 right-5 text-gray-600 hover:text-gray-900 text-2xl;
 }
 
 #modal-content {
+    @apply flex flex-row;
     @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
-    @apply pr-5 pl-5 bg-clip-text text-transparent text-[0.875em] font-normal;
+    @apply bg-clip-text text-transparent text-[0.875em] font-normal;
     animation: main-name-animation 10s linear infinite;
     background-size: 200% 200%;
     opacity: 0.625;

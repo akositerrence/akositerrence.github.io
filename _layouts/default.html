@@ -16,11 +16,13 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
-    {{ content }}
-    <br>
-    <time datetime="{{ page.date | date_to_xmlschema }}">
-      {{ page.date | date: "%B %-d, %Y" }}
-    </time>
+    <div class="post-desc">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        <b>{{ page.date | date: "%-d %B %Y" }}</b>
+      </time>
+      <br>
+      {{ content }}
+    </div>  
   </article>
 </body>
 </html>

@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const html = await fetched_content.text();
             const doc = new DOMParser().parseFromString(html, "text/html");
             const article = doc.querySelector(".post-modal");
-            const video_embed = doc.querySelector(".modal-video-embed");
 
             content.innerHTML = article
                 ? article.innerHTML
@@ -60,11 +59,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log("flag2");
             console.log("test");
-            console.log(video_embed);
             modal.style.display = "flex";
-            video_embed.style.width ="24";
-            video_embed.style.height ="24";
             document.body.style.overflow = "hidden";
+
+            const video_embed = content.querySelector(".modal-video-embed");
+            video_embed.style.width ="40rem";
+            video_embed.style.height ="calc(40rem * 2 / 3)";
+            video_embed.style.paddingTop ="2.5rem";
+            video_embed.style.paddingBottom ="2.5rem";
+            video_embed.style.paddingRight ="2.5rem";
+            video_embed.style.paddingLeft ="1rem";
+
+            const post_desc = content.querySelector(".post-desc");
+            post_desc.style.display ="flex";
+            post_desc.style.flexDirection ="column";
+            post_desc.style.paddingTop ="2.5rem";
         } catch (err) {
             modal.style.display = "flex";
         }
