@@ -394,12 +394,12 @@ html, body {
 }
 
 #modal-close {
-    @apply absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl;
+    @apply absolute z-51 top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl;
 }
 
 #modal-content {
     @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
-    @apply bg-clip-text text-transparent text-[0.875em] font-light;
+    @apply pr-5 bg-clip-text text-transparent text-[0.875em] font-light;
     animation: main-name-animation 10s linear infinite;
     background-size: 200% 200%;
     opacity: 0.625;

@@ -946,6 +946,7 @@ html, body {
   position: absolute;
   top: calc(var(--spacing) * 2);
   right: calc(var(--spacing) * 2);
+  z-index: 51;
   font-size: var(--text-2xl);
   line-height: var(--tw-leading, var(--text-2xl--line-height));
   color: var(--color-gray-600);
@@ -966,6 +967,7 @@ html, body {
   --tw-gradient-to: var(--color-green-100);
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   background-clip: text;
+  padding-right: calc(var(--spacing) * 5);
   font-size: 0.875em;
   --tw-font-weight: var(--font-weight-light);
   font-weight: var(--font-weight-light);
