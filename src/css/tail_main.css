@@ -927,8 +927,9 @@ html, body {
   z-index: 50;
   align-items: center;
   justify-content: center;
-  transition: opacity 250ms ease;
-  display: none;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
 }
 #post-modal-center {
   position: relative;
@@ -937,6 +938,10 @@ html, body {
   overflow: auto;
   background-color: rgb(20,25,20);
   padding: calc(var(--spacing) * 4);
+}
+#post-modal-container.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 #modal-close {
   position: absolute;

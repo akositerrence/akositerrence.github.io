@@ -385,12 +385,18 @@ html, body {
 #post-modal-container {
     background-color: rgba(0,0,0,0.5);
     @apply fixed inset-0 z-50 items-center justify-center;
-    transition: opacity 250ms ease;
-    display: none;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
 }
 
 #post-modal-center {
     @apply relative bg-[rgb(20,25,20)] overflow-auto max-h-full w-3/4 p-4;
+}
+
+#post-modal-container.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #modal-close {
