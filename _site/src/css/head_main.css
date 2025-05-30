@@ -236,7 +236,7 @@ html, body {
 
 .portfolio-img {
     @apply border-1 border-cyan-900/25;
-    @apply h-15 w-30;
+    @apply h-15 w-[calc(15*16/9)];
     @apply mb-5;
     opacity: 0.75;
 }
@@ -373,7 +373,8 @@ html, body {
 }
 
 .stream-grid {
-    @apply grid grid-cols-[repeat(auto-fill,12.5rem)] auto-rows-[12.5rem] gap-1;
+    @apply grid grid-cols-[repeat(auto-fill,10rem)] auto-rows-[10rem] gap-1;
+    @apply md:grid-cols-[repeat(auto-fill,12.5rem)] md:auto-rows-[12.5rem];
 }
 
 .post-feed-img:hover {

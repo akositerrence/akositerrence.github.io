@@ -72,17 +72,29 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = "hidden";
 
             const video_embed = content.querySelector(".modal-video-embed");
-            video_embed.style.width ="55rem";
-            video_embed.style.height ="calc(55rem * 2 / 3)";
+            const w = window.innerWidth;
+
+            const post_desc = content.querySelector(".post-desc");
+            post_desc.style.display ="flex";
+            post_desc.style.paddingTop ="0rem";
+            post_desc.style.flexDirection ="column";
+
             video_embed.style.paddingTop ="2.5rem";
             video_embed.style.paddingBottom ="2.5rem";
             video_embed.style.paddingRight ="2.5rem";
             video_embed.style.paddingLeft ="1rem";
 
-            const post_desc = content.querySelector(".post-desc");
-            post_desc.style.display ="flex";
-            post_desc.style.flexDirection ="column";
-            post_desc.style.paddingTop ="2.5rem";
+            if(w >= 768 ) {
+                video_embed.style.width ="55rem";
+                video_embed.style.height ="calc(55rem * 2 / 3)";
+                post_desc.style.paddingTop ="2.5rem";
+                article.style.display = "column";
+            } else {
+                video_embed.style.width ="17.5rem";
+                video_embed.style.height ="calc(17.5rem * 2 / 3)";
+                content.style.flexDirection ="column";
+            }
+
         } catch (err) {
             modal.style.display = "flex";
         }

@@ -653,7 +653,7 @@ html, body {
     border-color: color-mix(in oklab, var(--color-cyan-900) 25%, transparent);
   }
   height: calc(var(--spacing) * 15);
-  width: calc(var(--spacing) * 30);
+  width: calc(15 * 16 / 9);
   margin-bottom: calc(var(--spacing) * 5);
   opacity: 0.75;
 }
@@ -908,9 +908,15 @@ html, body {
 }
 .stream-grid {
   display: grid;
-  grid-auto-rows: 12.5rem;
-  grid-template-columns: repeat(auto-fill,12.5rem);
+  grid-auto-rows: 10rem;
+  grid-template-columns: repeat(auto-fill,10rem);
   gap: calc(var(--spacing) * 1);
+  @media (width >= 48rem) {
+    grid-auto-rows: 12.5rem;
+  }
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(auto-fill,12.5rem);
+  }
 }
 .post-feed-img:hover {
   opacity: 50%;
