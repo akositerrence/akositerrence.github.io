@@ -964,6 +964,23 @@ html, body {
   font-weight: var(--font-weight-extralight);
   opacity: 62.5%;
 }
+.animated-underline {
+  display: inline-block;
+  position: relative;
+}
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.5px;
+  background-color: rgba(235,198,50,0.875);
+  transition: width 0.5s ease-in-out;
+}
+.animated-underline:hover::after {
+  width: 100%;
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
