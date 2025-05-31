@@ -978,7 +978,7 @@ html, body {
   left: 0;
   width: 0%;
   height: 0.5px;
-  background-color: rgba(235,198,50,0.875);
+  background-color: rgba(237, 227, 190, 0.875);
   transition: width 0.5s ease-in-out;
 }
 .animated-underline:hover::after {
