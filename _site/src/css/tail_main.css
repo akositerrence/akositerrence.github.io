@@ -446,9 +446,12 @@ html, body {
   pointer-events: none;
 }
 .main-container {
-  padding: 7.5vw;
+  padding-top: 7.5vw;
+  padding-right: 7.5vw;
+  padding-bottom: 7.5vw;
+  padding-left: 7.5vw;
   @media (width >= 48rem) {
-    padding-top: 7.5vw;
+    padding-top: 5vw;
   }
   @media (width >= 48rem) {
     padding-right: 10vw;
@@ -963,6 +966,23 @@ html, body {
   --tw-font-weight: var(--font-weight-extralight);
   font-weight: var(--font-weight-extralight);
   opacity: 62.5%;
+}
+.animated-underline {
+  display: inline-block;
+  position: relative;
+}
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.5px;
+  background-color: rgba(237, 227, 190, 0.875);
+  transition: width 0.5s ease-in-out;
+}
+.animated-underline:hover::after {
+  width: 100%;
 }
 @property --tw-rotate-x {
   syntax: "*";
