@@ -446,9 +446,12 @@ html, body {
   pointer-events: none;
 }
 .main-container {
-  padding: 7.5vw;
+  padding-top: 7.5vw;
+  padding-right: 7.5vw;
+  padding-bottom: 7.5vw;
+  padding-left: 7.5vw;
   @media (width >= 48rem) {
-    padding-top: 7.5vw;
+    padding-top: 5vw;
   }
   @media (width >= 48rem) {
     padding-right: 10vw;

@@ -61,8 +61,8 @@ html, body {
 }
 
 .main-container {
-    @apply p-[7.5vw];
-    @apply md:pr-[10vw] md:pt-[7.5vw] md:pl-[10vw];
+    @apply pl-[7.5vw] pr-[7.5vw] pt-[7.5vw] pb-[7.5vw];
+    @apply md:pr-[10vw] md:pt-[5vw] md:pl-[10vw];
     @apply flex gap-y-2.5 gap-x-5;
     @apply flex-col md:flex-row;
 }
