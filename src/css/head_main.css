@@ -235,7 +235,7 @@ html, body {
 }
 
 .portfolio-img {
-    @apply border-1 border-cyan-900/25;
+    @apply border-2 border-green-50/50;
     @apply h-15 w-[calc(15*16/9)];
     @apply mb-5;
     opacity: 0.75;
