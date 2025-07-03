@@ -813,9 +813,9 @@ html, body {
 .portfolio-img {
   border-style: var(--tw-border-style);
   border-width: 2px;
-  border-color: color-mix(in srgb, oklch(98.2% 0.018 155.826) 50%, transparent);
+  border-color: color-mix(in srgb, oklch(98.2% 0.018 155.826) 20%, transparent);
   @supports (color: color-mix(in lab, red, red)) {
-    border-color: color-mix(in oklab, var(--color-green-50) 50%, transparent);
+    border-color: color-mix(in oklab, var(--color-green-50) 20%, transparent);
   }
   height: calc(var(--spacing) * 15);
   width: calc(15 * 16 / 9);
