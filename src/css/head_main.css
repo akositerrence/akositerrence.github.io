@@ -6,9 +6,9 @@ html, body {
 }
 
 :root {
-    --color-bg1 : rgb(93, 124, 82);
-    --color-bg2 : rgb(72, 84, 61);
-    --color-bg3 : rgb(59, 59, 52);
+    --color-bg1 : rgb(88, 119, 77);
+    --color-bg2 : rgb(67, 79, 56);
+    --color-bg3 : rgb(54, 54, 47);
     --color-interactive : 255, 255, 255;
     --circle-size: 120%;
     --blending: hard-light;
@@ -88,7 +88,7 @@ html, body {
 
 .content-container {
     @apply flex flex-col gap-y-10;
-    @apply md:ml-2.5;
+    @apply md:ml-10;
 }
 
 .content-title-link {
@@ -219,7 +219,7 @@ html, body {
 }
 
 .portfolio-title {
-    @apply font-semibold flex flex-row mb-2.5 items-center;
+    @apply font-semibold flex flex-row items-center;
     @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
     @apply bg-clip-text text-transparent;
     animation: main-name-animation 10s linear infinite;
@@ -235,17 +235,30 @@ html, body {
 }
 
 .portfolio-img {
-    @apply border-2 border-green-50/20;
-    @apply h-15 w-[calc(15*16/9)];
+    @apply h-16 w-[calc(16*16/9)];
     @apply mb-5;
+    @apply rounded-sm;
     opacity: 0.75;
 }
 
-.portfolio-description {
-
+.project-img-container {
+    
 }
 
+.project-img {
+    @apply md:ml-2.5;
+    @apply md:w-90;
+    @apply lg:w-110;
+    @apply rounded-md
+}
 
+.project-date {
+    @apply font-extralight mb-2.5 opacity-62.5;
+}
+
+.last-update {
+    @apply text-left md:text-left opacity-62.5 md:ml-2.5;
+}
 
 .certifications-instance {
     @apply flex pl-0 pr-0;
@@ -284,8 +297,6 @@ html, body {
 .certifications-description {
 
 }
-
-
 
 .education-instance {
     @apply flex pl-0 pr-0;
