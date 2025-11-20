@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Conductivity Sensor
+title: Portfolio
 ---
 
 <!DOCTYPE html>
@@ -10,13 +10,13 @@ title: Conductivity Sensor
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/src/css/tail_main.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="./src/media/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.png">
     <title>akositerrence</title>
 </head>
 
 <body>
     <!-- background -->
-    <div class="gradient-background">
+    <div class="gradient-background-portfolio">
         <svg xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <filter id="goo">
@@ -59,7 +59,7 @@ title: Conductivity Sensor
                     <svg xmlns="http://www.w3.org/2000/svg" class="link-icon" viewBox="0 0 24 24" class="icon icon-tabler icons-tabler-filled icon-tabler-mail"><path fill="none" d="M0 0h24v24H0z"/><path d="M22 7.535V17a3 3 0 0 1-2.824 2.995L19 20H5a3 3 0 0 1-2.995-2.824L2 17V7.535l9.445 6.297.116.066a1 1 0 0 0 .878 0l.116-.066L22 7.535z"/><path d="M19 4c1.08 0 2.027.57 2.555 1.427L12 11.797l-9.555-6.37a2.999 2.999 0 0 1 2.354-1.42L5 4h14z"/></svg>
                 </a>
             </div>
-            
+
             <p class="bible-text standard-text">
                 "Whatever your hand finds to do, do it with all your might, 
                 for in the realm of the dead, where you are going, there is 
@@ -72,66 +72,107 @@ title: Conductivity Sensor
         </div>
 
         <!-- col2 -->
-        <div class="scroll-container"></div>
+        <div class="scroll-container-portfolio"></div>
 
         <!-- col3 -->
         <div class="content-container">
-            <!-- title container -->
-            <div class="about-container">
-                <h2 class="content-section-header"> CONDUCTIVITY SENSOR </h2>
-                <p class="main-description standard-text"> 
-                    For the 2022 Science Olympiad Detector Building event my junior year of high school, 
-                    I built a device that could accurately measure the concentration of sodium 
-                    chloride (NaCl) for a given set of water samples and trigger corresponding 
-                    LED lights for specified output ranges. In essence, a DIY conductivity probe.
-                </p>
-            </div>
-            <!-- img -->
-            <div class="project-img-container">
-                <img draggable="false" class="project-img" src="/portfolio/portfolio_files/conductivity_sensor/conductivity_sensor_1.webp" alt="Final Conductivity Sensor">
-            </div>
-            <!-- construction container -->
-            <div class="about-container">
-                <h2 class="content-section-header"> CONSTRUCTION </h2>
-                <p class="main-description standard-text"> 
-                    The primary components were a TI calculator, which serves as the main power source, and the TI-innovator hub, which serves 
-                    as the I/O interface for peripheral elements. Initially, magnet wires were used as the two electrodes. They were later replaced 
-                    with pure copper plates to prevent electrons from wrapping around the magnet wires and lessened the effects of polarization.
-                    These also provided a larger and flatter surface area, allowing current to spread evenly across the electrode for improved 
-                    stability and performance. The end was waterproofed and secured using a combination of a rubber stopper, hot glue, and electrical tape. 
-                    A plastic fork with two prongs in the middle broken off was used to hold the copper electrodes in place.
-                    <br>
-                    <br>
-                    The software for the sensor was derived from a pre-existing TI code library, heavily modified to fit the sensor’s inputs. 
-                    To calibrate the sensor, various solutions with known NaCl concentrations were prepared and measured using a commercial meter 
-                    for accuracy. The sensor was then immersed in each solution, with thorough rinsing in distilled water between trials to prevent 
-                    cross-contamination. As the sensor detects the conductivity of each solution, it converts the analog conductivity signal into a 
-                    voltage reading that is displayed on the calculator. Using these readings, a equation was derived via a best-fit line that 
-                    correlates the measured voltage to the NaCl concentration in water.
-                </p>
-            </div>
-            <!-- img -->
-            <div class="project-img-container">
-                <img draggable="false" class="project-img" src="/portfolio/portfolio_files/conductivity_sensor/conductivity_sensor_2.webp" alt="3rd Calibration Results">
-            </div>
-            <!-- design container -->
-            <div class="about-container">
-                <h2 class="content-section-header"> RESULTS </h2>
-                <p class="main-description standard-text"> 
-                    The sensor was calibrated three times for three different lines of best fit.
-                    The percent error between the measured concentration and the nominal
-                    concentrations for testing were somewhat sporadic but were generally within reasonable range,
-                    and never exceeded 40% error.
-                    <br>
-                    <br>
-                    This device won the Science Olympiad Detector Building event with Century High School at the regional and state levels.
-                    That year, we won the state title and went on to compete at nationals, where we placed 29th overall nationally for this 
-                    event.
-                </p>
-            </div>
-            <!-- last update -->
-            <div class="last-update standard-text">Last update : October 22, 2025</div>
+            <!-- project gallery container -->
+            <div class="gallery-container">
+                <h2 class="content-section-header"> PROJECT PORTFOLIO </h2>
+                <div class="project-gallery">
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">NASA Blue Skies Proposal</div>
+                                <div class="project-img-title">2025 ⋅ NDSU Mechanical Engineering</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/cowbot.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">ME454 Pultrusion Modeling</div>
+                                <div class="project-img-title">2025 ⋅ NDSU Semester Project</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/website.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">30lb Combat Robot 'Boulderbot'</div>
+                                <div class="project-img-title">2025 ⋅ NDSU Combat Robotics</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/boulderbot.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">ME442 Carabiner Design Analysis</div>
+                                <div class="project-img-title">2025 ⋅ NDSU Semester Project</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/website.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">High Powered Rocket Data Logger</div>
+                                <div class="project-img-title">2024 ⋅ NDSU Rocketry Team</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/cowbot.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">30lb Combat Robot 'Cowbot'</div>
+                                <div class="project-img-title">2024 ⋅ NDSU Combat Robotics</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/cowbot.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">Personal Website</div>
+                                <div class="project-img-title">2024 ⋅ Independent Project</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/website.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- instance -->
+                    <div class="gallery-instance brick">
+                        <a class="instance-title" href="">
+                            <div class="instance-title-group">
+                                <div class="project-img-title">ME212 Starter Motor CAD Model</div>
+                                <div class="project-img-title">2023 ⋅ NDSU Semester Project</div>
+                            </div>
+                            <img src="./portfolio_gallery_imgs/creo.jpg" alt="">
+                        </a>
+                    </div>
+
+                </div>
+            </div>    
         </div>
+    </div>
     <script src="/src/js/main.js"></script>
 </body>
 

@@ -9,6 +9,9 @@ html, body {
     --color-bg1 : rgb(88, 119, 77);
     --color-bg2 : rgb(67, 79, 56);
     --color-bg3 : rgb(54, 54, 47);
+    --color-bg4 : rgb(77, 99, 119);
+    --color-bg5 : rgb(56, 64, 79);
+    --color-bg6 : rgb(47, 49, 54);
     --color-interactive : 255, 255, 255;
     --circle-size: 120%;
     --blending: hard-light;
@@ -31,6 +34,13 @@ html, body {
 .gradient-background {
     @apply fixed top-0 left-0 w-full h-full;
     @apply bg-gradient-to-b from-[var(--color-bg1)] via-[var(--color-bg2)] to-[var(--color-bg3)];
+    @apply z-[-10];
+    overflow: visible;
+}
+
+.gradient-background-portfolio {
+    @apply fixed top-0 left-0 w-full h-full;
+    @apply bg-gradient-to-b from-[var(--color-bg4)] via-[var(--color-bg5)] to-[var(--color-bg6)];
     @apply z-[-10];
     overflow: visible;
 }
@@ -79,6 +89,15 @@ html, body {
 
 .scroll-container {
     @apply bg-green-50 w-0 md:w-[2.5px];
+    @apply md:ml-[41.5%];
+    @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+    opacity: 0.25;
+}
+
+.scroll-container-portfolio {
+    @apply bg-green-50 w-0 md:w-[0.5px];
     @apply md:ml-[41.5%];
     @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
     animation: main-name-animation 10s linear infinite;
@@ -136,7 +155,7 @@ html, body {
 }
 
 .content-section-header {
-    @apply text-[1em] text-green-100 font-semibold mt-2.5 mb-2.5;
+    @apply text-[1.0625em] text-green-100 font-semibold mt-2.5 mb-2.5;
     @apply bg-gradient-to-l from-sky-100 via-yellow-100 to-green-100;
     @apply bg-clip-text text-transparent;
     @apply md:pl-2.5 md:pr-2.5;
@@ -205,6 +224,7 @@ html, body {
 .portfolio-instance {
     @apply flex pl-0 pr-0;
     @apply md:p-2.5;
+    @apply pb-2.5;
     @apply flex-col lg:flex-row;
     @apply hover:bg-amber-50/[var(--bg-opacity)] transition duration-250 rounded-xl hover:[--bg-opacity:5%];
 }
@@ -245,6 +265,18 @@ html, body {
     
 }
 
+.browse-more-container {
+    @apply md:p-2.5
+}
+
+.browse-more {
+    @apply font-normal flex flex-row items-center;
+    @apply text-amber-200;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+    
+}
+
 .project-img {
     @apply md:ml-2.5;
     @apply md:w-90;
@@ -269,7 +301,6 @@ html, body {
 .certifications-container {
     @apply flex flex-col gap-y-5;
 }
-
 
 .certifications-col {
     @apply flex-1 flex-col w-1/2 ml-0;
@@ -322,21 +353,54 @@ html, body {
 }
 
 .animated-underline {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .animated-underline::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 0.5px;
-  background-color: rgba(237, 227, 190, 0.875); 
-  transition: width 0.5s ease-in-out;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 0.5px;
+    background-color: rgba(237, 227, 190, 0.875); 
+    transition: width 0.5s ease-in-out;
 }
 
 .animated-underline:hover::after {
-  width: 100%;
+    width: 100%;
+}
+
+.gallery-container {
+    @apply flex flex-col gap-y-5;
+}
+
+.project-gallery {
+    @apply columns-3 gap-x-2.5;
+    @apply md:p-2.5;
+}
+
+.gallery-instance {
+    @apply w-55 mb-2.5;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-instance img {
+
+}
+
+.instance-title {
+    @apply flex justify-center items-center;
+}
+
+.instance-title-group {
+    position: absolute;
+    @apply flex justify-center items-center flex-wrap;
+}
+
+.project-img-title {
+    @apply text-[0.75em] text-green-100 font-extralight;
+    opacity: 0.875;
 }
