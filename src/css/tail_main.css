@@ -1088,8 +1088,8 @@ html, body {
   transition-property: opacity;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
-  --tw-duration: 200ms;
-  transition-duration: 200ms;
+  --tw-duration: 250ms;
+  transition-duration: 250ms;
   position: relative;
   overflow: hidden;
 }
@@ -1100,33 +1100,40 @@ html, body {
   content: "";
   pointer-events: none;
   position: absolute;
-  bottom: calc(var(--spacing) * 0);
-  left: calc(1/2 * 100%);
+  inset: calc(var(--spacing) * 0);
   z-index: 1;
-  height: calc(var(--spacing) * 42.5);
-  width: calc(var(--spacing) * 150);
-  transform: translateX(-50%);
-  background: radial-gradient( ellipse at top, transparent 0, transparent 55.5%, rgba(0, 0, 0, 0.425) 56%, rgba(0, 0, 0, 0.425) 100% );
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 250ms ease-out;
 }
-.project-gallery:hover .gallery-instance {
-  opacity: 0.625;
+.gallery-instance:hover::before {
+  opacity: 1;
 }
-.project-gallery:hover .gallery-instance:hover {
+.project-gallery:has(.gallery-instance:hover) .gallery-instance {
+  opacity: 0.375;
+}
+.project-gallery:has(.gallery-instance:hover) .gallery-instance:hover {
   opacity: 1;
 }
 .instance-title {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
 .instance-title-group {
   position: absolute;
   z-index: 2;
-  margin-bottom: calc(var(--spacing) * 2.5);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 250ms ease-out, transform 250ms ease-out;
+}
+.gallery-instance:hover .instance-title-group {
+  opacity: 1;
+  transform: translateY(0);
 }
 .project-img-title {
   font-size: 0.75em;

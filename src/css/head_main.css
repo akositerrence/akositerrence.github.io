@@ -384,7 +384,7 @@ html, body {
 .gallery-instance {
     @apply w-55 mb-2.5;
     @apply rounded-xl;
-    @apply transition-opacity duration-200;
+    @apply transition-opacity duration-250;
     position: relative;
     overflow: hidden;
 }
@@ -395,34 +395,40 @@ html, body {
 
 .gallery-instance::before {
     content: "";
-    @apply absolute bottom-0 left-1/2 pointer-events-none z-[1];
-    @apply w-150 h-42.5;     
-    transform: translateX(-50%);
-    background: radial-gradient(
-        ellipse at top,
-        transparent 0,
-        transparent 55.5%,
-        rgba(0, 0, 0, 0.425) 56%,
-        rgba(0, 0, 0, 0.425) 100%
-    );
+    @apply absolute inset-0 z-[1] pointer-events-none;
+    background: rgba(0, 0, 0, 0.5);   
+    opacity: 0;                        
+    transition: opacity 250ms ease-out;
 }
 
-.project-gallery:hover .gallery-instance {
-    opacity: 0.625;
+.gallery-instance:hover::before {
+    opacity: 1;
 }
 
-.project-gallery:hover .gallery-instance:hover {
+.project-gallery:has(.gallery-instance:hover) .gallery-instance {
+    opacity: 0.375;
+}
+
+.project-gallery:has(.gallery-instance:hover) .gallery-instance:hover {
     opacity: 1;
 }
 
 .instance-title {
-    @apply flex justify-center items-end;
+    @apply flex justify-center items-center;
 }
 
 .instance-title-group {
     position: absolute;
     z-index: 2;
-    @apply flex justify-center items-center flex-wrap mb-2.5;
+    @apply flex justify-center items-center flex-wrap;
+    opacity: 0;                     
+    transform: translateY(4px);     
+    transition: opacity 250ms ease-out, transform 250ms ease-out;
+}
+
+.gallery-instance:hover .instance-title-group {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-img-title {
