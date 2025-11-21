@@ -377,30 +377,55 @@ html, body {
 }
 
 .project-gallery {
-    @apply columns-3 gap-x-2.5;
+    @apply w-175;
     @apply md:p-2.5;
 }
 
 .gallery-instance {
     @apply w-55 mb-2.5;
+    @apply rounded-xl;
+    @apply transition-opacity duration-200;
     position: relative;
     overflow: hidden;
 }
 
-.gallery-instance img {
+.gallery-instance {
+    @apply rounded-xl;
+}
 
+.gallery-instance::before {
+    content: "";
+    @apply absolute bottom-0 left-1/2 pointer-events-none z-[1];
+    @apply w-150 h-42.5;     
+    transform: translateX(-50%);
+    background: radial-gradient(
+        ellipse at top,
+        transparent 0,
+        transparent 55.5%,
+        rgba(0, 0, 0, 0.425) 56%,
+        rgba(0, 0, 0, 0.425) 100%
+    );
+}
+
+.project-gallery:hover .gallery-instance {
+    opacity: 0.625;
+}
+
+.project-gallery:hover .gallery-instance:hover {
+    opacity: 1;
 }
 
 .instance-title {
-    @apply flex justify-center items-center;
+    @apply flex justify-center items-end;
 }
 
 .instance-title-group {
     position: absolute;
-    @apply flex justify-center items-center flex-wrap;
+    z-index: 2;
+    @apply flex justify-center items-center flex-wrap mb-2.5;
 }
 
 .project-img-title {
-    @apply text-[0.75em] text-green-100 font-extralight;
+    @apply text-[0.75em] text-green-100 font-light;
     opacity: 0.875;
 }
