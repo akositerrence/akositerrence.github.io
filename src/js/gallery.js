@@ -7,9 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const msnry = new Masonry(grid, {
-        itemSelector: ".brick",
-        columnWidth: ".brick",
-        gutter: 0
+    imagesLoaded(grid, () => {
+        new Masonry(grid, {
+            itemSelector: ".brick",
+            columnWidth: ".brick",
+            gutter: 0,
+            percentPosition: true
+        });
     });
 });
