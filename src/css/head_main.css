@@ -515,10 +515,27 @@ html, body {
     width: 15%;
 }
 
+.page-links-container {
+    @apply flex flex-col gap-y-1.5;
+    @apply items-end;
+}
 
+.page-link-button {
+    @apply text-right font-normal pr-2.5 pt-0.75 pb-0.75 rounded-sm;
+    @apply brightness-150 transition duration-500;
+    background-size: 200% 200%;
+    animation: main-name-animation 7.5s linear infinite;
+    width: 25%;
+}
 
+.page-link-button:hover {
+    @apply brightness-200;
+}
 
+#gallery-link {
+    @apply bg-gradient-to-l from-[var(--color-bg7)] via-[var(--color-bg8)] to-[var(--color-bg9)];
+}
 
-#temp {
-    @apply text-right p-0;
+#portfolio-link {
+    @apply bg-gradient-to-l from-[var(--color-bg4)] via-[var(--color-bg5)] to-[var(--color-bg6)];
 }
