@@ -6,12 +6,18 @@ html, body {
 }
 
 :root {
-    --color-bg1 : rgb(88, 119, 77);
-    --color-bg2 : rgb(67, 79, 56);
-    --color-bg3 : rgb(54, 54, 47);
-    --color-bg4 : rgb(77, 99, 119);
-    --color-bg5 : rgb(56, 64, 79);
-    --color-bg6 : rgb(47, 49, 54);
+    --color-bg1 : rgb(102, 140, 104); /* softer, lighter top */
+    --color-bg2 : rgb(60, 88, 72);    /* richer mid green */
+    --color-bg3 : rgb(28, 40, 36);    /* dark, clean base */
+
+    --color-bg4 : rgb(56, 84, 88);   /* top – slate with a hint of teal */
+    --color-bg5 : rgb(34, 52, 56);   /* mid – darker, still neutral */
+    --color-bg6 : rgb(16, 24, 28);   /* bottom – near-black with a cool tint */
+
+    --color-bg7 : rgb(140, 96, 132); /* top: a bit darker, less pop */
+    --color-bg8 : rgb(94, 78, 122);  /* mid: closer to top */
+    --color-bg9 : rgb(60, 56, 96);   /* bottom: lighter than before → softer transition */
+
     --color-interactive : 255, 255, 255;
     --circle-size: 120%;
     --blending: hard-light;
@@ -41,6 +47,13 @@ html, body {
 .gradient-background-portfolio {
     @apply fixed top-0 left-0 w-full h-full;
     @apply bg-gradient-to-b from-[var(--color-bg4)] via-[var(--color-bg5)] to-[var(--color-bg6)];
+    @apply z-[-10];
+    overflow: visible;
+}
+
+.gradient-background-feed {
+    @apply fixed top-0 left-0 w-full h-full;
+    @apply bg-gradient-to-b from-[var(--color-bg7)] via-[var(--color-bg8)] to-[var(--color-bg9)];
     @apply z-[-10];
     overflow: visible;
 }
@@ -413,6 +426,10 @@ html, body {
     width: calc((100% - 0px) / 4);
 }
 
+.gallery-instance img {
+    filter: brightness(0.9) contrast(1.05);
+}
+
 .gallery-instance::before {
     content: "";
     @apply absolute inset-1.5 z-[1] pointer-events-none;
@@ -477,12 +494,12 @@ html, body {
 
 .portfolio-header-container-right {
     @apply flex flex-col pl-2;
-    width: 10%;
+    width: 15%;
 }
 
 .portfolio-header-wrapper {
     @apply flex items-center;  
-    width: 80%;
+    width: 70%;
 }
 
 .portfolio-header-center-line {
@@ -495,5 +512,13 @@ html, body {
 
 .portfolio-header-container-left {
     @apply flex flex-col items-end pr-2;
-    width: 10%;
+    width: 15%;
+}
+
+
+
+
+
+#temp {
+    @apply text-right p-0;
 }
