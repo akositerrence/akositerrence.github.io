@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const msnry = new Masonry(grid, {
         itemSelector: ".brick",
         columnWidth: ".brick",
-        gutter: 10
+        gutter: 0
     });
 });

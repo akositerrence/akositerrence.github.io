@@ -77,6 +77,13 @@ html, body {
     @apply flex-col md:flex-row;
 }
 
+.main-portfolio-container {
+    @apply pl-[7.5vw] pr-[7.5vw] pt-[7.5vw] pb-[7.5vw];
+    @apply md:pr-[10vw] md:pt-[5vw] md:pl-[10vw];
+    @apply flex gap-y-2.5 gap-x-5;
+    @apply flex-col md:flex-row;
+}
+
 .header-container {
     @apply flex-col justify-items-start md:justify-items-end;
 }
@@ -108,6 +115,11 @@ html, body {
 .content-container {
     @apply flex flex-col gap-y-10;
     @apply md:ml-10;
+}
+
+.portfolio-content-container {
+    width: 100%;
+    @apply flex flex-col gap-y-10;
 }
 
 .content-title-link {
@@ -377,28 +389,31 @@ html, body {
 }
 
 .project-gallery {
-    @apply w-175;
     @apply md:p-2.5;
 }
 
 .gallery-instance {
-    @apply w-55 mb-2.5;
-    @apply rounded-xl;
+    @apply p-1.5 rounded-lg;
     @apply transition-opacity duration-250;
     position: relative;
     overflow: hidden;
-}
-
-.gallery-instance {
-    @apply rounded-xl;
+    width: calc((100% - 20px) / 4);
 }
 
 .gallery-instance::before {
     content: "";
-    @apply absolute inset-0 z-[1] pointer-events-none;
-    background: rgba(0, 0, 0, 0.5);   
+    @apply absolute inset-1.5 z-[1] pointer-events-none;
+    border-radius: inherit;
+    background: rgba(0, 0, 0, 0.625);   
     opacity: 0;                        
     transition: opacity 250ms ease-out;
+}
+
+.gallery-instance img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
 }
 
 .gallery-instance:hover::before {
@@ -406,7 +421,7 @@ html, body {
 }
 
 .project-gallery:has(.gallery-instance:hover) .gallery-instance {
-    opacity: 0.375;
+    opacity: 0.5;
 }
 
 .project-gallery:has(.gallery-instance:hover) .gallery-instance:hover {
@@ -414,13 +429,13 @@ html, body {
 }
 
 .instance-title {
-    @apply flex justify-center items-center;
+    @apply flex justify-center items-center rounded-lg;
 }
 
 .instance-title-group {
     position: absolute;
     z-index: 2;
-    @apply flex justify-center items-center flex-wrap;
+    @apply flex flex-col justify-center items-center flex-wrap;
     opacity: 0;                     
     transform: translateY(4px);     
     transition: opacity 250ms ease-out, transform 250ms ease-out;
@@ -432,6 +447,12 @@ html, body {
 }
 
 .project-img-title {
+    @apply text-[0.875em] text-green-100 font-light;
+    opacity: 0.875;
+}
+
+.project-img-title-affiliation {
+    @apply italic;
     @apply text-[0.75em] text-green-100 font-light;
     opacity: 0.875;
 }
