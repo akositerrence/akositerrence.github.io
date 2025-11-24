@@ -175,6 +175,14 @@ html, body {
     background-size: 200% 200%;
 }
 
+.content-section-header-portfolio {
+    @apply text-[1.0625em] text-green-100 font-semibold;
+    @apply bg-gradient-to-l from-sky-100 via-yellow-100 to-green-100;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 7.5s linear infinite;
+    background-size: 200% 200%;
+}
+
 .links-container {
     @apply flex items-center gap-x-5;
     @apply justify-start md:justify-end;
@@ -281,6 +289,10 @@ html, body {
     @apply md:p-2.5
 }
 
+.back-to-home-container {
+    @apply md:pt-1 md:pl-2.5
+}
+
 .browse-more {
     @apply font-normal flex flex-row items-center;
     @apply text-amber-200;
@@ -385,11 +397,11 @@ html, body {
 }
 
 .gallery-container {
-    @apply flex flex-col gap-y-5;
+    @apply flex flex-col;
 }
 
 .project-gallery {
-    @apply md:p-2.5;
+    @apply md:pt-10 md:pb-2.5;
 }
 
 .gallery-instance {
@@ -397,7 +409,7 @@ html, body {
     @apply transition-opacity duration-250;
     position: relative;
     overflow: hidden;
-    width: calc((100% - 20px) / 4);
+    width: calc((100% - 0px) / 4);
 }
 
 .gallery-instance::before {
@@ -455,4 +467,18 @@ html, body {
     @apply italic;
     @apply text-[0.75em] text-green-100 font-light;
     opacity: 0.875;
+}
+
+.portfolio-header {
+    @apply flex flex-row;
+}
+
+.portfolio-header-container-right {
+    @apply flex flex-col pl-2;
+    width: 50%;
+}
+
+.portfolio-header-container-left {
+    @apply flex flex-col items-end pr-2;
+    width: 50%;
 }

@@ -701,6 +701,25 @@ html, body {
   animation: main-name-animation 7.5s linear infinite;
   background-size: 200% 200%;
 }
+.content-section-header-portfolio {
+  font-size: 1.0625em;
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-green-100);
+  --tw-gradient-position: to left in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
+  --tw-gradient-from: var(--color-sky-100);
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  --tw-gradient-via: var(--color-yellow-100);
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+  --tw-gradient-to: var(--color-green-100);
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  background-clip: text;
+  color: transparent;
+  animation: main-name-animation 7.5s linear infinite;
+  background-size: 200% 200%;
+}
 .links-container {
   display: flex;
   align-items: center;
@@ -897,6 +916,14 @@ html, body {
 .browse-more-container {
   @media (width >= 48rem) {
     padding: calc(var(--spacing) * 2.5);
+  }
+}
+.back-to-home-container {
+  @media (width >= 48rem) {
+    padding-top: calc(var(--spacing) * 1);
+  }
+  @media (width >= 48rem) {
+    padding-left: calc(var(--spacing) * 2.5);
   }
 }
 .browse-more {
@@ -1102,11 +1129,13 @@ html, body {
 .gallery-container {
   display: flex;
   flex-direction: column;
-  row-gap: calc(var(--spacing) * 5);
 }
 .project-gallery {
   @media (width >= 48rem) {
-    padding: calc(var(--spacing) * 2.5);
+    padding-top: calc(var(--spacing) * 10);
+  }
+  @media (width >= 48rem) {
+    padding-bottom: calc(var(--spacing) * 2.5);
   }
 }
 .gallery-instance {
@@ -1119,7 +1148,7 @@ html, body {
   transition-duration: 250ms;
   position: relative;
   overflow: hidden;
-  width: calc((100% - 20px) / 4);
+  width: calc((100% - 0px) / 4);
 }
 .gallery-instance::before {
   content: "";
@@ -1183,6 +1212,23 @@ html, body {
   font-weight: var(--font-weight-light);
   color: var(--color-green-100);
   opacity: 0.875;
+}
+.portfolio-header {
+  display: flex;
+  flex-direction: row;
+}
+.portfolio-header-container-right {
+  display: flex;
+  flex-direction: column;
+  padding-left: calc(var(--spacing) * 2);
+  width: 50%;
+}
+.portfolio-header-container-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: calc(var(--spacing) * 2);
+  width: 50%;
 }
 @property --tw-rotate-x {
   syntax: "*";
