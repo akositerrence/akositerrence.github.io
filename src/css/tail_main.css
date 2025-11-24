@@ -1129,6 +1129,7 @@ html, body {
 .gallery-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .project-gallery {
   @media (width >= 48rem) {
@@ -1137,6 +1138,7 @@ html, body {
   @media (width >= 48rem) {
     padding-bottom: calc(var(--spacing) * 2.5);
   }
+  width: 90%;
 }
 .gallery-instance {
   border-radius: var(--radius-lg);
@@ -1216,6 +1218,7 @@ html, body {
 .portfolio-header {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 .portfolio-header-container-right {
   display: flex;
