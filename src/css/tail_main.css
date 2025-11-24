@@ -1221,14 +1221,37 @@ html, body {
   display: flex;
   flex-direction: column;
   padding-left: calc(var(--spacing) * 2);
-  width: 50%;
+  width: 10%;
+}
+.portfolio-header-wrapper {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+.portfolio-header-center-line {
+  margin-top: calc(var(--spacing) * 1);
+  height: calc(1/32 * 100%);
+  width: 100%;
+  background-color: var(--color-green-50);
+  --tw-gradient-position: to bottom in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
+  --tw-gradient-from: var(--color-sky-200);
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  --tw-gradient-via: var(--color-amber-100);
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+  --tw-gradient-to: var(--color-green-200);
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  animation: main-name-animation 10s linear infinite;
+  background-size: 200% 200%;
+  opacity: 0.25;
 }
 .portfolio-header-container-left {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding-right: calc(var(--spacing) * 2);
-  width: 50%;
+  width: 10%;
 }
 @property --tw-rotate-x {
   syntax: "*";

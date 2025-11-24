@@ -475,10 +475,23 @@ html, body {
 
 .portfolio-header-container-right {
     @apply flex flex-col pl-2;
-    width: 50%;
+    width: 10%;
+}
+
+.portfolio-header-wrapper {
+    @apply flex items-center;  
+    width: 80%;
+}
+
+.portfolio-header-center-line {
+    @apply bg-green-50 w-[100%] h-1/32 mt-1;
+    @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+    opacity: 0.25;
 }
 
 .portfolio-header-container-left {
     @apply flex flex-col items-end pr-2;
-    width: 50%;
+    width: 10%;
 }
