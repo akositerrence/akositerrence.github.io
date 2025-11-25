@@ -404,8 +404,10 @@ html, body {
     transition: width 0.5s ease-in-out;
 }
 
-.animated-underline:hover::after {
-    width: 100%;
+@media (hover: hover) and (pointer: fine) {
+    .animated-underline:hover::after {
+        width: 100%;
+    }
 }
 
 /* gallery / portfolio */

@@ -1155,8 +1155,10 @@ html, body {
   background-color: rgba(237, 227, 190, 0.875);
   transition: width 0.5s ease-in-out;
 }
-.animated-underline:hover::after {
-  width: 100%;
+@media (hover: hover) and (pointer: fine) {
+  .animated-underline:hover::after {
+    width: 100%;
+  }
 }
 .gallery-container {
   display: flex;
