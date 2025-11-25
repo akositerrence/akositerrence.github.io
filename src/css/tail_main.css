@@ -1269,15 +1269,6 @@ html, body {
   height: auto;
   border-radius: inherit;
 }
-.gallery-instance:hover::before {
-  opacity: 1;
-}
-.project-gallery:has(.gallery-instance:hover) .gallery-instance {
-  opacity: 0.5;
-}
-.project-gallery:has(.gallery-instance:hover) .gallery-instance:hover {
-  opacity: 1;
-}
 .instance-title {
   display: flex;
   align-items: center;
@@ -1349,10 +1340,6 @@ html, body {
   --tw-hue-rotate: hue-rotate(140deg);
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   background-image: linear-gradient( to bottom, var(--color-bg7), var(--color-bg8), var(--color-bg9) );
-}
-.gallery-instance:hover .instance-title-group {
-  opacity: 1;
-  transform: translateY(0);
 }
 .project-img-title {
   font-size: 0.875em;
@@ -1477,6 +1464,21 @@ html, body {
   --tw-gradient-stops: var(--tw-gradient-via-stops);
   --tw-gradient-to: var(--color-bg6l);
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+}
+@media (hover: hover) and (pointer: fine) {
+  .gallery-instance:hover::before {
+    opacity: 1;
+  }
+  .project-gallery:has(.gallery-instance:hover) .gallery-instance {
+    opacity: 0.5;
+  }
+  .project-gallery:has(.gallery-instance:hover) .gallery-instance:hover {
+    opacity: 1;
+  }
+  .gallery-instance:hover .instance-title-group {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @property --tw-rotate-x {
   syntax: "*";
