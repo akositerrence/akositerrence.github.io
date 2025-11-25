@@ -531,7 +531,7 @@ html, body {
 }
 
 .portfolio-header-container-left {
-    @apply flex flex-col items-end pr-2 pt-0.75;
+    @apply flex flex-col items-end pr-2 pt-1.25 md:pt-1;
     width: 50%;
 }
 
