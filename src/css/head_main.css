@@ -421,9 +421,15 @@ html, body {
 .gallery-instance {
     @apply p-1.5 rounded-lg;
     @apply transition-opacity duration-250;
+    width: calc((100% - 0px) / 2);
     position: relative;
     overflow: hidden;
-    width: calc((100% - 0px) / 4);
+}
+
+@media (min-width: 768px) {
+    .gallery-instance {
+        width: calc((100% - 0px) / 4);
+    }
 }
 
 .gallery-instance img {
@@ -489,43 +495,65 @@ html, body {
 
 .portfolio-header {
     @apply flex flex-row;
+    @apply pb-10;
     width: 100%;
+}
+
+@media (min-width: 768px) {
+    .portfolio-header {
+        @apply pb-0;
+    }
 }
 
 .portfolio-header-container-right {
     @apply flex flex-col pl-2;
-    width: 15%;
+    width: 35%;
 }
 
 .portfolio-header-wrapper {
     @apply flex items-center;  
-    width: 70%;
+    width: 30%;
 }
 
 .portfolio-header-center-line {
-    @apply bg-green-50 w-[100%] h-1/32 mt-1;
+    @apply bg-green-50 h-1/32 mt-1;
     @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
     animation: main-name-animation 10s linear infinite;
     background-size: 200% 200%;
+    width: 100%;
     opacity: 0.25;
+}
+
+@media (min-width: 768px) {
+    .portfolio-header-wrapper {
+        width: 70%;
+    }
 }
 
 .portfolio-header-container-left {
     @apply flex flex-col items-end pr-2;
-    width: 15%;
+    width: 35%;
+}
+
+@media (min-width: 768px) {
+    .portfolio-header-container-right .portfolio-header-container-left {
+        width: 15%;
+    }
 }
 
 .page-links-container {
+    @apply pt-1;
     @apply flex flex-col gap-y-1.5;
-    @apply items-end;
+    @apply md:items-end;
 }
 
 .page-link-button {
-    @apply text-right font-normal pr-2.5 pt-0.75 pb-0.75 rounded-sm;
+    @apply md:text-right font-normal pt-0.75 pb-0.75 rounded-sm;
     @apply brightness-150 transition duration-500;
+    @apply pl-2.5 md:pl-0 md:pr-2.5;
     background-size: 200% 200%;
     animation: main-name-animation 7.5s linear infinite;
-    width: 25%;
+    @apply w-40 md:w-32.5;
 }
 
 .page-link-button:hover {
