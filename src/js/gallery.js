@@ -14,5 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
             gutter: 0,
             percentPosition: true
         });
+        
+        grid.classList.remove("gallery-loading");
+        grid.classList.add("gallery-ready");
     });
 });

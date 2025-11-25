@@ -906,7 +906,7 @@ html, body {
 .portfolio-container {
   display: flex;
   flex-direction: column;
-  row-gap: calc(var(--spacing) * 5);
+  row-gap: calc(var(--spacing) * 10);
 }
 .portfolio-col {
   flex: 1;
@@ -1162,8 +1162,12 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: calc(var(--spacing) * 10);
 }
 .project-gallery {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 1000ms ease-out, transform 1000ms ease-out;
   @media (width >= 48rem) {
     padding-bottom: calc(var(--spacing) * 2.5);
   }
@@ -1171,6 +1175,13 @@ html, body {
   @media (width >= 48rem) {
     width: 90%;
   }
+}
+.project-gallery.gallery-loading {
+  pointer-events: none;
+}
+.project-gallery.gallery-ready {
+  opacity: 1;
+  transform: translateY(0);
 }
 .page-title-card {
   border-radius: var(--radius-lg);
@@ -1356,7 +1367,7 @@ html, body {
   --tw-font-weight: var(--font-weight-light);
   font-weight: var(--font-weight-light);
   color: var(--color-green-100);
-  opacity: 0.875;
+  opacity: 0.625;
 }
 .portfolio-header {
   display: flex;
@@ -1369,19 +1380,10 @@ html, body {
     padding-bottom: calc(var(--spacing) * 0);
   }
 }
-.portfolio-header-container-right {
-  display: flex;
-  flex-direction: column;
-  padding-left: calc(var(--spacing) * 2);
-  @media (width >= 48rem) {
-    padding-left: calc(var(--spacing) * 18);
-  }
-  width: 50%;
-}
 .portfolio-header-wrapper {
   display: flex;
   align-items: center;
-  width: 0%;
+  width: 100%;
 }
 .portfolio-header-center-line {
   margin-top: calc(var(--spacing) * 1);
@@ -1405,20 +1407,6 @@ html, body {
   .portfolio-header-wrapper {
     width: 70%;
   }
-}
-.portfolio-header-container-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-top: calc(var(--spacing) * 1.25);
-  padding-right: calc(var(--spacing) * 2);
-  @media (width >= 48rem) {
-    padding-top: calc(var(--spacing) * 1);
-  }
-  @media (width >= 48rem) {
-    padding-right: calc(var(--spacing) * 18);
-  }
-  width: 50%;
 }
 @media (min-width: 768px) {
   .portfolio-header-container-right .portfolio-header-container-left {
