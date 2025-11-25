@@ -524,9 +524,13 @@ html, body {
 }
 .main-portfolio-container {
   padding-top: 7.5vw;
-  padding-right: 7.5vw;
   padding-bottom: 7.5vw;
-  padding-left: 7.5vw;
+  @media (width >= 48rem) {
+    padding-right: 7.5vw;
+  }
+  @media (width >= 48rem) {
+    padding-left: 7.5vw;
+  }
   @media (width >= 48rem) {
     padding-top: 5vw;
   }
@@ -1163,7 +1167,10 @@ html, body {
   @media (width >= 48rem) {
     padding-bottom: calc(var(--spacing) * 2.5);
   }
-  width: 90%;
+  width: 95%;
+  @media (width >= 48rem) {
+    width: 90%;
+  }
 }
 .page-title-card {
   border-radius: var(--radius-lg);
@@ -1174,7 +1181,7 @@ html, body {
   --tw-duration: 250ms;
   transition-duration: 250ms;
   width: calc((100% - 0px) / 2);
-  height: 22.5vw;
+  height: calc(var(--spacing) * 100);
   position: relative;
   overflow: hidden;
 }
@@ -1286,9 +1293,12 @@ html, body {
   row-gap: calc(var(--spacing) * 2);
 }
 #gallery-page-title-text {
-  font-size: 2.5em;
+  font-size: 1.5em;
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  @media (width >= 48rem) {
+    font-size: 2.5vw;
+  }
   background-clip: text;
   color: transparent;
   --tw-brightness: brightness(125%);
@@ -1296,9 +1306,12 @@ html, body {
   background-image: linear-gradient( to bottom, var(--color-bg7), var(--color-bg8), var(--color-bg9) );
 }
 #portfolio-page-title-text {
-  font-size: 2.5em;
+  font-size: 1.5em;
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  @media (width >= 48rem) {
+    font-size: 2.5vw;
+  }
   background-clip: text;
   color: transparent;
   --tw-brightness: brightness(100%);
@@ -1307,8 +1320,11 @@ html, body {
 }
 .back-to-home {
   background-clip: text;
-  font-size: 0.9em;
+  font-size: 1rem;
   color: transparent;
+  @media (width >= 48rem) {
+    font-size: 0.875rem;
+  }
   opacity: 85%;
   --tw-brightness: brightness(250%);
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);

@@ -100,7 +100,7 @@ html, body {
 }
 
 .main-portfolio-container {
-    @apply pl-[7.5vw] pr-[7.5vw] pt-[7.5vw] pb-[7.5vw];
+    @apply md:pl-[7.5vw] md:pr-[7.5vw] pt-[7.5vw] pb-[7.5vw];
     @apply md:pr-[10vw] md:pt-[5vw] md:pl-[10vw];
     @apply flex gap-y-2.5 gap-x-5;
     @apply flex-col md:flex-row;
@@ -424,14 +424,14 @@ html, body {
 
 .project-gallery {
     @apply md:pb-2.5;
-    width: 90%;
+    @apply w-[95%] md:w-[90%];
 }
 
 .page-title-card {
     @apply p-1.5 rounded-lg;
     @apply transition-opacity duration-250;
     width: calc((100% - 0px) / 2);
-    @apply h-[22.5vw];
+    @apply h-100;
     position: relative;
     overflow: hidden;
 }
@@ -541,7 +541,7 @@ html, body {
 }
 
 #gallery-page-title-text {
-    @apply font-bold text-[2.5em];
+    @apply font-bold text-[1.5em] md:text-[2.5vw];
     @apply bg-clip-text text-transparent;
     @apply brightness-125;
 
@@ -554,7 +554,7 @@ html, body {
 }
 
 #portfolio-page-title-text {
-    @apply font-bold text-[2.5em];
+    @apply font-bold text-[1.5em] md:text-[2.5vw];
     @apply bg-clip-text text-transparent;
     @apply brightness-100;
 
@@ -566,7 +566,7 @@ html, body {
 }
 
 .back-to-home {
-    @apply bg-clip-text text-transparent text-[0.9em];
+    @apply bg-clip-text text-transparent text-[1rem] md:text-[0.875rem];
     @apply brightness-250 hue-rotate-140 opacity-85;
 
     background-image: linear-gradient(
