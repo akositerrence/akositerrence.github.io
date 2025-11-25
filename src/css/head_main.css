@@ -466,6 +466,12 @@ html, body {
 
 @media (min-width: 768px) {
     .page-title-card {
+        width: calc((100% - 0px) / 3);
+    }
+}
+
+@media (min-width: 1080px) {
+    .page-title-card {
         width: calc((100% - 0px) / 4);
     }
 }
@@ -479,6 +485,12 @@ html, body {
 }
 
 @media (min-width: 768px) {
+    .gallery-instance {
+        width: calc((100% - 0px) / 3);
+    }
+}
+
+@media (min-width: 1080px) {
     .gallery-instance {
         width: calc((100% - 0px) / 4);
     }
@@ -566,7 +578,7 @@ html, body {
 }
 
 .back-to-home {
-    @apply bg-clip-text text-transparent text-[1rem] md:text-[0.875rem];
+    @apply bg-clip-text text-transparent text-[0.875em];
     @apply brightness-250 hue-rotate-140 opacity-85;
 
     background-image: linear-gradient(

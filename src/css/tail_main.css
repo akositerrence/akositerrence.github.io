@@ -1208,6 +1208,11 @@ html, body {
 }
 @media (min-width: 768px) {
   .page-title-card {
+    width: calc((100% - 0px) / 3);
+  }
+}
+@media (min-width: 1080px) {
+  .page-title-card {
     width: calc((100% - 0px) / 4);
   }
 }
@@ -1224,6 +1229,11 @@ html, body {
   overflow: hidden;
 }
 @media (min-width: 768px) {
+  .gallery-instance {
+    width: calc((100% - 0px) / 3);
+  }
+}
+@media (min-width: 1080px) {
   .gallery-instance {
     width: calc((100% - 0px) / 4);
   }
@@ -1320,11 +1330,8 @@ html, body {
 }
 .back-to-home {
   background-clip: text;
-  font-size: 1rem;
+  font-size: 0.875em;
   color: transparent;
-  @media (width >= 48rem) {
-    font-size: 0.875rem;
-  }
   opacity: 85%;
   --tw-brightness: brightness(250%);
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
