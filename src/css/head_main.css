@@ -507,12 +507,12 @@ html, body {
 
 .portfolio-header-container-right {
     @apply flex flex-col pl-2;
-    width: 35%;
+    width: 50%;
 }
 
 .portfolio-header-wrapper {
     @apply flex items-center;  
-    width: 30%;
+    width: 0%;
 }
 
 .portfolio-header-center-line {
@@ -531,8 +531,8 @@ html, body {
 }
 
 .portfolio-header-container-left {
-    @apply flex flex-col items-end pr-2;
-    width: 35%;
+    @apply flex flex-col items-end pr-2 pt-0.75;
+    width: 50%;
 }
 
 @media (min-width: 768px) {
