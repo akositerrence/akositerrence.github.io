@@ -443,9 +443,9 @@ html, body {
     border-radius: inherit;
     background: linear-gradient(
         135deg,
-        rgba(78, 78, 82, 0.625),  
-        rgba(32, 31, 32, 0.5),  
-        rgba(0, 0, 0, 0.5)
+        rgba(78, 78, 82, 0.75),  
+        rgba(32, 31, 32, 0.655),  
+        rgba(0, 0, 0, 0.625)
     );
     background-size: 200% 200%;
     animation: card-glow 14s ease-in-out infinite;
@@ -567,7 +567,7 @@ html, body {
 
 .back-to-home {
     @apply bg-clip-text text-transparent text-[0.9em];
-    @apply brightness-185 hue-rotate-140 opacity-90;
+    @apply brightness-250 hue-rotate-140 opacity-85;
 
     background-image: linear-gradient(
         to bottom,
