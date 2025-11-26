@@ -413,7 +413,7 @@ html, body {
 /* gallery / portfolio */
 
 .gallery-container {
-    @apply flex flex-col items-center gap-y-10;
+    @apply flex flex-col items-center md:gap-y-10;
 }
 
 .project-gallery {
@@ -574,6 +574,7 @@ html, body {
 .back-to-home {
     @apply bg-clip-text text-transparent text-[0.875em];
     @apply brightness-250 hue-rotate-140 opacity-85;
+    @apply text-right;
 
     background-image: linear-gradient(
         to bottom,
