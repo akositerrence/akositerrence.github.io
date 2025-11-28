@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="./turbofan.css">
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.29.0/full/pyodide.js"></script>
+        <script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="container-a">
+                <div>
+                    <div class="standard-text" id="turbofan-project-title">
+                        Turbofan Configuration
+                    </div>
+                    <div class="standard-text" id="turbofan-project-title-name">
+                        ME484 - Aerospace Propulsion / Terrence Andre San Gabriel
+                    </div>
+                </div>
+
+                <div class="standard-text input-space-container">
+                    <div class="input-space-title">
+                        / Component Efficiencies /
+                    </div>
+                    <div class="efficiencies">
+                        <span class="component-name"> Component </span>
+                        <div  class="table-top"> η </div>
+                        <div class="table-top"> γ </div>
+                        <div class="table-top"> c<sub>p</sub> </div>
+
+                        <span class="component-name"> Diffuser </span>
+                        <input class="input-field" id="diffuser-efficiency" type="text" value="0.97" />
+                        <input class="input-field" id="diffuser-gamma" type="text" value="1.40" />
+                        <input class="output-field" id="diffuser-specific-heat" type="text" value="" readonly />
+
+                        <span class="component-name"> Fan </span>
+                        <input class="input-field" id="fan-efficiency" type="text" value="0.85" />
+                        <input class="input-field" id="fan-gamma" type="text" value="1.40" />
+                        <input class="output-field" id="fan-specific-heat" type="text" value="" readonly />
+
+                        <span class="component-name"> Fan Nozzle </span>
+                        <input class="input-field" id="fan-nozzle-efficiency" type="text" value="0.97" />
+                        <input class="input-field" id="fan-nozzle-gamma" type="text" value="1.40" />
+                        <input class="output-field" id="fan-nozzle-specific-heat" type="text" value="" readonly />
+
+                        <span class="component-name"> Compressor </span>
+                        <input class="input-field" id="compressor-efficiency" type="text" value="0.85" />
+                        <input class="input-field" id="compressor-gamma" type="text" value="1.37" />
+                        <input class="output-field" id="compressor-specific-heat" type="text" value="" readonly />
+
+                        <span class="component-name"> Burner </span>
+                        <input class="input-field" id="burner-efficiency" type="text" value="1.00" />
+                        <input class="input-field" id="burner-gamma" type="text" value="1.35" />
+                        <input class="output-field" id="burner-specific-heat" type="text" value="" readonly />
+
+                        <span class="component-name"> Turbine </span>
+                        <input class="input-field" id="turbine-efficiency" type="text" value="0.90" />
+                        <input class="input-field" id="turbine-gamma" type="text" value="1.33" />
+                        <input class="output-field" id="turbine-specific-heat" type="text" value="" readonly />
+
+                        <span class="component-name"> Nozzle </span>
+                        <input class="input-field" id="nozzle-efficiency" type="text" value="0.98" />
+                        <input class="input-field" id="nozzle-gamma" type="text" value="1.36" />
+                        <input class="output-field" id="nozzle-specific-heat" type="text" value="" readonly />
+                    </div>
+
+                    <div class="input-space-title">
+                        / Environment Parameters /
+                    </div>
+                    <div class="environment">
+                        <span class="environment-parameter"> Flight Altitude [ft] </span>
+                        <input class="input-field" id="flight-altitude" type="text" value="40000" />
+                        <span class="environment-parameter"> Flight Mach Number, M<sub>a</sub> </span>
+                        <input class="input-field" id="flight-mach-number" type="text" value="0.85" />
+                        <span class="environment-parameter"> Speed of Sound, a<sub>o</sub> [m/s] </span>
+                        <input class="output-field" id="speed-of-sound" type="text" value="" readonly />
+                        <span class="environment-parameter"> Flight Speed, U<sub>∞</sub> [m/s] </span>
+                        <input class="output-field" id="flight-speed" type="text" value="" readonly />
+                    </div>
+
+                    <div class="input-space-title">
+                        / Internal Parameters /
+                    </div>
+                    <div class="internal">
+                        <span class="internal-parameter"> Bypass Ratio, β </span>
+                        <input class="input-field" id="bypass-ratio" type="text" value="5.0" />
+                        <span class="internal-parameter"> Fan Pressure Ratio, P<sub>rf</sub> </span>
+                        <input class="input-field" id="fan-pressure-ratio" type="text" value="1.50" />
+                        <span class="internal-parameter"> Compressor Pressure Ratio, P<sub>rc</sub> </span>
+                        <input class="input-field" id="compressor-pressure-ratio" type="text" value="30.0" />
+                        <span class="internal-parameter"> Burner Pressure Ratio, P<sub>rb</sub> </span>
+                        <input class="input-field" id="burner-pressure-ratio" type="text" value="1.0" />
+                        <span class="internal-parameter"> Turbine Inlet Temperature, T<sub>04</sub> [K] </span>
+                        <input class="input-field" id="turbine-inlet-temperature" type="text" value="1700" />
+                        <span class="internal-parameter"> Heating Value of Fuel, Q<sub>R</sub> </span>
+                        <input class="input-field" id="fuel-heating-value" type="text" value="45000000" />
+                    </div>
+                </div>
+            </div>
+            <div class="container-b">
+                <div class="input-space-title">
+                        / Cycle Parameters /
+                </div>
+                <div class="engine-parameters-container-a">
+                    <span class="cycle-parameter"> T<sub>a</sub> [K] </span>
+                    <input class="output-field" id="t-a" type="text" value="" readonly />
+                    <span class="cycle-parameter"> T<sub>02</sub> [K] </span>
+                    <input class="output-field" id="t-2" type="text" value="" readonly />
+                    <span class="cycle-parameter"> T<sub>03</sub> [K] </span>
+                    <input class="output-field" id="t-3" type="text" value="" readonly />
+
+                    <span class="cycle-parameter"> P<sub>a</sub> [Pa] </span>
+                    <input class="output-field" id="p-a" type="text" value="" readonly />
+                    <span class="cycle-parameter"> P<sub>02</sub> [Pa] </span>
+                    <input class="output-field" id="p-2" type="text" value="" readonly />
+                    <span class="cycle-parameter"> P<sub>03</sub> [Pa] </span>
+                    <input class="output-field" id="p-3" type="text" value="" readonly />
+                </div>
+
+                <div class="engine-container">
+                    <img id="engine-img" src="turbofan.png" alt="">
+                </div>
+
+                <div class="engine-parameters-container-a">
+                    <span class="cycle-parameter"> T<sub>04</sub> [K] </span>
+                    <input class="output-field" id="t-4" type="text" value="" readonly />
+                    <span class="cycle-parameter"> T<sub>05</sub> [K] </span>
+                    <input class="output-field" id="t-5" type="text" value="" readonly />
+                    <span class="cycle-parameter"> T<sub>08</sub> [K] </span>
+                    <input class="output-field" id="t-8" type="text" value="" readonly />
+
+                    <span class="cycle-parameter"> P<sub>04</sub> [Pa] </span>
+                    <input class="output-field" id="p-4" type="text" value="" readonly />
+                    <span class="cycle-parameter"> P<sub>05</sub> [Pa] </span>
+                    <input class="output-field" id="p-5" type="text" value="" readonly />
+                    <span class="cycle-parameter"> P<sub>08</sub> [Pa] </span>
+                    <input class="output-field" id="p-8" type="text" value="" readonly />
+                       
+                </div>
+
+                <div class="engine-parameters-container-b">
+                    <span class="cycle-parameter"> Fuel to Air Ratio, f </span>
+                    <input class="output-field" id="f-a-ratio" type="text" value="" readonly />
+                    <span class="cycle-parameter"> Core Exhaust Velocity, U<sub>e</sub> [m/s] </span>
+                    <input class="output-field" id="u-e" type="text" value="" readonly />
+                    <span class="cycle-parameter"> Fan Exhaust Velocity, U<sub>ef</sub> [m/s] </span>
+                    <input class="output-field" id="u-ef" type="text" value="" readonly />
+                    <span class="cycle-parameter"> Thrust/Air Mass Flux [N⋅s/kg] </span>
+                    <input class="output-field" id="t-a-m-f" type="text" value="" readonly />
+                    <span class="cycle-parameter"> TSFC [kg/(N⋅s)] </span>
+                    <input class="output-field" id="t-s-f-c" type="text" value="" readonly />
+                </div>
+
+                <button onclick="updateValues()">Evaluate Configuration</button>
+
+            </div>
+            <div class="container-c">
+                <div class="input-space-title">
+                    / Overall Efficiencies /
+                </div>
+                <div class="fuel-container">
+                    <span class="fuel-parameter"> Thermal Efficiency, η<sub>th</sub> </span>
+                    <input class="output-field" id="thermal-efficiency" type="text" value="" readonly />
+                    <span class="fuel-parameter"> Propulsive Efficiency, η<sub>pr</sub>  </span>
+                    <input class="output-field" id="propulsive-efficiency" type="text" value="" readonly />
+                    <span class="fuel-parameter"> Overall Efficiency, η<sub>o</sub> </span>
+                    <input class="output-field" id="overall-efficiency" type="text" value="" readonly />
+                </div>
+                <div class="input-space-title">
+                    / Fuel Parameters /
+                </div>
+                <div class="fuel-container">
+                    <span class="fuel-parameter"> Thrust, 𝒯 [N] </span>
+                    <input class="input-field" id="thrust" type="text" value="444840" />
+                    <span class="fuel-parameter"> Mass Flux, ṁ<sub>a</sub> [kg/s] </span>
+                    <input class="output-field" id="mass-flux" type="text" value="" readonly />
+                    <span class="fuel-parameter"> Fuel Consumption, ṁ<sub>f</sub> [kg/s] </span>
+                    <input class="output-field" id="fuel-consumption" type="text" value="" readonly />
+                </div>
+                <div class="input-space-title">
+                    / Optimization /
+                </div>
+                <div id="plot-container">
+                    <div id="optimization-plot" style="background: transparent;"></div>
+                </div>
+
+            </div>
+        </div>
+        <script src="./turbofan.js"></script>
+    </body>
+</html>

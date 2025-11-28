@@ -1,0 +1,216 @@
+
+body {
+    background-color: white;
+    font-size: 0.875em;
+}
+
+.standard-text {
+    
+}
+
+.input-field {
+    background-color: rgba(6, 238, 72, 0.25);
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.container-a,
+.container-b,
+.container-c {
+    width: 100%;
+    border: 1px solid black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media (min-width: 1080px) {
+    .main-container {
+        flex-direction: row; 
+        gap: 0.5rem;
+    }
+
+    .container-a,
+    .container-b,
+    .container-c {
+        flex: 1 1 0;
+        max-width: 33.33%;
+        width: auto;
+    }
+}
+
+
+#turbofan-project-title {
+    text-align: center;
+    padding-top: 0.5rem;
+    font-size: 1.5em;
+}
+
+#turbofan-project-title-name {
+    text-align: center;
+    padding-top: 0.25rem;
+}
+
+.input-space-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.output-field {
+    background-color: rgba(87, 73, 73, 0.25);
+    font-size: 0.875em;
+    text-align: center;
+}
+
+.input-space-title {
+    width: 80%;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0.25rem 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.table-top {
+    width: 100%;
+    text-align: center;
+}
+
+.efficiencies {
+    display: inline-grid;                
+    grid-template-columns: max-content 4rem 4rem 4rem; 
+    column-gap: 0.5rem;
+    row-gap: 0.35rem;
+    justify-items: start;                 
+}
+
+.efficiencies .component-name {
+    display: inline-block;
+    width: 5rem;
+    text-align: right;
+}
+
+.efficiencies input {
+    width: 4rem;                          
+    padding: 0.1rem 0.25rem;
+    box-sizing: border-box;
+}
+
+.environment {
+    display: inline-grid;                
+    grid-template-columns: max-content 4rem; 
+    column-gap: 0.5rem;
+    row-gap: 0.35rem;
+    justify-items: start;                 
+}
+
+.environment .environment-parameter {
+    display: inline-block;
+    width: 14rem;
+    text-align: right;
+}
+
+.environment input {
+    width: 4rem;                          
+    padding: 0.1rem 0.25rem;
+    box-sizing: border-box;
+}
+
+.internal {
+    display: inline-grid;                
+    grid-template-columns: max-content 4rem; 
+    column-gap: 0.5rem;
+    row-gap: 0.35rem;
+    justify-items: start;                 
+}
+
+.internal .internal-parameter {
+    display: inline-block;
+    width: 14rem;
+    text-align: right;
+}
+
+.internal input {
+    width: 4rem;                          
+    padding: 0.1rem 0.25rem;
+    box-sizing: border-box;
+}
+
+.container-b {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#engine-img {
+    width: 90%;
+}
+
+.engine-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.engine-parameters-container-a {
+    display: inline-grid;
+    grid-template-columns: max-content 4rem max-content 4rem max-content 4rem;
+    column-gap: 0.5rem;
+    row-gap: 0.35rem;
+    align-items: center;
+}
+
+.engine-parameters-container-b {
+    display: inline-grid;
+    grid-template-columns: max-content 5rem;
+    column-gap: 0.5rem;
+    row-gap: 0.35rem;
+    align-items: center;
+}
+
+.cycle-parameter {
+    text-align: right;
+}
+
+.container-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.fuel-container {
+    display: inline-grid;
+    grid-template-columns: max-content 5rem;
+    column-gap: 0.5rem;
+    row-gap: 0.35rem;
+    align-items: center;
+}
+
+.fuel-parameter {
+    text-align: right;
+}
+
+#plot-container {
+    width: 80% !important;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#optimization-plot {
+    width: 90% !important;
+}
