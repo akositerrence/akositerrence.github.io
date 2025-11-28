@@ -304,6 +304,10 @@
   .scroll-smooth {
     scroll-behavior: smooth;
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .border-1 {
     border-style: var(--tw-border-style);
     border-width: 1px;
