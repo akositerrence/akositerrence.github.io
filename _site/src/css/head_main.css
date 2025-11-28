@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-bg1 : rgb(93, 124, 82);
+    --color-bg2 : rgb(72, 84, 61);
+    --color-bg3 : rgb(59, 59, 52);
+    --color-interactive : 255, 255, 255;
+    --circle-size: 120%;
+    --blending: hard-light;
+}
+
+::selection {
+    background-color: rgba(124, 167, 140, 0.35);
+}
+
+.standard-text {
+    @apply text-[0.875em] text-green-100 font-extralight;
+    opacity: 0.875;
+}
+
+.bolded-standard-text {
+    @apply font-normal text-amber-200;
+    opacity: 0.95;
+}
+
+.gradient-background {
+    @apply fixed top-0 left-0 w-full h-full;
+    @apply bg-gradient-to-b from-[var(--color-bg1)] via-[var(--color-bg2)] to-[var(--color-bg3)];
+    @apply z-[-10];
+    overflow: visible;
+}
+
+.gradient-background > svg {
+    display: none;
+}
+
+.gradient-container {
+    @apply relative w-full h-full;
+}
+
+.interactive {
+    @apply absolute;
+    @apply z-10;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: 0;
+    left: 0;
+    background: radial-gradient(
+        circle at center, 
+        rgba(var(--color-interactive, 0.8)) 0, 
+        rgba(var(--color-interactive), 0) 50%
+        ) no-repeat;
+    mix-blend-mode: var(--blending);
+    opacity: 0.0625;
+    pointer-events: none;
+}
+
+.main-container {
+    @apply pl-[7.5vw] pr-[7.5vw] pt-[7.5vw] pb-[7.5vw];
+    @apply md:pr-[10vw] md:pt-[5vw] md:pl-[10vw];
+    @apply flex gap-y-2.5 gap-x-5;
+    @apply flex-col md:flex-row;
+}
+
+.header-container {
+    @apply flex-col justify-items-start md:justify-items-end;
+}
+
+.title-container {
+    @apply flex flex-col gap-y-5;
+    @apply md:mr-[60%];
+    @apply md:fixed;
+}
+
+.scroll-container {
+    @apply bg-green-50 w-0 md:w-[2.5px];
+    @apply md:ml-[41.5%];
+    @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+    opacity: 0.25;
+}
+
+.content-container {
+    @apply flex flex-col gap-y-10;
+    @apply md:ml-2.5;
+}
+
+.content-title-link {
+    @apply flex flex-row items-center;
+}
+
+@keyframes main-name-animation {
+    0% {
+        background-position: 0 100%;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+.main-name {
+    @apply text-[2.25em] text-green-100 font-semibold md:text-right;
+    @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 7.5s linear infinite;
+    background-size: 200% 200%;
+}
+
+.main-goal {
+    @apply text-[1.375em] text-green-100 font-normal mt-2 md:text-right;
+    @apply bg-gradient-to-l from-sky-100 via-green-100 to-amber-100;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 7.5s linear infinite;
+    background-size: 200% 200%;
+}
+
+.main-description {
+    @apply md:pl-2.5 md:pr-2.5;
+}
+
+.bible-text {
+    @apply text-left md:text-right;
+}
+
+.bible-verse {
+    @apply text-left md:text-right opacity-62.5;
+}
+
+.content-section-header {
+    @apply text-[1em] text-green-100 font-semibold mt-2.5 mb-2.5;
+    @apply bg-gradient-to-l from-sky-100 via-yellow-100 to-green-100;
+    @apply bg-clip-text text-transparent;
+    @apply md:pl-2.5 md:pr-2.5;
+    animation: main-name-animation 7.5s linear infinite;
+    background-size: 200% 200%;
+}
+
+.links-container {
+    @apply flex items-center gap-x-5;
+    @apply justify-start md:justify-end;
+}
+
+.link-icon-button{
+    @apply text-green-100 transition duration-750 rounded-md hover:text-amber-100;
+}
+
+.link-icon {
+    @apply h-8 w-8 fill-current transition duration-750 hover:opacity-80;
+    opacity: 0.75;
+}
+
+.content-link-icon {
+    @apply text-amber-50 h-4 w-4 ml-1;
+}
+
+.about-container {
+    @apply flex flex-col gap-y-5;
+}
+
+
+
+.experience-container {
+    @apply flex flex-col gap-y-5;
+}
+
+.experience-instance {
+    @apply flex pl-0 pr-0 opacity-100;
+    @apply md:p-2.5;
+    @apply hover:bg-amber-50/[var(--bg-opacity)] transition duration-250 rounded-xl hover:[--bg-opacity:5%];
+}
+
+.experience-col {
+    @apply flex-1 flex-col w-1/2 ml-0;
+}
+
+.experience-dates-location {
+    @apply font-extralight mb-2.5 opacity-62.5;
+}
+
+.experience-title {
+    @apply font-semibold flex flex-row items-center;
+    @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+}
+
+.experience-company {
+    @apply font-extralight;
+}
+
+.experience-description {
+
+}
+
+.portfolio-instance {
+    @apply flex pl-0 pr-0;
+    @apply md:p-2.5;
+    @apply flex-col lg:flex-row;
+    @apply hover:bg-amber-50/[var(--bg-opacity)] transition duration-250 rounded-xl hover:[--bg-opacity:5%];
+}
+
+.portfolio-container {
+    @apply flex flex-col gap-y-5;
+}
+
+
+.portfolio-col {
+    @apply flex-1 flex-col lg:w-1/2 lg:ml-7.5;
+}
+
+.portfolio-title {
+    @apply font-semibold flex flex-row mb-2.5 items-center;
+    @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+}
+
+.portfolio-img-container {
+    
+}
+
+.portfolio-img-col {
+    
+}
+
+.portfolio-img {
+    @apply border-2 border-green-50/50;
+    @apply h-15 w-[calc(15*16/9)];
+    @apply mb-5;
+    opacity: 0.75;
+}
+
+.portfolio-description {
+
+}
+
+
+
+.certifications-instance {
+    @apply flex pl-0 pr-0;
+    @apply md:p-2.5;
+    @apply hover:bg-amber-50/[var(--bg-opacity)] transition duration-250 rounded-xl hover:[--bg-opacity:5%];
+}
+
+.certifications-container {
+    @apply flex flex-col gap-y-5;
+}
+
+
+.certifications-col {
+    @apply flex-1 flex-col w-1/2 ml-0;
+}
+
+.certifications-title {
+    @apply font-semibold flex flex-row items-center;
+    @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+}
+
+.certifications-image {
+    @apply h-0 w-0 rounded-md;
+    @apply md:h-25 md:w-25;
+    @apply border-solid border-2 border-cyan-900/25;
+    opacity: 0.75;
+}
+
+.certificate-source {
+    @apply font-extralight mb-2.5 opacity-62.5;
+}
+
+.certifications-description {
+
+}
+
+
+
+.education-instance {
+    @apply flex pl-0 pr-0;
+    @apply md:p-2.5;
+    @apply flex-col lg:flex-row;
+    @apply hover:bg-amber-50/[var(--bg-opacity)] transition duration-250 rounded-xl hover:[--bg-opacity:5%];
+}
+
+.education-container {
+    @apply flex flex-col gap-y-5;
+}
+
+.education-title {
+    @apply font-semibold flex flex-row items-center;
+    @apply bg-gradient-to-l from-sky-100 via-amber-100 to-green-100;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 10s linear infinite;
+    background-size: 200% 200%;
+}
+
+.education-dates-location {
+    @apply font-extralight opacity-62.5;
+}
+
+.animated-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.5px;
+  background-color: rgba(237, 227, 190, 0.875); 
+  transition: width 0.5s ease-in-out;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}

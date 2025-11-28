@@ -1,0 +1,28 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title }} — {{ site.title }}</title>
+</head>
+<body>
+  <article class="post-modal">
+    <iframe class="modal-video-embed"
+      width="0" height="0"
+      src="https://www.youtube.com/embed/{{ page.video }}"
+      title="{{ page.title }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+    <div class="post-desc">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        <b>{{ page.date | date: "%-d %B %Y" }}</b>
+      </time>
+      <br>
+      {{ content }}
+    </div>  
+  </article>
+</body>
+</html>

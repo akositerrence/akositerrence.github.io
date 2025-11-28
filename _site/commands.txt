@@ -1,0 +1,2 @@
+jekyll serve --livereload --incremental
+npx @tailwindcss/cli -i ./src/css/head_main.css -o ./src/css/tail_main.css --watch
