@@ -234,4 +234,16 @@ async function updateValues() {
 
     Plotly.newPlot("optimization-plot", surface_plot, layout, { responsive: true });
 
+    const rand = Math.random();
+    const fart = new Audio("./fart.mp3")
+    const taco = new Audio("./taco.mp3")
+    const mince = new Audio("./minecraft.mp3")
+    if (rand < 0.3333) {
+        taco.play();
+    } else if (rand < 0.6666) {
+        fart.play();
+    } else {
+        mince.play();
+    }
+
 }
