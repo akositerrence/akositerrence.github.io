@@ -193,14 +193,29 @@ async function updateValues() {
     document.getElementById("fuel-consumption").value = fcf.toFixed(3);
 
     /* she optimize on my plot till i minimum */
-    const [beta_values, prc_values, fuel_values] = optimization;
+    const [beta_values, prc_values, fuel_values, best_fuel, best_beta, best_prc,] = optimization;
 
-    const data = [{
+    const data = {
         x: beta_values,     
         y: prc_values,    
         z: fuel_values,        
         type: "surface",
-    }];
+    };
+
+    const optimum_point = {
+        type: "scatter3d",
+        mode: "markers",
+        x: [best_beta],
+        y: [best_prc],
+        z: [best_fuel],
+        marker: {
+            size: 6,
+            color: "red"
+        },
+        name: "Min. Fuel Consumption"
+    }
+
+    const surface_plot = [data, optimum_point]
 
     const layout = {
         title: { text: ""},
@@ -208,15 +223,15 @@ async function updateValues() {
         plot_bgcolor: "rgba(0,0,0,0)",
         scene: {
             bgcolor: "rgba(0,0,0,0)",
-            xaxis: { title: { text: "Bypass Ratio, β" } },
-            yaxis: { title: { text: "Compressor PR, Prc" } },
-            zaxis: { title: { text: "Fuel Consumption [kg/s]" } }
+            xaxis: { title: { text: "(x) β" } },
+            yaxis: { title: { text: "(y) P_rc" } },
+            zaxis: { title: { text: "(z) m_f [kg/s]" } }
         },
         margin: { l: 60, r: 20, t: 50, b: 60 }
     };
 
     layout.font = { size: 10 };
 
-    Plotly.newPlot("optimization-plot", data, layout, { responsive: true });
+    Plotly.newPlot("optimization-plot", surface_plot, layout, { responsive: true });
 
 }

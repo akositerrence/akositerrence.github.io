@@ -2,7 +2,7 @@ import math
 import numpy as np
 
 ### THERMODYNAMIC CONSTANTS ###
-r = 287.052874
+r = 287
 gamma = 1.40
 
 ### STATION VARIABLES ###
@@ -140,8 +140,14 @@ def optimize(c_p_diffuser,
         
         thrust):
     
-    beta_values = beta_values = np.arange(2, 10.5, 0.5) 
-    prc_values = np.arange(10,61, 1) 
+    # beta_values = beta_values = np.arange(2, 10.5, 0.5) 
+    # prc_values = np.arange(10,61, 1) 
+    beta_values = beta_values = np.arange(2, 20.25, 0.25) 
+    prc_values = np.arange(2,100.5, 0.5) 
+    
+    best_fuel = float("inf")
+    best_beta = None
+    best_prc = None
     
     X, Y = np.meshgrid(beta_values, prc_values)
     Z = np.zeros_like(X, dtype=float)
@@ -185,8 +191,13 @@ def optimize(c_p_diffuser,
             )
 
             Z[i, j] = fuel_consumption_flux
+            
+            if fuel_consumption_flux > 0 and fuel_consumption_flux < best_fuel:
+                best_fuel = fuel_consumption_flux
+                best_beta = beta
+                best_prc = prc
     
-    return beta_values.tolist(), prc_values.tolist(), Z.tolist()
+    return beta_values.tolist(), prc_values.tolist(), Z.tolist(), best_fuel, best_beta, best_prc
 
 ### EVALUATION ###
 def evaluate_cycle(
@@ -244,7 +255,12 @@ def evaluate_cycle(
     fuel_to_air_ratio = (temperature_04-temperature_03)/((fuel_heating_value/c_p_burner)-temperature_04)
     temperature_05, pressure_05 = station_05(bypass_ratio, efficiency_turbine, gamma_turbine, c_p_compressor, c_p_turbine, c_p_fan, temperature_02, temperature_03, temperature_04, temperature_08, pressure_04, fuel_to_air_ratio)
     ### EXIT ###
-    core_exit_exhaust_velocity, fan_exit_exhaust_velocity = nozzle_exit(efficiency_nozzle, gamma_nozzle, efficiency_fan_nozzle, gamma_fan_nozzle, temperature_05, temperature_08, pressure_a, pressure_05, pressure_08)
+    try:
+        core_exit_exhaust_velocity, fan_exit_exhaust_velocity = nozzle_exit(efficiency_nozzle, gamma_nozzle, efficiency_fan_nozzle, gamma_fan_nozzle, temperature_05, temperature_08, pressure_a, pressure_05, pressure_08)
+    except Exception:
+        core_exit_exhaust_velocity = 0
+        fan_exit_exhaust_velocity = 0
+        
     ## THRUST ###
     speed_of_sound = math.sqrt(gamma*r*temperature_a)
     flight_speed = flight_mach_number*speed_of_sound
