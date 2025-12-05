@@ -247,8 +247,9 @@ async function updateValues() {
         mince.play();
     }
     */
-
-    const fart = new Audio("./fart.mp3")
+    /*
+    const fart = new Audio("./minecraft.mp3")
     fart.play();
+    */
 
 }

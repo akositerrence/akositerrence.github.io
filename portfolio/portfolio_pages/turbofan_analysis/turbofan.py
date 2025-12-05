@@ -192,7 +192,7 @@ def optimize(c_p_diffuser,
 
             Z[i, j] = fuel_consumption_flux
             
-            if fuel_consumption_flux > 0 and fuel_consumption_flux < best_fuel:
+            if fuel_consumption_flux > 0 and fuel_consumption_flux < best_fuel and beta < 12.5 and prc < 27:
                 best_fuel = fuel_consumption_flux
                 best_beta = beta
                 best_prc = prc
