@@ -265,6 +265,15 @@ html, body {
 
 }
 
+.experience-separator {
+    @apply md:flex md:flex-row md:gap-3 items-center;
+    @apply mb-2;
+}
+
+.experience-img {
+    @apply w-0 md:w-7.5 rounded-sm;
+}
+
 .portfolio-instance {
     @apply flex pl-0 pr-0;
     @apply md:p-2.5;

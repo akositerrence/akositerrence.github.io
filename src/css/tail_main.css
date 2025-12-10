@@ -304,10 +304,6 @@
   .scroll-smooth {
     scroll-behavior: smooth;
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .border-1 {
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -889,6 +885,26 @@ html, body {
 .experience-company {
   --tw-font-weight: var(--font-weight-extralight);
   font-weight: var(--font-weight-extralight);
+}
+.experience-separator {
+  align-items: center;
+  @media (width >= 48rem) {
+    display: flex;
+  }
+  @media (width >= 48rem) {
+    flex-direction: row;
+  }
+  @media (width >= 48rem) {
+    gap: calc(var(--spacing) * 3);
+  }
+  margin-bottom: calc(var(--spacing) * 2);
+}
+.experience-img {
+  width: calc(var(--spacing) * 0);
+  border-radius: var(--radius-sm);
+  @media (width >= 48rem) {
+    width: calc(var(--spacing) * 7.5);
+  }
 }
 .portfolio-instance {
   display: flex;
