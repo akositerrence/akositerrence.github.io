@@ -6,9 +6,9 @@ html, body {
 }
 
 :root {
-    --color-bg1 : rgb(102, 140, 104); 
-    --color-bg2 : rgb(60, 88, 72);    
-    --color-bg3 : rgb(28, 40, 36);    
+    --color-bg1: rgb(123, 137, 94);
+--color-bg2: rgb(43, 74, 52);
+--color-bg3: rgb(20, 28, 22);
 
     --color-bg4 : rgb(140, 140, 150); 
     --color-bg5 : rgb(85, 85, 95);
