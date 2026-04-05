@@ -30,10 +30,14 @@
         <div>
             <div class="header-button-container">
                 <div class="portfolio-header-buttons standard-text">
-                    Home 
+                    <a href="/index.html">
+                        <span class="standard-text animated-underline-portfolio">Home</span>
+                    </a> 
                 </div>
                 <div class="portfolio-header-buttons standard-text">
-                    Portfolio
+                    <a href="/portfolio/portfolio.html">
+                        <span class="standard-text animated-underline-portfolio">Portfolio</span>
+                    </a> 
                 </div>
             </div>
 
@@ -49,28 +53,81 @@
 
         </div>
         <div>
-            <div class="portfolio-page-content-container">
-                <div class="content-section-header"> CONTEXT </div>
-                <div class="standard-text portfolio-content-section-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div class="portfolio-page-col-generator">
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> CONTEXT </div>
+                    <div class="portfolio-page-content-subcontainer">
+                        <div class="standard-text portfolio-content-section-text">
+                            Cowbot is a combat robot I led the development of during my sophomore year at NDSU. 
+                            We competed in Robobrawl's UIUC X, a bracket-style competition where robots are 
+                            designed to disable or destroy opponents. Since no one on our team had prior robotics 
+                            experience, the project became a full ground-up effort in learning how to design for 
+                            impact, reliability, and performance under strict weight constraints. I helped lead 
+                            the team through the development of the drivetrain, weapon system, and overall mechanical 
+                            packaging, turning an unfamiliar challenge into a functional competitive robot.
+                            <br>
+                            <br>
+                            Oh and if you're wondering, its namesake was inherited from an elaborate inside joke. 
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-page-content-container">
+                    <div class="portfolio-page-image-container">
+                        <img class="portfolio-page-image" src="./cowbot_1.webp">
+                        <img class="portfolio-page-image" src="./cowbot_2.webp">
+                        <img class="portfolio-page-image" src="./cowbot_3.webp">
+                        <img class="portfolio-page-image" src="./cowbot_4.webp">
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-page-col-generator">
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> SPECIFICATIONS </div>
+                    <div class="standard-text portfolio-content-section-text">
+                        Robot weight: 28.7 lbs <br>
+                        Weapon type: Vertical modified drum spinner <br>
+                        Weapon weight: 5 lbs <br>
+                        Weapon Max RPM (theoretical): <br>
+                        Weapon kinetic energy (theoretical): <br>
+                        Weapon power delivery: Mamba Monster X 8S <br>
+                        Drivetrain: 2x NEO brushless V1.1 & 2x SPARK MAX ESC, Chain drive<br>
+                        Battery: 5S 3600 mAh 18.5V 60C<br>
+                        Armor: 3/8" Aluminum 6061, HDPE <br>
+                        Dimensions: <br>
+                    </div>
+                </div>
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> DEVELOPMENT </div>
+                    <div class="standard-text portfolio-content-section-text">
+                        The initial basic idea we wanted for Cowbot was similar to sloped armor that Soviet tanks 
+                        from the second world war heavily employed. The idea is that an angled surface will have greater 
+                        effective thickness in the normal direction, perpendicular to the vehicle base. Additionally, we 
+                        theorized that loading multiple bends on one cut would be more efficient for manufacturing, and would 
+                        also eliminate the need for much fasteners. With this first draft, we were prioritizing the structural frame of the 
+                        robot before other critical aspects. Once we considered the spatial demands for a drivetrain, it was quickly realized 
+                        that the concept would be rather difficult to pull off effectively. Additionally, accounting for tolerances on an assembly 
+                        with that amount of bends, coupled with an inexperienced team, was probably not a good idea.
+                        <br>
+                        <br>
+                        We settled on a "tab and slot" method for the chassis, which most other teams employed. For the drivetrain,
+                        we elected to use the NEO brushless motor and planetary gearbox sets for their ease of use. Chain drive was selected
+                        to circumvent frictional losses from a belt drive approach. For the weapon, a timing belt system was used to allow 
+                        for efficient mechanical transfer while allowing for slippage upon weapon impact. 3/8" aluminum was chosen for the chassis
+                        as that was the available thickness that the club had in stock. HDPE was selected for the side skirts because it can 
+                        plastically deform under impact rather than behave as a rigid member, helping absorb and dissipate kinetic energy.
+                        A large cover consisting of aluminum and plastic sheets protect the top portion to defend from overhead attacks, largely from
+                        axe or hammer bots.
+                        <br>
+                        <br>
+                        We built our development workspace in Onshape, which allows multiple team members to simultaneously model on the same project files, 
+                        as all information is stored online in the cloud. Additionally, Onshape enables modeling through web browsers, opening up the ability 
+                        for our team to work on almost any platform, regardless of their hardware specifications. Onshape also provides publicly available 
+                        scripting tools for tasks such as weight reduction.
+                    </div>
                 </div>
             </div>
             <div class="portfolio-page-content-container">
-                <div class="content-section-header"> DEVELOPMENT </div>
-                <div class="standard-text portfolio-content-section-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </div>
-            </div>
-            <div class="portfolio-page-content-container">
-                <div class="content-section-header"> RESULTS </div>
+                <div class="content-section-header"> REFLECTIONS </div>
                 <div class="standard-text portfolio-content-section-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                     ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 

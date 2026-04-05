@@ -717,7 +717,7 @@ html, body {
 }
 
 .portfolio-front-page {
-    @apply min-h-[75vh] flex justify-center items-center;
+    @apply min-h-[87.5vh] flex justify-center items-center;
 }
 
 .portfolio-title-3d-shell {
@@ -750,9 +750,49 @@ html, body {
 }
 
 .portfolio-page-content-container {
-    @apply p-5 rounded-xl border-[0.125px] border-amber-50/25;
+    @apply p-5 mb-5 rounded-xl border-[0.125px] border-amber-50/25;
 }
 
 .portfolio-content-section-text {
     @apply pl-2.5 pr-2.5;
 }
+
+.animated-underline-portfolio {
+    display: inline-block;
+    position: relative;
+}
+
+.animated-underline-portfolio::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 0.5px;
+    background-color: rgba(239, 241, 237, 0.875); 
+    transition: width 0.5s ease-in-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .animated-underline-portfolio:hover::after {
+        width: 100%;
+    }
+}
+
+.portfolio-page-content-subcontainer {
+    @apply flex flex-row;
+}
+
+.portfolio-page-image-container {
+    @apply flex gap-1 pl-10;
+}
+
+.portfolio-page-image {
+    @apply w-[25%] h-auto object-contain;
+}
+
+.portfolio-page-col-generator {
+    @apply flex flex-row gap-x-5;
+}
+
+

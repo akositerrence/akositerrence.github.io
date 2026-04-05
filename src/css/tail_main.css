@@ -1603,7 +1603,7 @@ html, body {
 }
 .portfolio-front-page {
   display: flex;
-  min-height: 75vh;
+  min-height: 87.5vh;
   align-items: center;
   justify-content: center;
 }
@@ -1669,6 +1669,7 @@ html, body {
   justify-content: center;
 }
 .portfolio-page-content-container {
+  margin-bottom: calc(var(--spacing) * 5);
   border-radius: var(--radius-xl);
   border-style: var(--tw-border-style);
   border-width: 0.125px;
@@ -1681,6 +1682,44 @@ html, body {
 .portfolio-content-section-text {
   padding-right: calc(var(--spacing) * 2.5);
   padding-left: calc(var(--spacing) * 2.5);
+}
+.animated-underline-portfolio {
+  display: inline-block;
+  position: relative;
+}
+.animated-underline-portfolio::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 0.5px;
+  background-color: rgba(239, 241, 237, 0.875);
+  transition: width 0.5s ease-in-out;
+}
+@media (hover: hover) and (pointer: fine) {
+  .animated-underline-portfolio:hover::after {
+    width: 100%;
+  }
+}
+.portfolio-page-content-subcontainer {
+  display: flex;
+  flex-direction: row;
+}
+.portfolio-page-image-container {
+  display: flex;
+  gap: calc(var(--spacing) * 1);
+  padding-left: calc(var(--spacing) * 10);
+}
+.portfolio-page-image {
+  height: auto;
+  width: 25%;
+  object-fit: contain;
+}
+.portfolio-page-col-generator {
+  display: flex;
+  flex-direction: row;
+  column-gap: calc(var(--spacing) * 5);
 }
 @property --tw-rotate-x {
   syntax: "*";
