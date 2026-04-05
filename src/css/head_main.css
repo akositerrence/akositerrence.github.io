@@ -7,16 +7,16 @@ html, body {
 
 :root {
     --color-bg1: rgb(123, 137, 94);
---color-bg2: rgb(43, 74, 52);
---color-bg3: rgb(20, 28, 22);
+    --color-bg2: rgb(43, 74, 52);
+    --color-bg3: rgb(20, 28, 22);
 
-    --color-bg4 : rgb(140, 140, 150); 
-    --color-bg5 : rgb(85, 85, 95);
-    --color-bg6 : rgb(28, 28, 36);
+    --color-bg4: rgb(78, 104, 136);
+    --color-bg5: rgb(38, 56, 82);
+    --color-bg6: rgb(14, 22, 34);
 
-    --color-bg4l : rgba(140, 140, 150, 0.625);
-    --color-bg5l : rgba(85, 85, 95, 0.625);
-    --color-bg6l : rgba(28, 28, 36, 0.625);  
+    --color-bg4l : rgba(140, 96, 132, 0.625); 
+    --color-bg5l : rgba(94, 78, 122, 0.625); 
+    --color-bg6l : rgba(60, 56, 96, 0.625);  
 
 
     --color-bg7 : rgb(140, 96, 132);
@@ -26,6 +26,10 @@ html, body {
     --color-bg7l : rgba(140, 96, 132, 0.625); 
     --color-bg8l : rgba(94, 78, 122, 0.625); 
     --color-bg9l : rgba(60, 56, 96, 0.625);  
+
+    --color-bg10 : rgb(48, 48, 48); 
+    --color-bg11 : rgb(21, 21, 21); 
+    --color-bg12 : rgb(3, 3, 3);  
 
     --color-interactive : 255, 255, 255;
     --circle-size: 120%;
@@ -58,6 +62,13 @@ html, body {
 .gradient-background-portfolio {
     @apply fixed top-0 left-0 w-full h-full;
     @apply bg-gradient-to-b from-[var(--color-bg4)] via-[var(--color-bg5)] to-[var(--color-bg6)];
+    @apply z-[-10];
+    overflow: visible;
+}
+
+.gradient-background-portfolio-page {
+    @apply fixed top-0 left-0 w-full h-full;
+    @apply bg-gradient-to-b from-[var(--color-bg10)] via-[var(--color-bg11)] to-[var(--color-bg12)];
     @apply z-[-10];
     overflow: visible;
 }
@@ -104,8 +115,6 @@ html, body {
 .main-portfolio-container {
     @apply md:pl-[7.5vw] md:pr-[7.5vw] pt-[7.5vw] pb-[7.5vw];
     @apply md:pr-[10vw] md:pt-[5vw] md:pl-[10vw];
-    @apply flex gap-y-2.5 gap-x-5;
-    @apply flex-col md:flex-row;
 }
 
 .header-container {
@@ -227,12 +236,16 @@ html, body {
 
 .about-container {
     @apply flex flex-col gap-y-5;
+    @apply rounded-xl border-amber-50/25 border-[0.125px];
+    @apply pb-5 pl-3 pr-3;
 }
 
 
 
 .experience-container {
     @apply flex flex-col gap-y-5;
+    @apply rounded-xl border-amber-50/25 border-[0.125px];
+    @apply pb-5 pl-3 pr-3;
 }
 
 .experience-instance {
@@ -284,6 +297,8 @@ html, body {
 
 .portfolio-container {
     @apply flex flex-col gap-y-10;
+    @apply rounded-xl border-amber-50/25 border-[0.125px];
+    @apply pb-5 pl-3 pr-3;
 }
 
 
@@ -345,6 +360,8 @@ html, body {
 
 .certifications-container {
     @apply flex flex-col gap-y-5;
+    @apply rounded-xl border-amber-50/25 border-[0.125px];
+    @apply pb-5 pl-3 pr-3;
 }
 
 .certifications-col {
@@ -383,6 +400,8 @@ html, body {
 
 .education-container {
     @apply flex flex-col gap-y-5;
+    @apply rounded-xl border-amber-50/25 border-[0.125px];
+    @apply pb-5 pl-3 pr-3;
 }
 
 .education-title {
@@ -686,4 +705,54 @@ html, body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* individual project pages */
+.header-button-container {
+    @apply flex flex-row gap-x-3;
+}
+
+.header-button-container {
+    @apply flex flex-row gap-x-3;
+}
+
+.portfolio-front-page {
+    @apply min-h-[75vh] flex justify-center items-center;
+}
+
+.portfolio-title-3d-shell {
+    @apply relative flex h-[560px] w-[min(1200px,96vw)] items-center justify-center;
+    isolation: isolate;
+}
+
+#portfolioTitle3DCanvas {
+    @apply pointer-events-none absolute inset-0 z-[5] h-full w-full;
+}
+
+.portfolio-header-buttons {
+    @apply w-[10%] p-3 flex items-center justify-center rounded-xl border-[0.125px] border-amber-50/25;
+}
+
+#portfolio-page-name-title {
+    @apply relative z-[10] flex flex-row items-center text-[10em] font-semibold;
+    @apply text-white;
+    mix-blend-mode: difference;
+}
+
+#portfolio-page-name-subtitle {
+    @apply relative z-[10] flex flex-row items-center text-[2em] font-semibold;
+    @apply text-white;
+    mix-blend-mode: difference;
+}
+
+.portfolio-page-name-container {
+    @apply flex flex-col justify-center items-center;
+}
+
+.portfolio-page-content-container {
+    @apply p-5 rounded-xl border-[0.125px] border-amber-50/25;
+}
+
+.portfolio-content-section-text {
+    @apply pl-2.5 pr-2.5;
 }

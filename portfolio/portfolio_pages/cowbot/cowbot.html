@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/css/tail_main.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.png">
+    <title>Document</title>
+</head>
+<body>
+    <!-- background -->
+    <div class="gradient-background-portfolio-page">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradient-container">
+            <div class="interactive"></div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="main-portfolio-container">   
+        <div>
+            <div class="header-button-container">
+                <div class="portfolio-header-buttons standard-text">
+                    Home 
+                </div>
+                <div class="portfolio-header-buttons standard-text">
+                    Portfolio
+                </div>
+            </div>
+
+            <div class="portfolio-front-page">
+                <div class="portfolio-title-3d-shell" id="portfolioTitle3DShell">
+                    <canvas id="portfolioTitle3DCanvas"></canvas>
+                    <div class="portfolio-page-name-container">
+                        <div id="portfolio-page-name-title">COWBOT</div>
+                        <div id="portfolio-page-name-subtitle"> NDSU COMBAT ROBOTICS </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <div class="portfolio-page-content-container">
+                <div class="content-section-header"> CONTEXT </div>
+                <div class="standard-text portfolio-content-section-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+            <div class="portfolio-page-content-container">
+                <div class="content-section-header"> DEVELOPMENT </div>
+                <div class="standard-text portfolio-content-section-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+            <div class="portfolio-page-content-container">
+                <div class="content-section-header"> RESULTS </div>
+                <div class="standard-text portfolio-content-section-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+            <div class="portfolio-page-content-container">
+                <div class="content-section-header"> ACKNOWLEDGEMENTS </div>
+                <div class="standard-text portfolio-content-section-text">
+                    2024-2025 Cowbot Group: Adam Eberle, Alexander Munson, Chase Calander, Collin Obowa
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/src/js/main.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="/src/js/cowbot-title-model.js"></script>
+</body>
+</html>
