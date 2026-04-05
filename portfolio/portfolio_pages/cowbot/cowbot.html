@@ -46,7 +46,7 @@
                     <canvas id="portfolioTitle3DCanvas"></canvas>
                     <div class="portfolio-page-name-container">
                         <div id="portfolio-page-name-title">COWBOT</div>
-                        <div id="portfolio-page-name-subtitle"> NDSU COMBAT ROBOTICS </div>
+                        <div id="portfolio-page-name-subtitle"> / NDSU COMBAT ROBOTICS / </div>
                     </div>
                 </div>
             </div>
@@ -54,12 +54,21 @@
         </div>
         <div>
             <div class="portfolio-page-col-generator">
+                <div class="portfolio-page-content-container" id="cowbot-image-container">
+                    <div class="portfolio-page-image-container">
+                        <img class="portfolio-page-image" src="./cowbot_2.webp">
+                    </div>
+                </div>
                 <div class="portfolio-page-content-container">
                     <div class="content-section-header"> CONTEXT </div>
                     <div class="portfolio-page-content-subcontainer">
                         <div class="standard-text portfolio-content-section-text">
                             Cowbot is a combat robot I led the development of during my sophomore year (2024-2025) at NDSU. 
-                            We competed in Robobrawl's UIUC X, a bracket-style competition where robots are 
+                            We competed in 
+                            <a href="https://robobrawl.illinois.edu/" target="_blank">
+                                <span class="bolded-standard-text animated-underline">Robobrawl's UIUC X,</span>
+                            </a>  
+                            a bracket-style competition where robots are 
                             designed to disable or destroy opponents. Since no one on our team had prior robotics 
                             experience, the project became a full ground-up effort in learning how to design for 
                             impact, reliability, and performance under strict weight constraints. I helped lead 
@@ -67,38 +76,32 @@
                             packaging, turning an unfamiliar challenge into a functional competitive robot.
                             <br>
                             <br>
-                            Oh and if you're wondering, its namesake was inherited from an elaborate inside joke. 
+                            After being exposed to Robobrawl the year prior, I became interested in the creativity and
+                            engineering behind combat robotics, which ultimately led to this project.
+                            My previous exposure to Robobrawl and experience in creating CAD models for our old robots
+                            gave me the necessary proficiencies on how to go about designing a battlebot. In the fall of 2024,
+                            I organized a group of 5 student engineers to take on this project.
+                            As the group lead, I organized design reviews, managed our BOM, and provided much needed mentorship
+                            to new members. 
+                            <br>
+                            <br>
+                            We registered for the 30 lb division and went forward through an 8 month development cycle, which
+                            culminated in March 2025. Oh and if you're wondering, its namesake was inherited from an elaborate inside joke. 
                         </div>
-                    </div>
-                </div>
-                <div class="portfolio-page-content-container">
-                    <div class="portfolio-page-image-container">
-                        <img class="portfolio-page-image" src="./cowbot_1.webp">
-                        <img class="portfolio-page-image" src="./cowbot_2.webp">
-                        <img class="portfolio-page-image" src="./cowbot_3.webp">
-                        <img class="portfolio-page-image" src="./cowbot_4.webp">
                     </div>
                 </div>
             </div>
             <div class="portfolio-page-col-generator">
                 <div class="portfolio-page-content-container">
-                    <div class="content-section-header"> SPECIFICATIONS </div>
-                    <div class="standard-text portfolio-content-section-text">
-                        Robot weight: 28.7 lbs <br>
-                        Weapon type: Vertical modified drum spinner <br>
-                        Weapon weight: 5 lbs <br>
-                        Weapon Max RPM (theoretical): <br>
-                        Weapon kinetic energy (theoretical): <br>
-                        Weapon power delivery: Mamba Monster X 8S <br>
-                        Drivetrain: 2x NEO brushless V1.1 & 2x SPARK MAX ESC, Chain drive<br>
-                        Battery: 5S 3600 mAh 18.5V 60C<br>
-                        Armor: 3/8" Aluminum 6061, HDPE <br>
-                        Dimensions: <br>
-                    </div>
-                </div>
-                <div class="portfolio-page-content-container">
                     <div class="content-section-header"> DEVELOPMENT </div>
                     <div class="standard-text portfolio-content-section-text">
+                        Before we started our design, we had to consider a few basic considerations in mind: <br> <br>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li>The robot must comply with the 30 lb weight limit.</li>
+                            <li>The chassis should be rigid enough to withstand high impacts and carry loads from the spinning weapon.</li>
+                            <li>Materials must be relatively cheap and easily sourced (can't do titanium!).</li>
+                            <li>Electronics in the interior of the robot should be securedly fastened.</li>
+                        </ul> <br>
                         The initial basic idea we wanted for Cowbot was similar to sloped armor that Soviet tanks 
                         from the second world war heavily employed. The idea is that an angled surface will have greater 
                         effective thickness in the normal direction, perpendicular to the vehicle base. Additionally, we 
@@ -116,7 +119,16 @@
                         as that was the available thickness that the club had in stock. HDPE was selected for the side skirts because it can 
                         plastically deform under impact rather than behave as a rigid member, helping absorb and dissipate kinetic energy.
                         A large cover consisting of aluminum and plastic sheets protect the top portion to defend from overhead attacks, largely from
-                        axe or hammer bots.
+                        axe or hammer bots. We prototyped our chassis by using laser cut wood of appropriate thicknesses to do test fits on our internal
+                        components.
+                        <br>
+                        <br>
+                        The internal volume was made to be as compact as possible. As a result, our drive motors were in a staggered configuration.
+                        Our ground clearance was made to be as small as possible to prevent opposing vertical spinners from catching the undersdide 
+                        of the robot. One minor deviation we made from the rest of the club was that we switched from DSMX to ELRS for radio protocol,
+                        which decreased our latency and increased our operational distance subtantially. While the impact on the overall project was 
+                        relatively small, the decision reflected a broader mindset that shaped the build - we were willing to evaluate assumptions, 
+                        compare alternatives, and adopt a different solution when it offered a clear technical advantage. 
                         <br>
                         <br>
                         We built our development workspace in Onshape, which allows multiple team members to simultaneously model on the same project files, 
@@ -125,21 +137,78 @@
                         scripting tools for tasks such as weight reduction.
                     </div>
                 </div>
-            </div>
-            <div class="portfolio-page-content-container">
-                <div class="content-section-header"> REFLECTIONS </div>
-                <div class="standard-text portfolio-content-section-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <div class="portfolio-page-content-container" id="cowbot-draft-image-container">
+                    <div class="portfolio-page-image-container" id="development-images-container">
+                        <img class="portfolio-page-image" src="./cowbot_5.webp">
+                        <img class="portfolio-page-image" src="./cowbot_4.webp">
+                    </div>
                 </div>
             </div>
-            <div class="portfolio-page-content-container">
+            <div class="portfolio-page-col-generator">   
+                <div class="portfolio-page-content-container" id="cowbot-specifications">
+                        <div class="content-section-header"> SPECIFICATIONS </div>
+                        <div class="standard-text portfolio-content-section-text">
+                            <ul class="portfolio-list" style="list-style-type: square;">
+                                <li> Robot weight: 28.7 lbs </li>
+                                <li> Weapon type: Vertical modified drum spinner </li>
+                                <li> Weapon weight: 5 lbs </li>
+                                <li> Weapon Max RPM (theoretical): </li>
+                                <li> Weapon kinetic energy (theoretical): </li>
+                                <li> Weapon power delivery: Mamba Monster X 8S </li>
+                                <li> Drivetrain: 2x NEO brushless V1.1 & 2x SPARK MAX ESC, Chain drive </li>
+                                <li> Battery: 5S 3600 mAh 18.5V 60C </li>
+                                <li> Armor: 3/8" Aluminum 6061, HDPE </li>
+                                <li> Dimensions: </li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> REFLECTIONS </div>
+                    <div class="standard-text portfolio-content-section-text">
+                        One of the most valuable outcomes of this project was the set of lessons we gained throughout the design and build process. 
+                        <br>
+                        <br>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li> Tolerances and manufacturing operations (drilling, tapping, milling, bending, waterjet, EDM, etc.) </li>
+                            <li> CAD modeling and engineering drawings through Onshape. </li>
+                            <li> Design for manufacturing (DFM) and design for assembly (DFA) principles, as well as designing for ease of maintenance. </li>
+                            <li> Material selection, resource management, and accounting for possible failure modes. </li> 
+                        </ul>
+                </div>
+            </div>
+            <div class="portfolio-page-content-container" id="cowbot-acknowledgements">
                 <div class="content-section-header"> ACKNOWLEDGEMENTS </div>
                 <div class="standard-text portfolio-content-section-text">
-                    2024-2025 Cowbot Group: Adam Eberle, Alexander Munson, Chase Calander, Collin Obowa
+                    2024-2025 Cowbot Group: <br> <br>
+                    <ul class="portfolio-list" style="list-style-type: square;">
+                        <li> Adam Eberle (Fr) </li>
+                        <li> <a href="https://www.linkedin.com/in/alexander-munson-31140032b/" target="_blank">
+                            <span class="bolded-standard-text animated-underline">Alexander Munson (Fr) </span>
+                        </a> </li>
+                        <li> <a href="https://www.linkedin.com/in/chase-calander-9623a82b1/" target="_blank">
+                            <span class="bolded-standard-text animated-underline">Chase Calander (Fr) </span>
+                        </a> </li>
+                        <li> <a href="https://www.linkedin.com/in/collin-obowa-454850271/" target="_blank">
+                            <span class="bolded-standard-text animated-underline">Collin Obowa (Sr)</span>
+                        </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-page-content-container">
+            <div class="content-section-header"> GALLERY </div>
+            <div class="standard-text portfolio-content-section-text">
+                <div class="portfolio-final-gallery-container">
+                    <img class="portfolio-final-gallery-img" src="cowbot_1.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_3.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_6.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_7.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_8.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_9.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_10.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_11.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_12.webp">
+                    <img class="portfolio-final-gallery-img" src="cowbot_13.webp">
                 </div>
             </div>
         </div>
