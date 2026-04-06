@@ -729,6 +729,13 @@ html, body {
     @apply w-[25%] shrink-0;
 }
 
+/* datalogger */
+#datalogger-title {
+    @apply relative z-[10] flex flex-row items-center text-[5em] font-semibold;
+    @apply text-white;
+    mix-blend-mode: difference;
+}
+
 /* individual project pages */
 .header-button-container {
     @apply flex flex-row gap-x-3;
