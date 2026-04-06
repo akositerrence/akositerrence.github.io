@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/css/tail_main.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.png">
+    <title>Boulderbot</title>
+</head>
+<body>
+    <!-- background -->
+    <div class="gradient-background-portfolio-page">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradient-container">
+            <div class="interactive"></div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="main-portfolio-container">   
+        <div>
+            <div class="header-button-container">
+                <div class="portfolio-header-buttons standard-text">
+                    <a href="/index.html">
+                        <span class="standard-text animated-underline-portfolio">Home</span>
+                    </a> 
+                </div>
+                <div class="portfolio-header-buttons standard-text">
+                    <a href="/portfolio/portfolio.html">
+                        <span class="standard-text animated-underline-portfolio">Portfolio</span>
+                    </a> 
+                </div>
+            </div>
+
+            <div class="portfolio-front-page">
+                <div class="portfolio-title-3d-shell" id="portfolioTitle3DShell">
+                    <canvas id="portfolioTitle3DCanvas"></canvas>
+                    <div class="portfolio-page-name-container">
+                        <div id="portfolio-page-name-title">BOULDERBOT</div>
+                        <div id="portfolio-page-name-subtitle"> / NDSU COMBAT ROBOTICS / </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <div class="portfolio-page-col-generator">
+                <div class="portfolio-page-content-container" id="cowbot-image-container">
+                    <div class="portfolio-page-image-container">
+                        <img class="portfolio-page-image" src="./boulderbot_1.webp">
+                    </div>
+                </div>
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> CONTEXT </div>
+                    <div class="portfolio-page-content-subcontainer">
+                        <div class="standard-text portfolio-content-section-text">
+                            Boulder is a combat robot I led the development of during my junior year (2025-2026) at NDSU. 
+                            We competed in 
+                            <a href="https://robobrawl.illinois.edu/" target="_blank">
+                                <span class="bolded-standard-text animated-underline">Robobrawl's UIUC XI,</span>
+                            </a>  
+                            a bracket-style competition where robots are 
+                            designed to disable or destroy opponents. 
+                            The project is largely a perpetuation of the prior year's work on 
+                            <a href="/portfolio/portfolio_pages/cowbot/cowbot.html" target="_blank">
+                                <span class="bolded-standard-text animated-underline">Cowbot,</span>
+                            </a>  
+                            hosting a very similar form factor and hardware. We took the lessons we learned from Cowbot to produce
+                            a more functional, efficient, and competitive battlebot. Additionally, the mentorship I provided through Cowbot
+                            allowed our members more autonomy across systems. In addition to my group lead title, I was the responsible 
+                            engineer for our structural assembly. While 
+                            <a href="https://www.linkedin.com/in/alexander-munson-31140032b/" target="_blank">
+                                <span class="bolded-standard-text animated-underline">Alexander Munson</span>
+                            </a>
+                            headed the drivetrain group. He eventually took over as group lead as I departed in the spring of 2026 for a Co-op.
+                            <br> 
+                            <br>
+                            We registered for the 30 lb division and went forward through an 8 month development cycle, which culminated in March 2026. 
+                            Its namesake comes from the fact that majority of the people on our team were boulderers.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-page-col-generator">
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> DEVELOPMENT </div>
+                    <div class="standard-text portfolio-content-section-text">
+                        Our prior experience with
+                        <a href="/portfolio/portfolio_pages/cowbot/cowbot.html" target="_blank">
+                            <span class="bolded-standard-text animated-underline">Cowbot,</span>
+                        </a>  
+                        provided us with valuable considerations:
+                        <br> <br>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li>More space is needed in the interior volume of the robot.</li>
+                            <li>Ease of access for maintenance and a simplified top access panel.</li>
+                            <li>Use TPU instead of UHMW to allow for more complex geometries</li>
+                            <li>Leverage FEA for more analytical-based weight reduction</li>
+                            <li>Design for assembly (DFA) should be heavily prioritized to allow for uncompromised maintenance</li>
+                        </ul> <br>
+                        We were going for a similar form factor to Cowbot, though with more space in the inside for 
+                        wires, electronics, and other peripherals. We opted for a "tab and slot" approach for the chassis and used
+                        the same hardware as Cowbot (2x NEO brushlesss motor and SPARKMAX ESCs) to reduce the cost of the project.
+                        3/8" aluminum was chosen for the chassis as that was the available material the club had in stock. TPU was chosen for the 
+                        sideskirts to allow for a plastic deformation under impact, helping absorb and dissipate kinetic energy. We prototyped our chassis 
+                        by using laser cut wood of appropriate thicknesses to do test fits on our internal components. 
+                        <br>
+                        <br>
+                        A new possibility we wanted to explore was the use of a counter-rotating flywheel with its own dedicated motor. 
+                        Because a vertical spinner generates significant angular momentum, it can introduce undesirable gyroscopic effects 
+                        during turning, maneuvering, or sudden changes in orientation. By spinning a separate flywheel in the opposite direction, 
+                        we aimed to partially offset these effects and improve the robot’s stability and controllability without changing the main 
+                        weapon system itself. We eventually rejected the component as it would introduce unnecessary points of failure for marginal gain.
+                        <br>
+                        <br>
+                        We built our development workspace in Onshape, which allows multiple team members to simultaneously model on the same project files, 
+                        as all information is stored online in the cloud. Additionally, Onshape enables modeling through web browsers, opening up the ability 
+                        for our team to work on almost any platform, regardless of their hardware specifications. Onshape also provides publicly available 
+                        scripting tools for tasks such as weight reduction.
+                    </div>
+                </div>
+                <div class="portfolio-page-content-container" id="cowbot-draft-image-container">
+                    <div class="portfolio-page-image-container" id="development-images-container">
+                        <img class="portfolio-page-image" src="./boulderbot_2.webp">
+                        <img class="portfolio-page-image" src="./boulderbot_5.webp">
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-page-col-generator">   
+                <div class="portfolio-page-content-container" id="cowbot-specifications">
+                        <div class="content-section-header"> SPECIFICATIONS </div>
+                        <div class="standard-text portfolio-content-section-text">
+                            <ul class="portfolio-list" style="list-style-type: square;">
+                                <li> Robot weight: 28.7 lbs </li>
+                                <li> Weapon type: Vertical modified drum spinner </li>
+                                <li> Weapon weight: 7 lbs </li>
+                                <li> Weapon motor: Castle 1515 </li>
+                                <li> Weapon max RPM (theoretical): </li>
+                                <li> Weapon kinetic energy (theoretical): </li>
+                                <li> Weapon power delivery: Mamba Monster X 8S </li>
+                                <li> Drivetrain: 2x NEO brushless V1.1 & 2x SPARK MAX ESC, Chain drive </li>
+                                <li> Battery: 5S 3600 mAh 18.5V 60C </li>
+                                <li> Armor: 3/8" Aluminum 6061, TPU, PETG </li>
+                                <li> Dimensions: </li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> CONCLUSIONS </div>
+                    <div class="standard-text portfolio-content-section-text">
+                        The robot participated in one elimination match: <br> <br>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li>Match 1 (Loss): Boulderbot suffered a direct impact which sent it over the
+                                wall and resulted in an elimination. Damage was sustained to the PETG top plate
+                                and front right side of the chassis.
+                            </li>
+                        </ul>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li>Match 2 (Forfeit): The second match was forfeited to preserve the robot.
+                            </li>
+                        </ul>
+                        <br> 
+                        One of the most valuable outcomes of this project was the set of lessons we gained throughout the design and build process:
+                        <br>
+                        <br>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li> <b>Tolerances</b> and <b>manufacturing</b> operations (drilling, tapping, milling, bending, waterjet, EDM, etc.) </li>
+                            <li> CAD modeling and engineering drawings through <b>Onshape</b>. </li>
+                            <li> <b>Design for manufacturing (DFM)</b> and <b>design for assembly (DFA)</b> principles, as well as designing for ease of maintenance. </li>
+                            <li> Material selection, resource management, and accounting for possible failure modes. </li> 
+                            <li> Topology optimization through <b>Ansys</b> workbench. </li>
+                        </ul>
+                </div>
+            </div>
+            <div class="portfolio-page-content-container" id="cowbot-acknowledgements">
+                <div class="content-section-header"> ACKNOWLEDGEMENTS </div>
+                <div class="standard-text portfolio-content-section-text">
+                    2025-2026 Boulderbot Group: <br> <br>
+                    <ul class="portfolio-list" style="list-style-type: square;">
+                        <li> Adam Eberle </li>
+                        <li> <a href="https://www.linkedin.com/in/alexander-munson-31140032b/" target="_blank">
+                            <span class="bolded-standard-text animated-underline">Alexander Munson </span>
+                        </a> </li>
+                        <li> <a href="https://www.linkedin.com/in/chase-calander-9623a82b1/" target="_blank">
+                            <span class="bolded-standard-text animated-underline">Chase Calander </span>
+                        </a> </li>
+                        <li> Kevin Neary </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-page-content-container">
+            <div class="content-section-header"> GALLERY </div>
+            <div class="standard-text portfolio-content-section-text">
+                <div class="portfolio-final-gallery-container">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_10.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_3.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_11.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_9.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_14.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_4.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_6.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_7.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_12.webp">
+                    <img class="portfolio-final-gallery-img" src="boulderbot_13.webp">
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-page-content-container">
+            <div class="standard-text portfolio-content-section-text">
+                © 2026 Terrence Andre San Gabriel
+            </div>
+        </div>
+    </div>
+    <script src="/src/js/main.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="/src/js/boulderbot-title-model.js"></script>
+</body>
+</html>
