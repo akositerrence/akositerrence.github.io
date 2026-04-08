@@ -63,7 +63,7 @@
                     <div class="content-section-header"> CONTEXT </div>
                     <div class="portfolio-page-content-subcontainer">
                         <div class="standard-text portfolio-content-section-text">
-                            _ is an electronics bay I designed as part of NDSU's Rocketry Team. It features
+                            COOKED (Control, Orientation, and Onboard Kinematic Estimation Device) is an electronics bay I designed as part of NDSU's Rocketry Team. It features
                             a non-commercial sensor suite which logs data such as acceleration, velocity, and position.
                             Additionally, it hosts an onboard microcontroller (Teensy 4.1) which controls indicator lights and
                             a reactions wheel through PWM signals. Another microcontroller (ESP32) allows for remote authority over 
@@ -163,13 +163,19 @@
                 </div>
             </div>
             <div class="portfolio-page-col-generator">
+                <div class="portfolio-page-content-container" id="cowbot-draft-image-container">
+                    <div class="portfolio-page-image-container" id="development-images-container">
+                        <img class="portfolio-page-image" src="">
+                        <img class="portfolio-page-image" src="">
+                    </div>
+                </div>
                 <div class="portfolio-page-content-container">
                     <div class="content-section-header"> DEVELOPMENT, ROUND 2 (2025-2026) </div>
                     <div class="standard-text portfolio-content-section-text">
                         New year, new rocket! The 2025-2026 competition objectives in terms of the datalogger were largely the same.
                         However, there were some interesting additions:
                         <br> 
-                        2024-2025 Competition: <br> <br>
+                        2025-2026 Competition: <br> <br>
                         <ul class="portfolio-list" style="list-style-type: square;">
                             <li>There will be an arrangement of lights on the ground that change every 0.5s for 10s</li>
                             <li>There needs to be cameras that can see these lights on the ground</li>
@@ -182,23 +188,58 @@
                         changes on the ground, and possibly use computer vision to decode the pattern. The roll mechanism was
                         especially frightening, since that meant my datalogger is no longer just a monitoring unit, but it also now has 
                         direct authority over the rocket's trajectory, as my orientation data would be needed to satisfy the roll
-                        mechanism necessity.
+                        mechanism necessity. Since the sensors from the year prior were already proven to work, I reused the same set.
                         <br> <br>
+                        <b> CONCEPT GENERATION </b> <br> <br>
+                        The prior year's electrical bay conditions were quite straightforward, as the datalogging requirements
+                        were clearly outlined. With the new roll mechanism and camera requirement, we needed to think of new rocket subsystems that 
+                        will couple with the datalogger. We considered two main possibilities for the roll mechanism: <br> <br>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li>Controlled fins - servos control the angle of the fins in response to inertial changes</li>
+                            <li>Reaction wheel - a motor changes a flywheel's speed to change its rotational inertia, rolling the rocket</li>
+                        </ul> <br>
+                        Online research leaned us toward the reaction wheel, as controlled fin setups could prove jittery and therefore unreliable.
+                        A reaction wheel could be contained in the internal volume of the rocket, and only relies on one control input (speed of 
+                        the driving motor). This meant we needed an appropriately sized motor, ESC, and flywheel. The Teensy 4.1 can send out PWM signals
+                        to the ESC and control the motor speed. For the cameras, online forums largely pointed to the Mobius or RunCam cameras. We opted for
+                        the RunCam Split V2 due to its form factor, as it has a free floating lens attached to a board which we can interface directly with.
+                        <br> <br>
+                        <b> STRUCTURAL MOUNTS </b> <br> <br>
+                        The old datalogger PCB was a simple board that connected multiple sensor breakout boards to the MCU. This year, I wanted to leverage
+                        JST connectors to couple across different custom PCBs. They are vibration resistant and are advantageous for high dynamic environments,
+                        such as the case for a model rocket. At first, I wanted to use a set of 4 threaded rods in a square configuration to mount 4 separate boards.
+                        However, I later switched to a 3 rod triangle configuration, since it would make the most amount of sense for the 3 cameras we were using.
+                        Additionally, I added support for disc PCBs above the main boards for peripherals that won't directly fit on the main PCB. The empty volume
+                        in the middle of the rods are reserved for the LiPo batteries to be used for the flywheel motor and the electronics.
+                        I printed the mounts with PETG due to its high impact resistance, and secured them with hex nuts.
+                        <br> <br>
+                        <b> POWER MANAGEMENT </b> <br> <br>
+                        Since the rocket may be sitting idle on the pad for a while before it actually launches, I do not want the datalogger and cameras to consume power
+                        until right before launch. This meant I needed a power management board that could be remotely controlled to switch the power to the system.
+                        For this application, I opted to use an ESP32 coupled with a LoRA module, which will drive MOSFETs that act as relays to switch power from a 
+                        buck converter, which is then connected to a LiPo battery. There will be threee external switches on the switch band, one for the ESP32, and the other for the 
+                        reaction wheel. The third switch will be a bypass for the Teensy, incase the ESP32 fails to power it on the launch pad.
                     </div>
                 </div>
             </div>
+            <div class="portfolio-page-content-container">
+                <div class="content-section-header"> TESTING </div>
+                <div class="standard-text portfolio-content-section-text">
+                    h
+                </div>
+            </div>
             <div class="portfolio-page-col-generator">   
-                <div class="portfolio-page-content-container" id="cowbot-specifications">
-                        <div class="content-section-header"> SPECIFICATIONS </div>
-                        <div class="standard-text portfolio-content-section-text">
-                            <ul class="portfolio-list" style="list-style-type: square;">
-                                <li> Primary Microcontroller: Teensy 4.1 </li>
-                                <li> Secondary Microcontroller: ESP32 </li>
-                                <li> Primary IMU (±16 g): ICM20948 </li>
-                                <li> Secondary IMU (±200 g): ADXL375 </li>
-                                <li> Barometer: BMP390 </li>
-                            </ul>
-                        </div>
+                <div class="portfolio-page-content-container">
+                    <div class="content-section-header"> SPECIFICATIONS </div>
+                    <div class="standard-text portfolio-content-section-text">
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li> Primary Microcontroller: Teensy 4.1 </li>
+                            <li> Secondary Microcontroller: ESP32 </li>
+                            <li> Primary IMU (±16 g): ICM20948 </li>
+                            <li> Secondary IMU (±200 g): ADXL375 </li>
+                            <li> Barometer: BMP390 </li>
+                        </ul>
+                    </div>
                     </div>
                 <div class="portfolio-page-content-container">
                     <div class="content-section-header"> CONCLUSIONS </div>
