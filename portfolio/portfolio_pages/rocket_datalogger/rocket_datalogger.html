@@ -46,7 +46,8 @@
                     <canvas id="portfolioTitle3DCanvas"></canvas>
                     <div class="portfolio-page-name-container" >
                         <div id="datalogger-title">ROCKET ELECTRONICS BAY</div>
-                        <div id="portfolio-page-name-subtitle"> / NDSU AIAA ROCKETRY TEAM / </div>
+                        <div id="portfolio-page-name-subtitle-rocketry"> CONTROL, ORIENTATION, AND ONBOARD KINEMATIC ESTIMATION DEVICE (COOKED) </div>
+                        <div id="portfolio-page-name-subtitle-rocketry"> / NDSU AIAA ROCKETRY TEAM / </div>
                     </div>
                 </div>
             </div>
@@ -85,7 +86,7 @@
                 <div class="portfolio-page-content-container">
                     <div class="content-section-header"> DEVELOPMENT, ROUND 1 (2024-2025) </div>
                     <div class="standard-text portfolio-content-section-text">
-                        The development of the system is in response to the Space Grant Midwest High Powered Rocket Competition rules.
+                        The development of the system (COOKED-1) is in response to the Space Grant Midwest High Powered Rocket Competition rules.
                         <br> 
                         2024-2025 Competition: <br> <br>
                         <ul class="portfolio-list" style="list-style-type: square;">
@@ -189,6 +190,7 @@
                         especially frightening, since that meant my datalogger is no longer just a monitoring unit, but it also now has 
                         direct authority over the rocket's trajectory, as my orientation data would be needed to satisfy the roll
                         mechanism necessity. Since the sensors from the year prior were already proven to work, I reused the same set.
+                        This would lay the groundwork for COOKED-2.
                         <br> <br>
                         <b> CONCEPT GENERATION </b> <br> <br>
                         The prior year's electrical bay conditions were quite straightforward, as the datalogging requirements
@@ -223,9 +225,12 @@
                 </div>
             </div>
             <div class="portfolio-page-content-container">
-                <div class="content-section-header"> TESTING </div>
+                <div class="content-section-header"> SENSOR FUSION </div>
                 <div class="standard-text portfolio-content-section-text">
-                    h
+                    Solving the hardware integration problem was only half the battle. In order to provide stable control to the reaction wheels, the orientation
+                    data needs to be clean and free from noise. Additionally, the IMUs are only able to output acceleration data, not velocity. At this stage,
+                    the project quickly became a control theory heavy crisis. I call it a crisis, because I am not an electrical engineer and don't do signal processing,
+                    yet here I am.
                 </div>
             </div>
             <div class="portfolio-page-col-generator">   
@@ -244,20 +249,25 @@
                 <div class="portfolio-page-content-container">
                     <div class="content-section-header"> CONCLUSIONS </div>
                     <div class="standard-text portfolio-content-section-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                        culpa qui officia deserunt mollit anim id est laborum.
+                        Given that majority of this project was a lot of self-taught work,
+                        it gave me some extremely valuable technical lessons on: <br> <br>
+                        <ul class="portfolio-list" style="list-style-type: square;">
+                            <li>PCB design (EasyEDA)</li>
+                            <li>Embedded systems</li>
+                            <li>Sensor integration</li>
+                            <li>Kalman filtering</li>
+                            <li>PID control</li>
+                            <li>C++</li>
+                            <li>The importance of sleep on cognitive function</li>
+                        </ul> <br>
+                        Looking forward to start work on COOKED-3!
                     </div>
                 </div>
             </div>
             <div class="portfolio-page-content-container">
                 <div class="content-section-header"> ACKNOWLEDGEMENTS </div>
                 <div class="standard-text portfolio-content-section-text">
-                    Rocketry Team: <br> <br>
+                    Super Awesome Rocketry Team: <br> <br>
                     <ul class="portfolio-list" style="list-style-type: square;">
                         <li> Emily Mikhail </li>
                         <li> Turner Person </li>

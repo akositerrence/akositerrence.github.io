@@ -736,6 +736,12 @@ html, body {
     mix-blend-mode: difference;
 }
 
+#portfolio-page-name-subtitle-rocketry {
+    @apply relative z-[10] flex flex-row items-center text-[1.625em] font-semibold;
+    @apply text-white;
+    mix-blend-mode: difference;
+}
+
 /* individual project pages */
 .header-button-container {
     @apply flex flex-row gap-x-3;
