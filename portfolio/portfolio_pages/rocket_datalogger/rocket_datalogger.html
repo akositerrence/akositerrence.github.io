@@ -145,6 +145,16 @@
                         I couldn't use any of the large u-blox boards. I was also blissfully unaware that the GPS chip needs an antenna, which I barely had the space for.
                         The final board outline took on an abnormal shape which made space for our GPS.
                         <br> <br>
+                        <div class="portfolio-final-gallery-container">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_6.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_7.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_8.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_9.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_11.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_12.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_16.webp">
+                        </div>
+                        <br> <br>
                         <b>THE INCIDENT</b>
                         <br> <br>
                         When test launch day arrived, my electronics bay was not yet ready for flight. We opted to launch without it, since we were more
@@ -158,16 +168,14 @@
                 </div>
                 <div class="portfolio-page-content-container" id="cowbot-draft-image-container">
                     <div class="portfolio-page-image-container" id="development-images-container">
-                        <img class="portfolio-page-image" src="">
-                        <img class="portfolio-page-image" src="">
+                        <img class="portfolio-page-image" src="rocket_datalogger_13.webp">
                     </div>
                 </div>
             </div>
             <div class="portfolio-page-col-generator">
                 <div class="portfolio-page-content-container" id="cowbot-draft-image-container">
                     <div class="portfolio-page-image-container" id="development-images-container">
-                        <img class="portfolio-page-image" src="">
-                        <img class="portfolio-page-image" src="">
+                        <img class="portfolio-page-image" src="rocket_datalogger_18.webp">
                     </div>
                 </div>
                 <div class="portfolio-page-content-container">
@@ -186,7 +194,7 @@
                         </ul> <br>
                         After reading these new requirements, I was slightly horrified. The vision portion meant I would need to
                         somehow implement cameras onboard the rocket with a high enough framerate and resolution to capture the light
-                        changes on the ground, and possibly use computer vision to decode the pattern. The roll mechanism was
+                        changes on the ground, and possibly use specialized computer vision algorithms to decode the pattern. The roll mechanism was
                         especially frightening, since that meant my datalogger is no longer just a monitoring unit, but it also now has 
                         direct authority over the rocket's trajectory, as my orientation data would be needed to satisfy the roll
                         mechanism necessity. Since the sensors from the year prior were already proven to work, I reused the same set.
@@ -204,7 +212,13 @@
                         A reaction wheel could be contained in the internal volume of the rocket, and only relies on one control input (speed of 
                         the driving motor). This meant we needed an appropriately sized motor, ESC, and flywheel. The Teensy 4.1 can send out PWM signals
                         to the ESC and control the motor speed. For the cameras, online forums largely pointed to the Mobius or RunCam cameras. We opted for
-                        the RunCam Split V2 due to its form factor, as it has a free floating lens attached to a board which we can interface directly with.
+                        the RunCam Split V2 due to its form factor, as it has a free floating lens attached to a board which we can interface directly with. <br> <br>
+                        <div class="portfolio-final-gallery-container">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_15.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_5.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_10.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_14.webp">
+                        </div>
                         <br> <br>
                         <b> STRUCTURAL MOUNTS </b> <br> <br>
                         The old datalogger PCB was a simple board that connected multiple sensor breakout boards to the MCU. This year, I wanted to leverage
@@ -215,22 +229,30 @@
                         in the middle of the rods are reserved for the LiPo batteries to be used for the flywheel motor and the electronics.
                         I printed the mounts with PETG due to its high impact resistance, and secured them with hex nuts.
                         <br> <br>
+                        <div class="portfolio-final-gallery-container">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_1.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_2.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_3.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_4.webp">
+                            <img class="portfolio-final-gallery-img" src="rocket_datalogger_17.webp">
+                        </div>
+                        <br>
                         <b> POWER MANAGEMENT </b> <br> <br>
                         Since the rocket may be sitting idle on the pad for a while before it actually launches, I do not want the datalogger and cameras to consume power
-                        until right before launch. This meant I needed a power management board that could be remotely controlled to switch the power to the system.
-                        For this application, I opted to use an ESP32 coupled with a LoRA module, which will drive MOSFETs that act as relays to switch power from a 
-                        buck converter, which is then connected to a LiPo battery. There will be threee external switches on the switch band, one for the ESP32, and the other for the 
-                        reaction wheel. The third switch will be a bypass for the Teensy, incase the ESP32 fails to power it on the launch pad.
+                        until right before launch. This meant I needed a way to either automatically switch the power to the datalogger before lift off, or a way to remotely
+                        control the switches. Originally, I intended to use mechanical relays to switch the power to the Teensy 4.1, the cameras, and the ESC. However, after some
+                        research, I found that MOSFETs would be more appropriate for this application as they are less susceptible to vibration and shock. Additionally, I found
+                        it difficult to find a switch that was rated for the maximum amount of current our ESC could pull (30A), so the ESC power will be controlled via a manual hex switch instead. 
+                        For the control portion, I opted to use an ESP32 coupled with a LoRA module, which will drive MOSFETs that act as relays to switch power from a 
+                        5V buck converter, which is then connected to a 7.4V LiPo battery. There will be three external switches on the switch band, one for the ESP32, and the other for the 
+                        reaction wheel. The third switch will be a bypass for the Teensy + cameras, incase the ESP32 fails to switch it on. 
                     </div>
                 </div>
             </div>
             <div class="portfolio-page-content-container">
                 <div class="content-section-header"> SENSOR FUSION </div>
                 <div class="standard-text portfolio-content-section-text">
-                    Solving the hardware integration problem was only half the battle. In order to provide stable control to the reaction wheels, the orientation
-                    data needs to be clean and free from noise. Additionally, the IMUs are only able to output acceleration data, not velocity. At this stage,
-                    the project quickly became a control theory heavy crisis. I call it a crisis, because I am not an electrical engineer and don't do signal processing,
-                    yet here I am.
+                    
                 </div>
             </div>
             <div class="portfolio-page-col-generator">   

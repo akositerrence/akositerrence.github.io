@@ -1,0 +1,11 @@
+Solving the hardware integration problem was only half the battle. In order to provide stable control to the reaction wheels, the orientation
+                    data needs to be clean and free from noise. Additionally, the IMUs are only able to output acceleration data, not velocity. At this stage,
+                    the project quickly became a control theory heavy crisis. I call it a crisis, because I am not an electrical engineer and don't do signal processing,
+                    yet here I am. <br> <br>
+                    <b> KALMAN FILTER </b> <br> <br>
+                    To reduce noise from the rocket's inertial data, I opted to use a Kalman Filter. 
+                    <br> <br>
+                    <b> PID CONTROLLER </b> <br> <br>
+                    A PID (Proportional-Integral-Derivative) controller is a feedback mechanism used to maintain/change a variable to a desired set point. In the context
+                    of the project, this will be used for regulating the rocket's yaw axis stability by accelerating or decelerating the flywheel. This will also aid in
+                    video stability and make it easier to decode the lights on the ground.
