@@ -902,7 +902,7 @@ html, body {
   flex-direction: column;
 }
 .experience-dates-location {
-  margin-bottom: calc(var(--spacing) * 2.5);
+  margin-bottom: calc(var(--spacing) * 1.5);
   --tw-font-weight: var(--font-weight-extralight);
   font-weight: var(--font-weight-extralight);
   opacity: 62.5%;
@@ -950,6 +950,9 @@ html, body {
   @media (width >= 48rem) {
     width: calc(var(--spacing) * 7.5);
   }
+}
+.nasa-experience-text {
+  margin-bottom: calc(var(--spacing) * 4);
 }
 .portfolio-instance {
   display: flex;
@@ -1071,7 +1074,7 @@ html, body {
   border-radius: var(--radius-md);
 }
 .project-date {
-  margin-bottom: calc(var(--spacing) * 2.5);
+  margin-bottom: calc(var(--spacing) * 1.5);
   --tw-font-weight: var(--font-weight-extralight);
   font-weight: var(--font-weight-extralight);
   opacity: 62.5%;
@@ -1175,7 +1178,7 @@ html, body {
   opacity: 0.75;
 }
 .certificate-source {
-  margin-bottom: calc(var(--spacing) * 2.5);
+  margin-bottom: calc(var(--spacing) * 1.5);
   --tw-font-weight: var(--font-weight-extralight);
   font-weight: var(--font-weight-extralight);
   opacity: 62.5%;

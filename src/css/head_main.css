@@ -259,7 +259,7 @@ html, body {
 }
 
 .experience-dates-location {
-    @apply font-extralight mb-2.5 opacity-62.5;
+    @apply font-extralight mb-1.5 opacity-62.5;
 }
 
 .experience-title {
@@ -285,6 +285,10 @@ html, body {
 
 .experience-img {
     @apply w-0 md:w-7.5 rounded-sm;
+}
+
+.nasa-experience-text {
+    @apply mb-4;
 }
 
 .portfolio-instance {
@@ -345,7 +349,7 @@ html, body {
 }
 
 .project-date {
-    @apply font-extralight mb-2.5 opacity-62.5;
+    @apply font-extralight mb-1.5 opacity-62.5;
 }
 
 .last-update {
@@ -384,7 +388,7 @@ html, body {
 }
 
 .certificate-source {
-    @apply font-extralight mb-2.5 opacity-62.5;
+    @apply font-extralight mb-1.5 opacity-62.5;
 }
 
 .certifications-description {
