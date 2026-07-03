@@ -1202,7 +1202,10 @@ html, body {
   padding-top: calc(var(--spacing) * 3);
   padding-right: calc(var(--spacing) * 3);
   padding-bottom: calc(var(--spacing) * 3);
-  padding-left: calc(var(--spacing) * 5);
+  padding-left: calc(var(--spacing) * 2.5);
+  @media (width >= 48rem) {
+    padding-left: calc(var(--spacing) * 5);
+  }
 }
 .education-instance {
   display: flex;

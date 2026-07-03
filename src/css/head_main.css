@@ -400,7 +400,8 @@ html, body {
 .copyright-container {
     @apply flex flex-row items-center;
     @apply rounded-xl border-amber-50/25 border-[0.125px];
-    @apply pt-3 pb-3 pl-5 pr-3;
+    @apply pt-3 pb-3 pl-2.5 pr-3;
+    @apply md:pl-5
 }
 
 .education-instance {
