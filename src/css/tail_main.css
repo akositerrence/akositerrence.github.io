@@ -546,9 +546,9 @@ html, body {
 }
 .main-container {
   padding-top: 7.5vw;
-  padding-right: 7.5vw;
+  padding-right: 5vw;
   padding-bottom: 7.5vw;
-  padding-left: 7.5vw;
+  padding-left: 5vw;
   @media (width >= 48rem) {
     padding-top: 5vw;
   }
@@ -593,6 +593,14 @@ html, body {
   }
 }
 .title-container {
+  padding-right: 2.5vw;
+  padding-left: 2.5vw;
+  @media (width >= 48rem) {
+    padding-right: calc(var(--spacing) * 0);
+  }
+  @media (width >= 48rem) {
+    padding-left: calc(var(--spacing) * 0);
+  }
   display: flex;
   flex-direction: column;
   row-gap: calc(var(--spacing) * 5);

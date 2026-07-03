@@ -106,7 +106,7 @@ html, body {
 }
 
 .main-container {
-    @apply pl-[7.5vw] pr-[7.5vw] pt-[7.5vw] pb-[7.5vw];
+    @apply pl-[5vw] pr-[5vw] pt-[7.5vw] pb-[7.5vw];
     @apply md:pr-[10vw] md:pt-[5vw] md:pl-[10vw];
     @apply flex gap-y-2.5 gap-x-5;
     @apply flex-col md:flex-row;
@@ -122,6 +122,8 @@ html, body {
 }
 
 .title-container {
+    @apply pr-[2.5vw] pl-[2.5vw];
+    @apply md:pr-0 md:pl-0;
     @apply flex flex-col gap-y-5;
     @apply md:mr-[60%];
     @apply md:fixed;
