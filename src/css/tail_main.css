@@ -381,9 +381,6 @@
     --tw-blur: blur(8px);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
-  .filter {
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -747,7 +744,7 @@ html, body {
   }
 }
 .content-section-header {
-  margin-top: calc(var(--spacing) * 2.5);
+  margin-top: calc(var(--spacing) * 5);
   margin-bottom: calc(var(--spacing) * 2.5);
   font-size: 1.0625em;
   --tw-font-weight: var(--font-weight-semibold);
@@ -1253,6 +1250,9 @@ html, body {
   --tw-font-weight: var(--font-weight-extralight);
   font-weight: var(--font-weight-extralight);
   opacity: 62.5%;
+}
+.education-description {
+  margin-top: calc(var(--spacing) * 1.5);
 }
 .animated-underline {
   display: inline-block;

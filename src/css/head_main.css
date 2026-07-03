@@ -200,7 +200,7 @@ html, body {
 }
 
 .content-section-header {
-    @apply text-[1.0625em] text-green-100 font-semibold mt-2.5 mb-2.5;
+    @apply text-[1.0625em] text-green-100 font-semibold mt-5 mb-2.5;
     @apply bg-gradient-to-l from-sky-100 via-yellow-100 to-green-100;
     @apply bg-clip-text text-transparent;
     @apply md:pl-2.5 md:pr-2.5;
@@ -419,6 +419,11 @@ html, body {
 .education-dates-location {
     @apply font-extralight opacity-62.5;
 }
+
+.education-description {
+    @apply mt-1.5;
+}
+
 
 .animated-underline {
     display: inline-block;
