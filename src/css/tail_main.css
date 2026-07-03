@@ -414,9 +414,9 @@ html, body {
   padding: 0;
 }
 :root {
-  --color-bg1: rgb(123, 137, 94);
-  --color-bg2: rgb(43, 74, 52);
-  --color-bg3: rgb(20, 28, 22);
+  --color-bg1: rgb(72, 104, 79);
+  --color-bg2: rgb(44, 62, 46);
+  --color-bg3: rgb(20, 29, 20);
   --color-bg4: rgb(78, 104, 136);
   --color-bg5: rgb(38, 56, 82);
   --color-bg6: rgb(14, 22, 34);
