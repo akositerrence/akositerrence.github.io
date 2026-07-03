@@ -745,7 +745,7 @@ html, body {
 }
 .content-section-header {
   margin-top: calc(var(--spacing) * 5);
-  margin-bottom: calc(var(--spacing) * 2.5);
+  margin-bottom: calc(var(--spacing) * 0);
   font-size: 1.0625em;
   --tw-font-weight: var(--font-weight-semibold);
   font-weight: var(--font-weight-semibold);
