@@ -1188,6 +1188,22 @@ html, body {
   font-weight: var(--font-weight-extralight);
   opacity: 62.5%;
 }
+.copyright-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: var(--radius-xl);
+  border-style: var(--tw-border-style);
+  border-width: 0.125px;
+  border-color: color-mix(in srgb, oklch(98.7% 0.022 95.277) 25%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-amber-50) 25%, transparent);
+  }
+  padding-top: calc(var(--spacing) * 3);
+  padding-right: calc(var(--spacing) * 3);
+  padding-bottom: calc(var(--spacing) * 3);
+  padding-left: calc(var(--spacing) * 5);
+}
 .education-instance {
   display: flex;
   padding-right: calc(var(--spacing) * 0);

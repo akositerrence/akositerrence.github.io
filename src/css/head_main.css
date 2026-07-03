@@ -397,6 +397,12 @@ html, body {
 
 }
 
+.copyright-container {
+    @apply flex flex-row items-center;
+    @apply rounded-xl border-amber-50/25 border-[0.125px];
+    @apply pt-3 pb-3 pl-5 pr-3;
+}
+
 .education-instance {
     @apply flex pl-0 pr-0;
     @apply md:p-2.5;
