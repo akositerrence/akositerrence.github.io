@@ -48,7 +48,7 @@ html, body {
 }
 
 .bolded-standard-text {
-    @apply font-normal text-amber-200;
+    @apply font-light text-amber-100;
     opacity: 0.95;
 }
 

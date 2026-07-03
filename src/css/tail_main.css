@@ -447,9 +447,9 @@ html, body {
   opacity: 0.875;
 }
 .bolded-standard-text {
-  --tw-font-weight: var(--font-weight-normal);
-  font-weight: var(--font-weight-normal);
-  color: var(--color-amber-200);
+  --tw-font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-light);
+  color: var(--color-amber-100);
   opacity: 0.95;
 }
 .gradient-background {
