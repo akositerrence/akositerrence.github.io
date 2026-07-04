@@ -98,11 +98,6 @@
         "location": "Estes Park, Colorado",
         "date": "08.16.25"
     },
-    {
-        "src": "./photos/081625c.webp",
-        "location": "Estes Park, Colorado",
-        "date": "08.16.25"
-    },
 
 
 
@@ -116,21 +111,26 @@
         "location": "Mammoth Cave, Kentucky",
         "date": "08.13.25"
     },
+    {
+        "src": "./photos/081325c.webp",
+        "location": "Mammoth Cave, Kentucky",
+        "date": "08.13.25"
+    },
 
 
 
     {
-        "src": "./photos/081325c.webp",
+        "src": "./photos/081325d.webp",
         "location": "Gateway Arch, Missouri",
         "date": "08.13.25"
     },
     {
-        "src": "./photos/081325d.webp",
+        "src": "./photos/081325e.webp",
         "location": "St Louis, Missouri",
         "date": "08.13.25"
     },
     {
-        "src": "./photos/081325e.webp",
+        "src": "./photos/081325f.webp",
         "location": "St Louis, Missouri",
         "date": "08.13.25"
     },
@@ -154,6 +154,11 @@
     },
     {
         "src": "./photos/081025d.webp",
+        "location": "New River Gorge, West Virginia",
+        "date": "08.10.25"
+    },
+    {
+        "src": "./photos/081025e.webp",
         "location": "New River Gorge, West Virginia",
         "date": "08.10.25"
     }
