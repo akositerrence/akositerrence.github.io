@@ -1,5 +1,31 @@
 [
     {
+        "src": "./photos/052426a.webp",
+        "location": "Acadia National Park, Maine",
+        "date": "05.24.26"
+    },
+    {
+        "src": "./photos/052426b.webp",
+        "location": "Acadia National Park, Maine",
+        "date": "05.24.26"
+    },
+    {
+        "src": "./photos/052426c.webp",
+        "location": "Acadia National Park, Maine",
+        "date": "05.24.26"
+    },
+
+
+
+    {
+        "src": "./photos/052326.webp",
+        "location": "Mount Lafayette, New Hampshire",
+        "date": "05.23.26"
+    },
+
+
+
+    {
         "src": "./photos/041826.webp",
         "location": "Mount Monadnock, New Hampshire",
         "date": "04.18.26"
@@ -12,6 +38,11 @@
         "src": "./photos/031226.webp",
         "location": "The Flatirons, Colorado",
         "date": "03.12.26"
+    },
+    {
+        "src": "./photos/031026.webp",
+        "location": "South Table Mountain, Colorado",
+        "date": "03.10.26"
     },
 
 
@@ -59,6 +90,16 @@
 
     {
         "src": "./photos/081625a.webp",
+        "location": "Estes Park, Colorado",
+        "date": "08.16.25"
+    },
+    {
+        "src": "./photos/081625b.webp",
+        "location": "Estes Park, Colorado",
+        "date": "08.16.25"
+    },
+    {
+        "src": "./photos/081625c.webp",
         "location": "Estes Park, Colorado",
         "date": "08.16.25"
     },
