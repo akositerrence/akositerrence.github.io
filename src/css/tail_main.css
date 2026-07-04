@@ -430,9 +430,9 @@ html, body {
   --color-bg7: rgb(255, 255, 255);
   --color-bg8: rgb(215, 215, 215);
   --color-bg9: rgb(185, 185, 185);
-  --color-bg7l: rgba(140, 96, 132, 0.625);
-  --color-bg8l: rgba(94, 78, 122, 0.625);
-  --color-bg9l: rgba(60, 56, 96, 0.625);
+  --color-bg7l: rgba(255, 255, 255, 0.625);
+  --color-bg8l: rgba(215, 215, 215, 0.625);
+  --color-bg9l: rgba(185, 185, 185, 0.625);
   --color-bg10: rgb(48, 48, 48);
   --color-bg11: rgb(21, 21, 21);
   --color-bg12: rgb(3, 3, 3);
