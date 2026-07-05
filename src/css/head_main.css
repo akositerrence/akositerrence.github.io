@@ -558,8 +558,15 @@ html, body {
     }
 }
 
+/* gallery thumbnail filter */
 .gallery-instance img {
-    filter: brightness(0.9) contrast(1.05);
+    filter: brightness(0.98) contrast(0.92) saturate(0.82) sepia(0.08);
+}
+
+/* lightbox image filter */
+.gallery-lightbox-img {
+    @apply block max-h-[78vh] max-w-[92vw] object-contain rounded bg-white/[0.92] p-4 md:p-8;
+    filter: brightness(0.96) contrast(0.92) saturate(0.92) sepia(0.06);
 }
 
 .gallery-instance::before {

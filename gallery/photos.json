@@ -1,5 +1,46 @@
 [
     {
+        "src": "./photos/070426a.webp",
+        "location": "New River Gorge, West Virginia",
+        "date": "07.04.26"
+    },
+    {
+        "src": "./photos/070426b.webp",
+        "location": "New River Gorge, West Virginia",
+        "date": "07.04.26"
+    },
+    {
+        "src": "./photos/070426c.webp",
+        "location": "New River Gorge, West Virginia",
+        "date": "07.04.26"
+    },
+    {
+        "src": "./photos/070426d.webp",
+        "location": "New River Gorge, West Virginia",
+        "date": "07.04.26"
+    },
+    {
+        "src": "./photos/070426e.webp",
+        "location": "New River Gorge, West Virginia",
+        "date": "07.04.26"
+    },
+
+
+
+    {
+        "src": "./photos/061326a.webp",
+        "location": "Philadelphia, Pennsylvania",
+        "date": "06.13.26"
+    },
+    {
+        "src": "./photos/061326b.webp",
+        "location": "Philadelphia, Pennsylvania",
+        "date": "06.13.26"
+    },
+
+
+
+    {
         "src": "./photos/052426a.webp",
         "location": "Acadia National Park, Maine",
         "date": "05.24.26"
