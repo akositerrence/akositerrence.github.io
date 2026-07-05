@@ -529,7 +529,7 @@ html, body {
 
 @media (min-width: 1080px) {
     .page-title-card {
-        width: calc((100% - 0px) / 4);
+        width: calc((100% - 0px) / 3);
     }
 }
 
@@ -554,7 +554,7 @@ html, body {
 
 @media (min-width: 1080px) {
     .gallery-instance {
-        width: calc((100% - 0px) / 4);
+        width: calc((100% - 0px) / 3);
     }
 }
 

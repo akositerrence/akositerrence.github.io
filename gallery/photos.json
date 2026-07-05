@@ -28,6 +28,19 @@
 
 
     {
+        "src": "./photos/062026a.webp",
+        "location": "Norfolk, Virginia",
+        "date": "06.20.26"
+    },
+    {
+        "src": "./photos/062026b.webp",
+        "location": "Norfolk, Virginia",
+        "date": "06.20.26"
+    },
+
+
+
+    {
         "src": "./photos/061326a.webp",
         "location": "Philadelphia, Pennsylvania",
         "date": "06.13.26"
@@ -36,6 +49,22 @@
         "src": "./photos/061326b.webp",
         "location": "Philadelphia, Pennsylvania",
         "date": "06.13.26"
+    },
+
+
+
+    {
+        "src": "./photos/060626a.webp",
+        "location": "Lincoln Woods, Rhode Island",
+        "date": "06.06.26"
+    },
+
+    
+
+    {
+        "src": "./photos/053026a.webp",
+        "location": "Acadia National Park, Maine",
+        "date": "05.30.26"
     },
 
 
@@ -134,11 +163,6 @@
         "location": "Estes Park, Colorado",
         "date": "08.16.25"
     },
-    {
-        "src": "./photos/081625b.webp",
-        "location": "Estes Park, Colorado",
-        "date": "08.16.25"
-    },
 
 
 
@@ -147,31 +171,21 @@
         "location": "Mammoth Cave, Kentucky",
         "date": "08.13.25"
     },
+
+
+
     {
         "src": "./photos/081325b.webp",
-        "location": "Mammoth Cave, Kentucky",
-        "date": "08.13.25"
-    },
-    {
-        "src": "./photos/081325c.webp",
-        "location": "Mammoth Cave, Kentucky",
-        "date": "08.13.25"
-    },
-
-
-
-    {
-        "src": "./photos/081325d.webp",
         "location": "Gateway Arch, Missouri",
         "date": "08.13.25"
     },
     {
-        "src": "./photos/081325e.webp",
+        "src": "./photos/081325c.webp",
         "location": "St Louis, Missouri",
         "date": "08.13.25"
     },
     {
-        "src": "./photos/081325f.webp",
+        "src": "./photos/081325d.webp",
         "location": "St Louis, Missouri",
         "date": "08.13.25"
     },
@@ -195,11 +209,6 @@
     },
     {
         "src": "./photos/081025d.webp",
-        "location": "New River Gorge, West Virginia",
-        "date": "08.10.25"
-    },
-    {
-        "src": "./photos/081025e.webp",
         "location": "New River Gorge, West Virginia",
         "date": "08.10.25"
     }
