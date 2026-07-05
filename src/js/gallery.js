@@ -2,6 +2,7 @@ console.log("gallery.js loaded");
 
 let photos = [];
 let currentPhotoIndex = 0;
+let msnry = null;
 
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".project-gallery");
@@ -59,15 +60,16 @@ function createPhotoCard(photo, index) {
 }
 
 function initMasonry(grid) {
-    imagesLoaded(grid, () => {
-        new Masonry(grid, {
-            itemSelector: ".brick",
-            columnWidth: ".brick",
-            gutter: 0,
-            percentPosition: true
-        });
-        grid.classList.remove("gallery-loading");
-        grid.classList.add("gallery-ready");
+    msnry = new Masonry(grid, {
+        itemSelector: ".brick",
+        columnWidth: ".brick",
+        gutter: 0,
+        percentPosition: true
+    });
+    grid.classList.remove("gallery-loading");
+    grid.classList.add("gallery-ready");
+    imagesLoaded(grid).on("progress", () => {
+        msnry.layout();
     });
 }
 
