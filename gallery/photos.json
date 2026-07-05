@@ -59,7 +59,7 @@
         "date": "06.06.26"
     },
 
-    
+
 
     {
         "src": "./photos/053026a.webp",
@@ -91,6 +91,27 @@
         "src": "./photos/052326.webp",
         "location": "Mount Lafayette, New Hampshire",
         "date": "05.23.26"
+    },
+
+
+
+    {
+        "src": "./photos/051026a.webp",
+        "location": "Boston, Massachusetts",
+        "date": "05.10.26"
+    },
+
+
+
+    {
+        "src": "./photos/042126a.webp",
+        "location": "Boston, Massachusetts",
+        "date": "04.21.26"
+    },
+    {
+        "src": "./photos/042126b.webp",
+        "location": "Boston, Massachusetts",
+        "date": "04.21.26"
     },
 
 
