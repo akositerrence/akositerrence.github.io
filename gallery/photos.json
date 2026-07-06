@@ -1,5 +1,18 @@
 [
     {
+        "src": "./photos/070526a.webp",
+        "location": "Natural Bridge, Virginia",
+        "date": "07.05.26"
+    },
+    {
+        "src": "./photos/070526b.webp",
+        "location": "Afton Mountain, Virginia",
+        "date": "07.06.26"
+    },
+
+
+
+    {
         "src": "./photos/070426a.webp",
         "location": "New River Gorge, West Virginia",
         "date": "07.04.26"
