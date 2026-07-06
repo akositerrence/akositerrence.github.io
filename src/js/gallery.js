@@ -41,11 +41,10 @@ function createPhotoCard(photo, index) {
     const src = cleanText(photo.src);
     const location = cleanText(photo.location);
     const date = cleanText(photo.date);
-    const details = cleanText(getPhotoDetails(photo));
     const alt = cleanText(photo.alt || getPhotoDetails(photo) || "gallery photo");
     card.innerHTML = `
         <button class="instance-title gallery-photo-button" type="button">
-            <img src="${src}" alt="${alt}" loading="lazy" decoding="async">
+            <img src="${src}" alt="${alt}" loading="${index < 9 ? "eager" : "lazy"}" fetchpriority="${index < 3 ? "high" : "auto"}">
             <div class="instance-title-group">
                 ${location ? `<div class="project-img-title-affiliation gallery-hover-location">${location}</div>` : ""}
                 ${date ? `<div class="project-img-title-affiliation gallery-hover-date">${date}</div>` : ""}
