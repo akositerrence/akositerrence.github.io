@@ -1430,6 +1430,13 @@ html, body {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+.gallery-img-loading {
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+}
+.gallery-img-loaded {
+  opacity: 1;
+}
 .gallery-lightbox-img {
   display: block;
   max-height: 78vh;

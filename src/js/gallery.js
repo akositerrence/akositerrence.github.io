@@ -44,13 +44,21 @@ function createPhotoCard(photo, index) {
     const alt = cleanText(photo.alt || getPhotoDetails(photo) || "gallery photo");
     card.innerHTML = `
         <button class="instance-title gallery-photo-button" type="button">
-            <img src="${src}" alt="${alt}" loading="${index < 9 ? "eager" : "lazy"}" fetchpriority="${index < 3 ? "high" : "auto"}">
+            <img class="gallery-img-loading" src="${src}" alt="${alt}" loading="${index < 9 ? "eager" : "lazy"}" fetchpriority="${index < 3 ? "high" : "auto"}">
             <div class="instance-title-group">
                 ${location ? `<div class="project-img-title-affiliation gallery-hover-location">${location}</div>` : ""}
                 ${date ? `<div class="project-img-title-affiliation gallery-hover-date">${date}</div>` : ""}
             </div>
         </button>
     `;
+    const img = card.querySelector("img");
+    if (img.complete) {
+        img.classList.add("gallery-img-loaded");
+    } else {
+        img.addEventListener("load", () => {
+            img.classList.add("gallery-img-loaded");
+        });
+    }
     const button = card.querySelector(".gallery-photo-button");
     button.addEventListener("click", () => {
         openLightbox(index);

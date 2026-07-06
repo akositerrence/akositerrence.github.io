@@ -564,6 +564,15 @@ html, body {
     backface-visibility: hidden;
 }
 
+.gallery-img-loading {
+    opacity: 0;
+    transition: opacity 600ms ease-out;
+}
+
+.gallery-img-loaded {
+    opacity: 1;
+}
+
 /* lightbox image filter */
 .gallery-lightbox-img {
     @apply block max-h-[78vh] max-w-[92vw] object-contain rounded bg-white/[0.92] p-4 md:p-8;
