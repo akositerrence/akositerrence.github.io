@@ -3,6 +3,7 @@ console.log("gallery.js loaded");
 let photos = [];
 let currentPhotoIndex = 0;
 let msnry = null;
+let preloadedPhotoSrcs = new Set();
 
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".project-gallery");
@@ -174,6 +175,24 @@ function updateLightboxPhoto() {
     img.src = photo.src;
     img.alt = photo.alt || photoDetails || "gallery photo";
     details.textContent = photoDetails;
+    preloadNearbyPhotos();
+}
+
+function preloadNearbyPhotos() {
+    if (!photos.length) {
+        return;
+    }
+    const previousIndex = currentPhotoIndex - 1 < 0 ? photos.length - 1 : currentPhotoIndex - 1;
+    const nextIndex = currentPhotoIndex + 1 >= photos.length ? 0 : currentPhotoIndex + 1;
+    [previousIndex, nextIndex].forEach(index => {
+        const src = photos[index]?.src;
+        if (!src || preloadedPhotoSrcs.has(src)) {
+            return;
+        }
+        const img = new Image();
+        img.src = src;
+        preloadedPhotoSrcs.add(src);
+    });
 }
 
 function getPhotoDetails(photo) {
