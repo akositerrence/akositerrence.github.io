@@ -39,12 +39,13 @@ function createPhotoCard(photo, index) {
     const card = document.createElement("div");
     card.className = "gallery-instance brick";
     const src = cleanText(photo.src);
+    const thumbSrc = cleanText(getThumbnailSrc(photo.src));
     const location = cleanText(photo.location);
     const date = cleanText(photo.date);
     const alt = cleanText(photo.alt || getPhotoDetails(photo) || "gallery photo");
     card.innerHTML = `
         <button class="instance-title gallery-photo-button" type="button">
-            <img class="gallery-img-loading" src="${src}" alt="${alt}" loading="${index < 9 ? "eager" : "lazy"}" fetchpriority="${index < 3 ? "high" : "auto"}">
+            <img class="gallery-img-loading" src="${thumbSrc}" alt="${alt}" loading="${index < 9 ? "eager" : "lazy"}" fetchpriority="${index < 3 ? "high" : "auto"}">
             <div class="instance-title-group">
                 ${location ? `<div class="project-img-title-affiliation gallery-hover-location">${location}</div>` : ""}
                 ${date ? `<div class="project-img-title-affiliation gallery-hover-date">${date}</div>` : ""}
@@ -177,6 +178,10 @@ function updateLightboxPhoto() {
 
 function getPhotoDetails(photo) {
     return [photo.location, photo.date].filter(Boolean).join(" · ");
+}
+
+function getThumbnailSrc(src) {
+    return String(src ?? "").replace("./photos/", "./thumbnail_photos/");
 }
 
 function cleanText(value) {
