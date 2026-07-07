@@ -1454,13 +1454,6 @@ html, body {
   filter: brightness(0.96) contrast(0.92) saturate(0.92) sepia(0.06);
   transform: translateZ(0);
   backface-visibility: hidden;
-  transition: opacity 350ms ease-out;
-}
-.gallery-lightbox-img-loading {
-  opacity: 0;
-}
-.gallery-lightbox-img-loaded {
-  opacity: 1;
 }
 .gallery-instance::before {
   content: "";

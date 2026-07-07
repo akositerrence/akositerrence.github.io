@@ -4,6 +4,7 @@ let photos = [];
 let currentPhotoIndex = 0;
 let msnry = null;
 let preloadedPhotoSrcs = new Set();
+let lightboxLoadId = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".project-gallery");
@@ -126,13 +127,15 @@ function createLightbox() {
 
 function openLightbox(index) {
     currentPhotoIndex = index;
-    updateLightboxPhoto();
     const lightbox = document.querySelector(".gallery-lightbox");
-    lightbox.classList.add("open");
-    document.body.classList.add("gallery-lightbox-open");
+    updateLightboxPhoto(() => {
+        lightbox.classList.add("open");
+        document.body.classList.add("gallery-lightbox-open");
+    });
 }
 
 function closeLightbox() {
+    lightboxLoadId++;
     const lightbox = document.querySelector(".gallery-lightbox");
     if (!lightbox) {
         return;
@@ -166,26 +169,27 @@ function showNextPhoto() {
     updateLightboxPhoto();
 }
 
-function updateLightboxPhoto() {
+function updateLightboxPhoto(onReady) {
     const photo = photos[currentPhotoIndex];
     const lightbox = document.querySelector(".gallery-lightbox");
     const img = lightbox.querySelector(".gallery-lightbox-img");
     const details = lightbox.querySelector(".gallery-lightbox-details");
     const photoDetails = getPhotoDetails(photo);
-    const thumbSrc = getThumbnailSrc(photo.src);
-    img.dataset.fullSrc = photo.src;
-    img.src = thumbSrc;
-    img.alt = photo.alt || photoDetails || "gallery photo";
-    details.textContent = photoDetails;
+    const loadId = ++lightboxLoadId;
     const fullImg = new Image();
     fullImg.onload = () => {
-        if (img.dataset.fullSrc !== photo.src) {
+        if (loadId !== lightboxLoadId) {
             return;
         }
         img.src = photo.src;
+        img.alt = photo.alt || photoDetails || "gallery photo";
+        details.textContent = photoDetails;
+        if (onReady) {
+            onReady();
+        }
+        preloadNearbyPhotos();
     };
     fullImg.src = photo.src;
-    preloadNearbyPhotos();
 }
 
 function preloadNearbyPhotos() {
