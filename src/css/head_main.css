@@ -582,8 +582,7 @@ html, body {
 }
 
 .gallery-lightbox-img-loading {
-    background: #4f5f4d;
-    opacity: 0.82;
+    opacity: 0;
 }
 
 .gallery-lightbox-img-loaded {
@@ -673,7 +672,8 @@ html, body {
 }
 
 .gallery-lightbox-content {
-    @apply flex w-fit max-w-[92vw] flex-col items-start;
+    background: #4f5f4d;
+    @apply flex w-fit max-w-[92vw] flex-col items-start rounded;
 }
 
 .gallery-lightbox-close {

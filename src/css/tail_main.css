@@ -1455,6 +1455,12 @@ html, body {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+.gallery-lightbox-img-loading {
+  opacity: 0;
+}
+.gallery-lightbox-img-loaded {
+  opacity: 1;
+}
 .gallery-instance::before {
   content: "";
   pointer-events: none;
@@ -1583,11 +1589,13 @@ html, body {
   display: flex;
 }
 .gallery-lightbox-content {
+  background: #4f5f4d;
   display: flex;
   width: fit-content;
   max-width: 92vw;
   flex-direction: column;
   align-items: flex-start;
+  border-radius: 0.25rem;
 }
 .gallery-lightbox-close {
   font: inherit;
