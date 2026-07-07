@@ -581,6 +581,15 @@ html, body {
     backface-visibility: hidden;
 }
 
+.gallery-lightbox-img-loading {
+    background: #4f5f4d;
+    opacity: 0.82;
+}
+
+.gallery-lightbox-img-loaded {
+    opacity: 1;
+}
+
 .gallery-instance::before {
     content: "";
     @apply absolute inset-1.5 z-[1] pointer-events-none;

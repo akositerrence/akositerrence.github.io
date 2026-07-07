@@ -172,9 +172,23 @@ function updateLightboxPhoto() {
     const img = lightbox.querySelector(".gallery-lightbox-img");
     const details = lightbox.querySelector(".gallery-lightbox-details");
     const photoDetails = getPhotoDetails(photo);
-    img.src = photo.src;
+    const thumbSrc = getThumbnailSrc(photo.src);
+    img.classList.remove("gallery-lightbox-img-loaded");
+    img.classList.add("gallery-lightbox-img-loading");
+    img.dataset.fullSrc = photo.src;
+    img.src = thumbSrc;
     img.alt = photo.alt || photoDetails || "gallery photo";
     details.textContent = photoDetails;
+    const fullImg = new Image();
+    fullImg.onload = () => {
+        if (img.dataset.fullSrc !== photo.src) {
+            return;
+        }
+        img.src = photo.src;
+        img.classList.remove("gallery-lightbox-img-loading");
+        img.classList.add("gallery-lightbox-img-loaded");
+    };
+    fullImg.src = photo.src;
     preloadNearbyPhotos();
 }
 
