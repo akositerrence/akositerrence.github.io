@@ -173,8 +173,6 @@ function updateLightboxPhoto() {
     const details = lightbox.querySelector(".gallery-lightbox-details");
     const photoDetails = getPhotoDetails(photo);
     const thumbSrc = getThumbnailSrc(photo.src);
-    img.classList.remove("gallery-lightbox-img-loaded");
-    img.classList.add("gallery-lightbox-img-loading");
     img.dataset.fullSrc = photo.src;
     img.src = thumbSrc;
     img.alt = photo.alt || photoDetails || "gallery photo";
@@ -185,8 +183,6 @@ function updateLightboxPhoto() {
             return;
         }
         img.src = photo.src;
-        img.classList.remove("gallery-lightbox-img-loading");
-        img.classList.add("gallery-lightbox-img-loaded");
     };
     fullImg.src = photo.src;
     preloadNearbyPhotos();

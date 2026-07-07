@@ -579,6 +579,7 @@ html, body {
     filter: brightness(0.96) contrast(0.92) saturate(0.92) sepia(0.06);
     transform: translateZ(0);
     backface-visibility: hidden;
+    transition: opacity 350ms ease-out;
 }
 
 .gallery-lightbox-img-loading {
@@ -586,7 +587,7 @@ html, body {
 }
 
 .gallery-lightbox-img-loaded {
-    opacity: 0;
+    opacity: 1;
 }
 
 .gallery-instance::before {
@@ -672,8 +673,7 @@ html, body {
 }
 
 .gallery-lightbox-content {
-    background: #4f5f4d;
-    @apply flex w-fit max-w-[92vw] flex-col items-start rounded;
+    @apply flex w-fit max-w-[92vw] flex-col items-start;
 }
 
 .gallery-lightbox-close {
