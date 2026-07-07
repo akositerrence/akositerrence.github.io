@@ -586,7 +586,7 @@ html, body {
 }
 
 .gallery-lightbox-img-loaded {
-    opacity: 1;
+    opacity: 0;
 }
 
 .gallery-instance::before {
