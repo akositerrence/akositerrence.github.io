@@ -1,5 +1,29 @@
 [
     {
+        "title": "Home Training Board",
+        "affiliation": "Independent Project",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Park Patch Collection",
+        "affiliation": "Independent Project",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "RC Airplane",
+        "affiliation": "Independent Project",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
         "title": "L1 Rocket Certification",
         "affiliation": "Independent Project",
         "date": "2026",
