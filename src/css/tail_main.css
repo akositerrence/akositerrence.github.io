@@ -482,12 +482,12 @@ html, body {
   width: 100%;
   --tw-gradient-position: to bottom in oklab;
   background-image: linear-gradient(var(--tw-gradient-stops));
-  --tw-gradient-from: var(--color-bg4);
+  --tw-gradient-from: var(--color-bg7);
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-  --tw-gradient-via: var(--color-bg5);
+  --tw-gradient-via: var(--color-bg8);
   --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-via-stops);
-  --tw-gradient-to: var(--color-bg6);
+  --tw-gradient-to: var(--color-bg9);
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   z-index: -10;
   overflow: visible;
@@ -1309,6 +1309,58 @@ html, body {
 .education-description {
   margin-top: calc(var(--spacing) * 1.5);
 }
+.publication-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(var(--spacing) * 5);
+  border-radius: var(--radius-xl);
+  border-style: var(--tw-border-style);
+  border-width: 0.125px;
+  border-color: color-mix(in srgb, oklch(98.7% 0.022 95.277) 25%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-amber-50) 25%, transparent);
+  }
+  padding-right: calc(var(--spacing) * 3);
+  padding-bottom: calc(var(--spacing) * 5);
+  padding-left: calc(var(--spacing) * 3);
+}
+.publication-instance {
+  display: flex;
+  padding-right: calc(var(--spacing) * 0);
+  padding-left: calc(var(--spacing) * 0);
+  @media (width >= 48rem) {
+    padding: calc(var(--spacing) * 2.5);
+  }
+  flex-direction: column;
+  @media (width >= 64rem) {
+    flex-direction: row;
+  }
+  border-radius: var(--radius-xl);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 250ms;
+  transition-duration: 250ms;
+  &:hover {
+    @media (hover: hover) {
+      background-color: oklch(98.7% 0.022 95.277);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-amber-50) var(--bg-opacity), transparent);
+      }
+    }
+  }
+  &:hover {
+    @media (hover: hover) {
+      --bg-opacity: 5%;
+    }
+  }
+}
+.publication-col {
+  margin-left: calc(var(--spacing) * 0);
+  width: calc(1/2 * 100%);
+  flex: 1;
+  flex-direction: column;
+}
 .animated-underline {
   display: inline-block;
   position: relative;
@@ -1724,9 +1776,9 @@ html, body {
   }
   background-clip: text;
   color: transparent;
-  --tw-brightness: brightness(100%);
+  --tw-brightness: brightness(125%);
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  background-image: linear-gradient( to bottom, var(--color-bg4), var(--color-bg5) );
+  background-image: linear-gradient( to bottom, var(--color-bg7), var(--color-bg8), var(--color-bg9) );
 }
 .back-to-home {
   background-clip: text;
@@ -1906,6 +1958,111 @@ html, body {
     opacity: 1;
   }
   .gallery-instance:hover .instance-title-group {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.portfolio-project-instance {
+  border-radius: var(--radius-lg);
+  padding: calc(var(--spacing) * 1.5);
+  transition-property: opacity;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 250ms;
+  transition-duration: 250ms;
+  width: calc((100% - 0px) / 2);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .portfolio-project-instance {
+    width: calc((100% - 0px) / 3);
+  }
+}
+@media (min-width: 1080px) {
+  .portfolio-project-instance {
+    width: calc((100% - 0px) / 3);
+  }
+}
+.portfolio-project-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+.portfolio-project-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+  filter: brightness(0.98) contrast(0.92) saturate(0.82) sepia(0.08);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.portfolio-img-loading {
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+}
+.portfolio-img-loaded {
+  opacity: 1;
+}
+.portfolio-project-instance::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: calc(var(--spacing) * 1.5);
+  z-index: 1;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.625);
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+.portfolio-project-overlay {
+  position: absolute;
+  inset: calc(var(--spacing) * 0);
+  z-index: 2;
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing) * 4);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 250ms ease-out, transform 250ms ease-out;
+}
+.portfolio-project-overlay .project-img-title {
+  margin-bottom: 0.15rem;
+}
+.portfolio-project-overlay .project-img-title-affiliation {
+  display: block;
+  --tw-leading: 1.35;
+  line-height: 1.35;
+}
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-project-instance:hover::before {
+    opacity: 1;
+  }
+  .portfolio-grid:has(.portfolio-project-instance:hover) .portfolio-project-instance {
+    opacity: 0.5;
+  }
+  .portfolio-grid:has(.portfolio-project-instance:hover) .portfolio-project-instance:hover {
+    opacity: 1;
+  }
+  .portfolio-project-instance:hover .portfolio-project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .portfolio-project-instance::before {
+    opacity: 0.35;
+  }
+  .portfolio-project-overlay {
     opacity: 1;
     transform: translateY(0);
   }

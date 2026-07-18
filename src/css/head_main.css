@@ -60,7 +60,7 @@ html, body {
 
 .gradient-background-portfolio {
     @apply fixed top-0 left-0 w-full h-full;
-    @apply bg-gradient-to-b from-[var(--color-bg4)] via-[var(--color-bg5)] to-[var(--color-bg6)];
+    @apply bg-gradient-to-b from-[var(--color-bg7)] via-[var(--color-bg8)] to-[var(--color-bg9)];
     @apply z-[-10];
     overflow: visible;
 }
@@ -438,6 +438,27 @@ html, body {
     @apply mt-1.5;
 }
 
+.publication-container {
+    @apply flex flex-col gap-y-5;
+    @apply rounded-xl border-amber-50/25 border-[0.125px];
+    @apply pb-5 pl-3 pr-3;
+}
+
+.publication-instance {
+    @apply flex pl-0 pr-0;
+    @apply md:p-2.5;
+    @apply flex-col lg:flex-row;
+    @apply hover:bg-amber-50/[var(--bg-opacity)] transition duration-250 rounded-xl hover:[--bg-opacity:5%];
+}
+
+.publication-col {
+    @apply flex-1 flex-col w-1/2 ml-0;
+}
+
+
+
+
+
 
 .animated-underline {
     display: inline-block;
@@ -722,12 +743,13 @@ html, body {
 #portfolio-page-title-text {
     @apply font-bold text-[1.5em] md:text-[2.5vw];
     @apply bg-clip-text text-transparent;
-    @apply brightness-100;
+    @apply brightness-125;
 
     background-image: linear-gradient(
         to bottom,
-        var(--color-bg4),
-        var(--color-bg5)
+        var(--color-bg7),
+        var(--color-bg8),
+        var(--color-bg9)
     );
 }
 
@@ -844,6 +866,107 @@ html, body {
     }
 
     .gallery-instance:hover .instance-title-group {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* JSON-driven portfolio grid */
+
+.portfolio-project-instance {
+    @apply p-1.5 rounded-lg;
+    @apply transition-opacity duration-250;
+    width: calc((100% - 0px) / 2);
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .portfolio-project-instance {
+        width: calc((100% - 0px) / 3);
+    }
+}
+
+@media (min-width: 1080px) {
+    .portfolio-project-instance {
+        width: calc((100% - 0px) / 3);
+    }
+}
+
+.portfolio-project-link {
+    @apply relative block w-full overflow-hidden rounded-lg;
+}
+
+.portfolio-project-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+    filter: brightness(0.98) contrast(0.92) saturate(0.82) sepia(0.08);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.portfolio-img-loading {
+    opacity: 0;
+    transition: opacity 600ms ease-out;
+}
+
+.portfolio-img-loaded {
+    opacity: 1;
+}
+
+.portfolio-project-instance::before {
+    content: "";
+    @apply absolute inset-1.5 z-[1] pointer-events-none;
+    border-radius: inherit;
+    background: rgba(0, 0, 0, 0.625);   
+    opacity: 0;                        
+    transition: opacity 250ms ease-out;
+}
+
+.portfolio-project-overlay {
+    @apply absolute inset-0 z-[2];
+    @apply flex min-h-full w-full flex-col flex-wrap;
+    @apply items-center justify-center p-4 text-center;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 250ms ease-out, transform 250ms ease-out;
+}
+
+.portfolio-project-overlay .project-img-title {
+    @apply mb-[0.15rem];
+}
+
+.portfolio-project-overlay .project-img-title-affiliation {
+    @apply block leading-[1.35];
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .portfolio-project-instance:hover::before {
+        opacity: 1;
+    }
+
+    .portfolio-grid:has(.portfolio-project-instance:hover) .portfolio-project-instance {
+        opacity: 0.5;
+    }
+
+    .portfolio-grid:has(.portfolio-project-instance:hover) .portfolio-project-instance:hover {
+        opacity: 1;
+    }
+
+    .portfolio-project-instance:hover .portfolio-project-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .portfolio-project-instance::before {
+        opacity: 0.35;
+    }
+
+    .portfolio-project-overlay {
         opacity: 1;
         transform: translateY(0);
     }

@@ -9,14 +9,16 @@ title: Portfolio
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="/src/css/tail_main.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/src/media/favicon.png">
+
     <title>akositerrence</title>
 </head>
 
 <body>
     <!-- background -->
-    <div class="gradient-background-portfolio">
+    <div class="gradient-background-feed">
         <svg xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <filter id="goo">
@@ -26,45 +28,56 @@ title: Portfolio
                 </filter>
             </defs>
         </svg>
+
         <div class="gradient-container">
             <div class="interactive"></div>
         </div>
     </div>
+
     <!-- main -->
-    <div class="main-portfolio-container">
-        <!-- col1 -->
+    <main class="main-portfolio-container">
         <div class="portfolio-content-container">
-            <!-- project gallery container -->
             <div class="gallery-container">
+
                 <div class="portfolio-header-wrapper">
-                    <div class="portfolio-header-center-line">
-                    </div>
+                    <div class="portfolio-header-center-line"></div>
                 </div>
 
-                <div class="project-gallery gallery-loading">
+                <div class="project-gallery portfolio-grid gallery-loading">
 
-                    <!-- instance -->
                     <div class="page-title-card brick">
                         <span class="page-title">
                             <div class="page-title-group">
-                                <div id="portfolio-page-title-text" class="page-title-text standard-text">
+
+                                <div
+                                    id="portfolio-page-title-text"
+                                    class="page-title-text standard-text"
+                                >
                                     PORTFOLIO
                                 </div>
+
                                 <div class="animated-underline back-to-home">
-                                    <a href="../index.html"> Back to Home ↗ </a>
+                                    <a href="../index.html">
+                                        Back to Home ↗
+                                    </a>
                                 </div>
+
                             </div>
                         </span>
                     </div>
 
+                    <!-- Project cards are inserted here by portfolio.js -->
+
                 </div>
-            </div>    
+            </div>
         </div>
-    </div>
+    </main>
+
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
     <script src="/src/js/main.js"></script>
-    <script src="/src/js/gallery.js"></script>
+    <script src="/src/js/portfolio.js"></script>
 </body>
 
 </html>

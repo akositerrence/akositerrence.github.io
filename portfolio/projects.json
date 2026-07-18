@@ -1,0 +1,90 @@
+[
+    {
+        "title": "L1 Rocket Certification",
+        "affiliation": "Independent Project",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Bouldering Analytics",
+        "affiliation": "Independent Project",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Mini Rocket Build",
+        "affiliation": "Independent Project",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Rocket Avionics Bay",
+        "affiliation": "NDSU Rocketry",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Battlebot Weapon Impact Analysis",
+        "affiliation": "Independent Project",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "Combat Robot Weapon Impact Analysis",
+        "href": ""
+    },
+    {
+        "title": "Boulderbot",
+        "affiliation": "NDSU Combat Robotics",
+        "date": "2026",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Pultrusion Process Simulation",
+        "affiliation": "Heat Transfer Term Project",
+        "date": "2025",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "Pultrusion Process Simulation",
+        "href": ""
+    },
+    {
+        "title": "Turbofan Parameter Analysis",
+        "affiliation": "Propulsion Term Project",
+        "date": "2025",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": "portfolio_pages/turbofan_analysis/turbofan.html"
+    },
+    {
+        "title": "Cowbot",
+        "affiliation": "NDSU Combat Robotics",
+        "date": "2025",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Personal Website",
+        "affiliation": "Independent Project",
+        "date": "2024",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    },
+    {
+        "title": "Starter Motor Modeling",
+        "affiliation": "CAD Term Project",
+        "date": "2023",
+        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "alt": "-",
+        "href": ""
+    }
+]
