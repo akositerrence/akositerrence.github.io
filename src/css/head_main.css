@@ -6,9 +6,9 @@ html, body {
 }
 
 :root {
-    --color-bg1: rgb(72, 104, 79);
-    --color-bg2: rgb(44, 62, 46);
-    --color-bg3: rgb(20, 29, 20);
+    --color-bg1: rgb(68, 99, 74);
+    --color-bg2: rgb(39, 58, 41);
+    --color-bg3: rgb(15, 24, 15);
 
     --color-bg4: rgb(78, 104, 136);
     --color-bg5: rgb(38, 56, 82);
@@ -138,7 +138,7 @@ html, body {
 }
 
 .scroll-container-portfolio {
-    @apply bg-green-50 w-0 md:w-[0.5px];
+    @apply bg-green-50 w-0 md:w-[2.5px];
     @apply md:ml-[41.5%];
     @apply bg-gradient-to-b from-sky-200 via-amber-100 to-green-200;
     animation: main-name-animation 10s linear infinite;
@@ -204,6 +204,12 @@ html, body {
     @apply md:pr-0 md:pl-0;
 }
 
+.project-subtitle-paragraph-text {
+    @apply text-left md:text-right;
+    @apply pr-[2.5vw] pl-[2.5vw];
+    @apply md:pr-0 md:pl-0;
+}
+
 .content-section-header {
     @apply text-[1.0625em] text-green-100 font-semibold mt-5 mb-0;
     @apply bg-gradient-to-l from-sky-100 via-yellow-100 to-green-100;
@@ -236,6 +242,8 @@ html, body {
     @apply h-8 w-8 fill-current transition duration-750 hover:opacity-80;
     opacity: 0.75;
 }
+
+.duolingo-icon { display:block; background-color:currentColor; transform:scale(0.85); transform-origin:center; -webkit-mask:url("https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/duolingo.svg") center/contain no-repeat; mask:url("https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/duolingo.svg") center/contain no-repeat; }
 
 .content-link-icon {
     @apply text-amber-50 h-4 w-4 ml-1;
@@ -974,24 +982,16 @@ html, body {
 
 /* cowbot */
 
-#cowbot-image-container {
-    @apply w-[30%] shrink-0;
-}
-
-#cowbot-draft-image-container {
-    @apply w-[30%] shrink-0;
-}
-
-#cowbot-specifications {
-    @apply w-[33.3%] shrink-0;
+/* Every Cowbot section occupies the full index-style right column. */
+#cowbot-image-container,
+#cowbot-draft-image-container,
+#cowbot-specifications,
+#cowbot-acknowledgements {
+    @apply w-full shrink-0;
 }
 
 #development-images-container {
     @apply flex flex-col gap-5;
-}
-
-#cowbot-acknowledgements {
-    @apply w-[25%] shrink-0;
 }
 
 /* datalogger */
@@ -1008,10 +1008,6 @@ html, body {
 }
 
 /* individual project pages */
-.header-button-container {
-    @apply flex flex-row gap-x-3;
-}
-
 .header-button-container {
     @apply flex flex-row gap-x-3;
 }
@@ -1081,7 +1077,7 @@ html, body {
 }
 
 .portfolio-page-content-subcontainer {
-    @apply flex flex-row;
+    @apply flex flex-col;
 }
 
 .portfolio-page-image {
@@ -1089,7 +1085,12 @@ html, body {
 }
 
 .portfolio-page-col-generator {
-    @apply flex flex-row gap-x-5;
+    @apply flex flex-col gap-x-0;
+    width: 100%;
+}
+
+.portfolio-page-col-generator > .portfolio-page-content-container {
+    width: 100%;
 }
 
 .portfolio-page-image-container {
@@ -1115,4 +1116,37 @@ html, body {
 
 b {
   font-weight: 600;
+}
+
+
+
+.project-title-container .portfolio-title-3d-crop {
+    @apply relative h-[200px] w-[31vw] max-w-[460px] self-start md:self-end;
+    overflow: hidden;
+}
+
+.project-title-container .portfolio-title-3d-shell {
+    @apply absolute left-0 top-1/2 h-[260px] w-full max-w-none;
+    transform: translateY(-50%);
+    isolation: isolate;
+}
+
+@media (max-width: 767px) {
+    .project-title-container .portfolio-title-3d-crop {
+        @apply w-full max-w-none self-stretch;
+    }
+
+    .project-title-container .portfolio-title-3d-shell {
+        @apply h-[260px] w-full max-w-none;
+    }
+
+    .portfolio-final-gallery-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-final-gallery-container {
+        column-count: 1;
+    }
 }

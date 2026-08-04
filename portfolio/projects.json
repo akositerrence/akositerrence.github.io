@@ -1,53 +1,5 @@
 [
     {
-        "title": "Home Training Board",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "Park Patch Collection",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "RC Airplane",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "L1 Rocket Certification",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "Bouldering Analytics",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "Mini Rocket Build",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
         "title": "Rocket Avionics Bay",
         "affiliation": "NDSU Rocketry",
         "date": "2026",
@@ -69,7 +21,7 @@
         "date": "2026",
         "image": "./portfolio_thumbnails/placeholder.jpg",
         "alt": "-",
-        "href": ""
+        "href": "./portfolio_pages/boulderbot/boulderbot.html"
     },
     {
         "title": "Pultrusion Process Simulation",
@@ -91,17 +43,17 @@
         "title": "Cowbot",
         "affiliation": "NDSU Combat Robotics",
         "date": "2025",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "image": "./portfolio_thumbnails/website.jpg",
         "alt": "-",
-        "href": ""
+        "href": "./portfolio_pages/cowbot/cowbot.html"
     },
     {
         "title": "Personal Website",
         "affiliation": "Independent Project",
         "date": "2024",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "image": "./portfolio_thumbnails/website.jpg",
         "alt": "-",
-        "href": ""
+        "href": "https://github.com/akositerrence/akositerrence.github.io"
     },
     {
         "title": "Starter Motor Modeling",

@@ -418,9 +418,9 @@ html, body {
   padding: 0;
 }
 :root {
-  --color-bg1: rgb(72, 104, 79);
-  --color-bg2: rgb(44, 62, 46);
-  --color-bg3: rgb(20, 29, 20);
+  --color-bg1: rgb(68, 99, 74);
+  --color-bg2: rgb(39, 58, 41);
+  --color-bg3: rgb(15, 24, 15);
   --color-bg4: rgb(78, 104, 136);
   --color-bg5: rgb(38, 56, 82);
   --color-bg6: rgb(14, 22, 34);
@@ -641,7 +641,7 @@ html, body {
   width: calc(var(--spacing) * 0);
   background-color: var(--color-green-50);
   @media (width >= 48rem) {
-    width: 0.5px;
+    width: 2.5px;
   }
   @media (width >= 48rem) {
     margin-left: 41.5%;
@@ -771,6 +771,20 @@ html, body {
     padding-left: calc(var(--spacing) * 0);
   }
 }
+.project-subtitle-paragraph-text {
+  text-align: left;
+  @media (width >= 48rem) {
+    text-align: right;
+  }
+  padding-right: 2.5vw;
+  padding-left: 2.5vw;
+  @media (width >= 48rem) {
+    padding-right: calc(var(--spacing) * 0);
+  }
+  @media (width >= 48rem) {
+    padding-left: calc(var(--spacing) * 0);
+  }
+}
 .content-section-header {
   margin-top: calc(var(--spacing) * 5);
   margin-bottom: calc(var(--spacing) * 0);
@@ -863,6 +877,14 @@ html, body {
     }
   }
   opacity: 0.75;
+}
+.duolingo-icon {
+  display: block;
+  background-color: currentColor;
+  transform: scale(0.85);
+  transform-origin: center;
+  -webkit-mask: url("https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/duolingo.svg") center/contain no-repeat;
+  mask: url("https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/duolingo.svg") center/contain no-repeat;
 }
 .content-link-icon {
   margin-left: calc(var(--spacing) * 1);
@@ -2067,26 +2089,14 @@ html, body {
     transform: translateY(0);
   }
 }
-#cowbot-image-container {
-  width: 30%;
-  flex-shrink: 0;
-}
-#cowbot-draft-image-container {
-  width: 30%;
-  flex-shrink: 0;
-}
-#cowbot-specifications {
-  width: 33.3%;
+#cowbot-image-container, #cowbot-draft-image-container, #cowbot-specifications, #cowbot-acknowledgements {
+  width: 100%;
   flex-shrink: 0;
 }
 #development-images-container {
   display: flex;
   flex-direction: column;
   gap: calc(var(--spacing) * 5);
-}
-#cowbot-acknowledgements {
-  width: 25%;
-  flex-shrink: 0;
 }
 #datalogger-title {
   position: relative;
@@ -2111,11 +2121,6 @@ html, body {
   font-weight: var(--font-weight-semibold);
   color: var(--color-white);
   mix-blend-mode: difference;
-}
-.header-button-container {
-  display: flex;
-  flex-direction: row;
-  column-gap: calc(var(--spacing) * 3);
 }
 .header-button-container {
   display: flex;
@@ -2226,7 +2231,7 @@ html, body {
 }
 .portfolio-page-content-subcontainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .portfolio-page-image {
   height: auto;
@@ -2236,8 +2241,12 @@ html, body {
 }
 .portfolio-page-col-generator {
   display: flex;
-  flex-direction: row;
-  column-gap: calc(var(--spacing) * 5);
+  flex-direction: column;
+  column-gap: calc(var(--spacing) * 0);
+  width: 100%;
+}
+.portfolio-page-col-generator > .portfolio-page-content-container {
+  width: 100%;
 }
 .portfolio-list {
   padding-left: calc(var(--spacing) * 3);
@@ -2258,6 +2267,47 @@ html, body {
 }
 b {
   font-weight: 600;
+}
+.project-title-container .portfolio-title-3d-crop {
+  position: relative;
+  height: 200px;
+  width: 31vw;
+  max-width: 460px;
+  align-self: flex-start;
+  @media (width >= 48rem) {
+    align-self: flex-end;
+  }
+  overflow: hidden;
+}
+.project-title-container .portfolio-title-3d-shell {
+  position: absolute;
+  top: calc(1/2 * 100%);
+  left: calc(var(--spacing) * 0);
+  height: 260px;
+  width: 100%;
+  max-width: none;
+  transform: translateY(-50%);
+  isolation: isolate;
+}
+@media (max-width: 767px) {
+  .project-title-container .portfolio-title-3d-crop {
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+  }
+  .project-title-container .portfolio-title-3d-shell {
+    height: 260px;
+    width: 100%;
+    max-width: none;
+  }
+  .portfolio-final-gallery-container {
+    column-count: 2;
+  }
+}
+@media (max-width: 480px) {
+  .portfolio-final-gallery-container {
+    column-count: 1;
+  }
 }
 @property --tw-rotate-x {
   syntax: "*";
