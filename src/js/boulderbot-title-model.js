@@ -47,7 +47,7 @@ const BASE_ROT_Y = THREE.MathUtils.degToRad(180);
 const DESKTOP_ROT_Z = THREE.MathUtils.degToRad(-170);
 const MOBILE_ROT_Z = THREE.MathUtils.degToRad(-180);
 
-const DESKTOP_POS_X = 1.125;
+const DESKTOP_POS_X = 0.75;
 const MOBILE_POS_X = 0;
 const MODEL_POS_Y = -0.7;
 const MODEL_POS_Z = 0;
