@@ -1,0 +1,2 @@
+fix portfolio 3d render viewport for scaling
+switch portfolio project bg color to black

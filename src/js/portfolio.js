@@ -54,7 +54,7 @@ function createProjectCard(project, index) {
     const link = document.createElement("a");
     link.className = "portfolio-project-link";
     link.href = getSafeHref(project.href);
-    link.target = "_blank";
+    link.target = "";
     link.rel = "noopener noreferrer";
 
     const projectTitle = String(

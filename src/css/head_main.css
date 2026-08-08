@@ -6,9 +6,9 @@ html, body {
 }
 
 :root {
-    --color-bg1: rgb(68, 99, 74);
-    --color-bg2: rgb(39, 58, 41);
-    --color-bg3: rgb(15, 24, 15);
+    --color-bg1: rgb(53, 84, 59);
+    --color-bg2: rgb(29, 47, 31);
+    --color-bg3: rgb(5, 19, 10);
 
     --color-bg4: rgb(78, 104, 136);
     --color-bg5: rgb(38, 56, 82);
@@ -26,9 +26,9 @@ html, body {
     --color-bg8l : rgba(235, 235, 235, 0.625); 
     --color-bg9l : rgba(205, 205, 205, 0.625);  
 
-    --color-bg10 : rgb(48, 48, 48); 
-    --color-bg11 : rgb(21, 21, 21); 
-    --color-bg12 : rgb(3, 3, 3);  
+    --color-bg10 : rgb(53, 84, 59); 
+    --color-bg11 : rgb(29, 47, 31); 
+    --color-bg12 : rgb(5, 19, 10);  
 
     --color-interactive : 255, 255, 255;
     --circle-size: 120%;
@@ -96,7 +96,7 @@ html, body {
     left: 0;
     background: radial-gradient(
         circle at center, 
-        rgba(var(--color-interactive, 0.8)) 0, 
+        rgba(var(--color-interactive, 0.5)) 0, 
         rgba(var(--color-interactive), 0) 50%
         ) no-repeat;
     mix-blend-mode: var(--blending);
@@ -1046,7 +1046,8 @@ html, body {
 }
 
 .portfolio-page-content-container {
-    @apply p-5 mb-5 rounded-xl border-[0.125px] border-amber-50/25;
+    @apply pl-3 pr-3 pb-5 rounded-xl border-[0.125px] border-amber-50/25;
+    @apply flex flex-col gap-y-5;
 }
 
 .portfolio-content-section-text {
