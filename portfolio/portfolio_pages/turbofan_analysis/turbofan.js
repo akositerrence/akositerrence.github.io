@@ -10,6 +10,15 @@ async function main(){
 let pyodideReadyPromise = main();
 
 async function updateValues() {
+    const evaluateButton = document.getElementById("evaluate-button");
+    const evaluationStatus = document.getElementById("evaluation-status");
+    let python_result = null;
+
+    evaluateButton.disabled = true;
+    evaluationStatus.classList.remove("error");
+    evaluationStatus.textContent = "Evaluating configuration...";
+
+    try {
     let pyodide = await pyodideReadyPromise;
 
     /* GET EFFICIENCY AND GAMMA INPUT VALUES */
@@ -107,7 +116,37 @@ async function updateValues() {
         document.getElementById("thrust").value
     );
 
-    const python_result = pyodide.runPython(`update_values(${efficiency_diffuser}, ${gamma_diffuser}, ${efficiency_fan}, 
+    const numericInputs = {
+        efficiency_diffuser,
+        gamma_diffuser,
+        efficiency_fan,
+        gamma_fan,
+        efficiency_fan_nozzle,
+        gamma_fan_nozzle,
+        efficiency_compressor,
+        gamma_compressor,
+        efficiency_burner,
+        gamma_burner,
+        efficiency_turbine,
+        gamma_turbine,
+        efficiency_nozzle,
+        gamma_nozzle,
+        flight_alt,
+        flight_mach,
+        bypass_ratio,
+        fan_pressure_ratio,
+        compressor_pressure_ratio,
+        burner_pressure_ratio,
+        turbine_max_temp,
+        fuel_heating_value,
+        thrust,
+    };
+    const invalidInput = Object.entries(numericInputs).find(([, value]) => !Number.isFinite(value));
+    if (invalidInput) {
+        throw new Error(`${invalidInput[0].replaceAll("_", " ")} must be a finite number.`);
+    }
+
+    python_result = pyodide.runPython(`update_values(${efficiency_diffuser}, ${gamma_diffuser}, ${efficiency_fan},
         ${gamma_fan}, ${efficiency_fan_nozzle}, ${gamma_fan_nozzle}, ${efficiency_compressor}, ${gamma_compressor},
         ${efficiency_burner}, ${gamma_burner}, ${efficiency_turbine}, ${gamma_turbine}, ${efficiency_nozzle},
         ${gamma_nozzle}, ${flight_alt}, ${flight_mach}, ${bypass_ratio},  ${fan_pressure_ratio},  ${compressor_pressure_ratio},
@@ -115,6 +154,7 @@ async function updateValues() {
 
     const [values, optimization] = python_result.toJs();
     python_result.destroy();
+    python_result = null;
 
     const [
         c_p_diffuser,
@@ -183,7 +223,7 @@ async function updateValues() {
     document.getElementById("u-e").value = u_e.toFixed(2);
     document.getElementById("u-ef").value = u_ef.toFixed(2);
     document.getElementById("t-a-m-f").value = t_a_m_f.toFixed(2);
-    document.getElementById("t-s-f-c").value = t_s_f_c.toFixed(5);
+    document.getElementById("t-s-f-c").value = t_s_f_c.toExponential(3);
 
     document.getElementById("thermal-efficiency").value = ef_th.toFixed(3);
     document.getElementById("propulsive-efficiency").value = ef_pr.toFixed(3);
@@ -192,7 +232,7 @@ async function updateValues() {
     document.getElementById("mass-flux").value = amf.toFixed(3);
     document.getElementById("fuel-consumption").value = fcf.toFixed(3);
 
-    /* she optimize on my plot till i minimum */
+    /* Display the bounded grid search and its lowest feasible sample. */
     const [beta_values, prc_values, fuel_values, best_fuel, best_beta, best_prc,] = optimization;
 
     const data = {
@@ -202,20 +242,21 @@ async function updateValues() {
         type: "surface",
     };
 
-    const optimum_point = {
-        type: "scatter3d",
-        mode: "markers",
-        x: [best_beta],
-        y: [best_prc],
-        z: [best_fuel],
-        marker: {
-            size: 6,
-            color: "red"
-        },
-        name: "Min. Fuel Consumption"
+    const surface_plot = [data];
+    if ([best_fuel, best_beta, best_prc].every(Number.isFinite)) {
+        surface_plot.push({
+            type: "scatter3d",
+            mode: "markers",
+            x: [best_beta],
+            y: [best_prc],
+            z: [best_fuel],
+            marker: {
+                size: 6,
+                color: "red"
+            },
+            name: "Lowest Feasible Sample"
+        });
     }
-
-    const surface_plot = [data, optimum_point]
 
     const layout = {
         title: { text: ""},
@@ -223,32 +264,47 @@ async function updateValues() {
         plot_bgcolor: "rgba(0,0,0,0)",
         scene: {
             bgcolor: "rgba(0,0,0,0)",
-            xaxis: { title: { text: "(x) β" } },
-            yaxis: { title: { text: "(y) P_rc" } },
-            zaxis: { title: { text: "(z) m_f [kg/s]" } }
+            xaxis: { title: { text: "Bypass ratio, β" } },
+            yaxis: { title: { text: "Compressor pressure ratio, PR_c" } },
+            zaxis: { title: { text: "Fuel mass flow, ṁ_f [kg/s]" } }
         },
         margin: { l: 60, r: 20, t: 50, b: 60 }
     };
 
     layout.font = { size: 10 };
 
-    Plotly.newPlot("optimization-plot", surface_plot, layout, { responsive: true });
+    await Plotly.newPlot("optimization-plot", surface_plot, layout, { responsive: true });
 
-    /*
-    const rand = Math.random();
-    const fart = new Audio("./fart.mp3")
-    const taco = new Audio("./taco.mp3")
-    const mince = new Audio("./minecraft.mp3")
-    if (rand < 0.3333) {
-        taco.play();
-    } else if (rand < 0.6666) {
-        fart.play();
-    } else {
-        mince.play();
+    const bestIsOnBoundary = [best_fuel, best_beta, best_prc].every(Number.isFinite) && (
+        best_beta === beta_values[0] ||
+        best_beta === beta_values.at(-1) ||
+        best_prc === prc_values[0] ||
+        best_prc === prc_values.at(-1)
+    );
+    evaluationStatus.textContent = bestIsOnBoundary
+        ? "Evaluation complete. The lowest sampled point lies on the grid boundary."
+        : "Evaluation complete.";
+    } catch (error) {
+        console.error(error);
+        const lines = (error?.message || String(error))
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter(Boolean);
+        const detail = (lines.at(-1) || "Evaluation failed.")
+            .replace(/^[A-Za-z]+Error:\s*/, "");
+
+        document.querySelectorAll(".output-field").forEach((field) => {
+            field.value = "";
+        });
+        if (typeof Plotly !== "undefined") {
+            Plotly.purge("optimization-plot");
+        }
+        evaluationStatus.classList.add("error");
+        evaluationStatus.textContent = detail;
+    } finally {
+        if (python_result !== null) {
+            python_result.destroy();
+        }
+        evaluateButton.disabled = false;
     }
-
-    const fart = new Audio("./fart.mp3")
-    fart.play();
-    */
-    
 }

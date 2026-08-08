@@ -208,6 +208,9 @@
       max-width: 96rem;
     }
   }
+  .flex {
+    display: flex;
+  }
   .grid {
     display: grid;
   }
@@ -222,6 +225,10 @@
   }
   .scroll-smooth {
     scroll-behavior: smooth;
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -1923,9 +1930,30 @@ html, body {
     transform: translateY(0);
   }
 }
-#cowbot-image-container, #cowbot-draft-image-container, #cowbot-specifications, #cowbot-acknowledgements {
+.cowbot-image-container, .project-image-container, #cowbot-draft-image-container, #cowbot-specifications, #cowbot-acknowledgements {
   width: 100%;
   flex-shrink: 0;
+}
+.cowbot-image-container, .project-image-container {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: calc(var(--spacing) * 5);
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  padding-top: calc(var(--spacing) * 7);
+  padding-bottom: calc(var(--spacing) * 3);
+}
+.cowbot-image-container > img, .project-image-container > img {
+  aspect-ratio: 4/3;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+.cowbot-image-container > img:only-child, .project-image-container > img:only-child {
+  @media (width >= 48rem) {
+    grid-column: span 2 / span 2;
+  }
 }
 #development-images-container {
   display: flex;
@@ -2044,8 +2072,12 @@ html, body {
   row-gap: calc(var(--spacing) * 5);
 }
 .portfolio-content-section-text {
-  padding-right: calc(var(--spacing) * 2.5);
-  padding-left: calc(var(--spacing) * 2.5);
+  @media (width >= 48rem) {
+    padding-right: calc(var(--spacing) * 2.5);
+  }
+  @media (width >= 48rem) {
+    padding-left: calc(var(--spacing) * 2.5);
+  }
   text-align: justify;
 }
 .animated-underline-portfolio {
@@ -2081,6 +2113,7 @@ html, body {
   display: flex;
   flex-direction: column;
   column-gap: calc(var(--spacing) * 0);
+  row-gap: calc(var(--spacing) * 10);
   width: 100%;
 }
 .portfolio-page-col-generator > .portfolio-page-content-container {
@@ -2108,22 +2141,22 @@ b {
 }
 .project-title-container .portfolio-title-3d-crop {
   position: relative;
-  height: 200px;
   width: 31vw;
   max-width: 460px;
   align-self: flex-start;
   @media (width >= 48rem) {
     align-self: flex-end;
   }
+  height: min(200px, 22vh, 13.5vw);
   overflow: hidden;
 }
 .project-title-container .portfolio-title-3d-shell {
   position: absolute;
   top: calc(1/2 * 100%);
   left: calc(var(--spacing) * 0);
-  height: 260px;
   width: 100%;
   max-width: none;
+  height: 130%;
   transform: translateY(-50%);
   isolation: isolate;
 }
@@ -2132,9 +2165,9 @@ b {
     width: 100%;
     max-width: none;
     align-self: stretch;
+    height: min(200px, 25vh, 55vw);
   }
   .project-title-container .portfolio-title-3d-shell {
-    height: 260px;
     width: 100%;
     max-width: none;
   }
@@ -2166,6 +2199,11 @@ b {
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-outline-style {
   syntax: "*";
@@ -2275,11 +2313,6 @@ b {
   syntax: "*";
   inherits: false;
 }
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
@@ -2311,6 +2344,7 @@ b {
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-border-style: solid;
       --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
@@ -2336,7 +2370,6 @@ b {
       --tw-gradient-via-position: 50%;
       --tw-gradient-to-position: 100%;
       --tw-duration: initial;
-      --tw-border-style: solid;
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;

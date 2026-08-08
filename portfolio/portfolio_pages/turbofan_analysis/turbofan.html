@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Turbofan Analysis — akositerrence</title>
+        <title>Document</title>
         <link rel="stylesheet" type="text/css" href="./turbofan.css">
         <script src="https://cdn.jsdelivr.net/pyodide/v0.29.0/full/pyodide.js"></script>
         <script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
@@ -19,7 +19,7 @@
                         ME484 - Aerospace Propulsion / Terrence Andre San Gabriel
                     </div>
                     <div class="standard-text" id="turbofan-project-title-name">
-                        <a href="https://github.com/akositerrence/turbofan" target="_blank">Github repository</a>
+                        <a href="https://github.com/akositerrence/turbofan" target="_blank">Github repository ↗</a>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                         <span class="component-name"> Component </span>
                         <div  class="table-top"> η </div>
                         <div class="table-top"> γ </div>
-                        <div class="table-top"> c<sub>p</sub> </div>
+                        <div class="table-top"> c<sub>p</sub> [J/(kg·K)] </div>
 
                         <span class="component-name"> Diffuser </span>
                         <input class="input-field" id="diffuser-efficiency" type="text" value="0.97" />
@@ -97,7 +97,7 @@
                         <input class="input-field" id="burner-pressure-ratio" type="text" value="1.0" />
                         <span class="internal-parameter"> Turbine Inlet Temperature, T<sub>04</sub> [K] </span>
                         <input class="input-field" id="turbine-inlet-temperature" type="text" value="1700" />
-                        <span class="internal-parameter"> Heating Value of Fuel, Q<sub>R</sub> </span>
+                        <span class="internal-parameter"> Heating Value of Fuel, Q<sub>R</sub> [J/kg] </span>
                         <input class="input-field" id="fuel-heating-value" type="text" value="45000000" />
                     </div>
                 </div>
@@ -123,7 +123,45 @@
                 </div>
 
                 <div class="engine-container">
-                    <img id="engine-img" src="turbofan.png" alt="">
+                    <div
+                        class="engine-flow-diagram"
+                        role="img"
+                        aria-label="Turbofan flow diagram showing ambient air entering the diffuser and splitting into bypass and core streams"
+                    >
+                        <div class="flow-entry">
+                            <span class="flow-node flow-node-cold">Ambient <small>0</small></span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-node flow-node-cold">Diffuser <small>02</small></span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-split">Flow split</span>
+                        </div>
+
+                        <div class="flow-branch flow-branch-bypass">
+                            <span class="flow-branch-label">Bypass</span>
+                            <span class="flow-branch-start" aria-hidden="true">↳</span>
+                            <span class="flow-node flow-node-cold">Fan <small>08</small></span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-node flow-node-cold">Fan nozzle</span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-exit">Fan jet</span>
+                        </div>
+
+                        <div class="flow-branch flow-branch-core">
+                            <span class="flow-branch-label">Core</span>
+                            <span class="flow-branch-start" aria-hidden="true">↳</span>
+                            <span class="flow-node flow-node-cold">Compressor <small>03</small></span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-node flow-node-hot">Burner <small>04</small></span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-node flow-node-hot">Turbine <small>05</small></span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-node flow-node-hot">Core nozzle</span>
+                            <span class="flow-arrow" aria-hidden="true">→</span>
+                            <span class="flow-exit">Core jet</span>
+                        </div>
+
+                        <div class="shaft-note">Turbine shaft work → compressor + fan</div>
+                    </div>
                 </div>
 
                 <div class="engine-parameters-container-a">
@@ -144,19 +182,20 @@
                 </div>
 
                 <div class="engine-parameters-container-b">
-                    <span class="cycle-parameter"> Fuel to Air Ratio, f </span>
+                    <span class="cycle-parameter"> Fuel-to-Air Ratio, f [-] </span>
                     <input class="output-field" id="f-a-ratio" type="text" value="" readonly />
                     <span class="cycle-parameter"> Core Exhaust Velocity, U<sub>e</sub> [m/s] </span>
                     <input class="output-field" id="u-e" type="text" value="" readonly />
                     <span class="cycle-parameter"> Fan Exhaust Velocity, U<sub>ef</sub> [m/s] </span>
                     <input class="output-field" id="u-ef" type="text" value="" readonly />
-                    <span class="cycle-parameter"> Thrust/Air Mass Flux [N⋅s/kg] </span>
+                    <span class="cycle-parameter"> Specific Thrust, F/ṁ<sub>core</sub> [N⋅s/kg] </span>
                     <input class="output-field" id="t-a-m-f" type="text" value="" readonly />
                     <span class="cycle-parameter"> TSFC [kg/(N⋅s)] </span>
                     <input class="output-field" id="t-s-f-c" type="text" value="" readonly />
                 </div>
 
-                <button onclick="updateValues()">Evaluate Configuration</button>
+                <button id="evaluate-button" type="button" onclick="updateValues()">Evaluate Configuration</button>
+                <div id="evaluation-status" role="status" aria-live="polite"></div>
 
             </div>
             <div class="container-c">
@@ -164,11 +203,11 @@
                     / Overall Efficiencies /
                 </div>
                 <div class="fuel-container">
-                    <span class="fuel-parameter"> Thermal Efficiency, η<sub>th</sub> </span>
+                    <span class="fuel-parameter"> Thermal Efficiency, η<sub>th</sub> [-] </span>
                     <input class="output-field" id="thermal-efficiency" type="text" value="" readonly />
-                    <span class="fuel-parameter"> Propulsive Efficiency, η<sub>pr</sub>  </span>
+                    <span class="fuel-parameter"> Propulsive Efficiency, η<sub>pr</sub> [-] </span>
                     <input class="output-field" id="propulsive-efficiency" type="text" value="" readonly />
-                    <span class="fuel-parameter"> Overall Efficiency, η<sub>o</sub> </span>
+                    <span class="fuel-parameter"> Overall Efficiency, η<sub>o</sub> [-] </span>
                     <input class="output-field" id="overall-efficiency" type="text" value="" readonly />
                 </div>
                 <div class="input-space-title">
@@ -177,13 +216,13 @@
                 <div class="fuel-container">
                     <span class="fuel-parameter"> Thrust, 𝒯 [N] </span>
                     <input class="input-field" id="thrust" type="text" value="444840" />
-                    <span class="fuel-parameter"> Mass Flux, ṁ<sub>a</sub> [kg/s] </span>
+                    <span class="fuel-parameter"> Core Air Mass Flow, ṁ<sub>core</sub> [kg/s] </span>
                     <input class="output-field" id="mass-flux" type="text" value="" readonly />
-                    <span class="fuel-parameter"> Fuel Consumption, ṁ<sub>f</sub> [kg/s] </span>
+                    <span class="fuel-parameter"> Fuel Mass Flow, ṁ<sub>f</sub> [kg/s] </span>
                     <input class="output-field" id="fuel-consumption" type="text" value="" readonly />
                 </div>
                 <div class="input-space-title">
-                    / Optimization /
+                    / Grid Search Optimization /
                 </div>
                 <div id="plot-container">
                     <div id="optimization-plot" style="background: transparent;"></div>

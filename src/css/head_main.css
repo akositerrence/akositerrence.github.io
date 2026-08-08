@@ -983,11 +983,28 @@ html, body {
 /* cowbot */
 
 /* Every Cowbot section occupies the full index-style right column. */
-#cowbot-image-container,
+.cowbot-image-container,
+.project-image-container,
 #cowbot-draft-image-container,
 #cowbot-specifications,
 #cowbot-acknowledgements {
     @apply w-full shrink-0;
+}
+
+.cowbot-image-container,
+.project-image-container {
+    @apply grid grid-cols-1 gap-5 md:grid-cols-2;
+    @apply pb-3 pt-7;
+}
+
+.cowbot-image-container > img,
+.project-image-container > img {
+    @apply aspect-[4/3] w-full rounded-lg object-cover;
+}
+
+.cowbot-image-container > img:only-child,
+.project-image-container > img:only-child {
+    @apply md:col-span-2;
 }
 
 #development-images-container {
@@ -1051,7 +1068,7 @@ html, body {
 }
 
 .portfolio-content-section-text {
-    @apply pl-2.5 pr-2.5;
+    @apply md:pl-2.5 md:pr-2.5;
     @apply text-justify;
 }
 
@@ -1086,7 +1103,7 @@ html, body {
 }
 
 .portfolio-page-col-generator {
-    @apply flex flex-col gap-x-0;
+    @apply flex flex-col gap-x-0 gap-y-10;
     width: 100%;
 }
 
@@ -1122,12 +1139,14 @@ b {
 
 
 .project-title-container .portfolio-title-3d-crop {
-    @apply relative h-[200px] w-[31vw] max-w-[460px] self-start md:self-end;
+    @apply relative w-[31vw] max-w-[460px] self-start md:self-end;
+    height: min(200px, 22vh, 13.5vw);
     overflow: hidden;
 }
 
 .project-title-container .portfolio-title-3d-shell {
-    @apply absolute left-0 top-1/2 h-[260px] w-full max-w-none;
+    @apply absolute left-0 top-1/2 w-full max-w-none;
+    height: 130%;
     transform: translateY(-50%);
     isolation: isolate;
 }
@@ -1135,10 +1154,11 @@ b {
 @media (max-width: 767px) {
     .project-title-container .portfolio-title-3d-crop {
         @apply w-full max-w-none self-stretch;
+        height: min(200px, 25vh, 55vw);
     }
 
     .project-title-container .portfolio-title-3d-shell {
-        @apply h-[260px] w-full max-w-none;
+        @apply w-full max-w-none;
     }
 
     .portfolio-final-gallery-container {

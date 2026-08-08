@@ -2,7 +2,6 @@
 body {
     background-color: rgb(210, 210, 200);
     font-size: 0.875em;
-    font-style: normal;
 }
 
 .standard-text {
@@ -85,7 +84,7 @@ body {
 
 .efficiencies {
     display: inline-grid;                
-    grid-template-columns: max-content 4rem 4rem 4rem; 
+    grid-template-columns: max-content 4rem 4rem 6.5rem;
     column-gap: 0.5rem;
     row-gap: 0.35rem;
     justify-items: start;                 
@@ -101,6 +100,10 @@ body {
     width: 4rem;                          
     padding: 0.1rem 0.25rem;
     box-sizing: border-box;
+}
+
+.efficiencies input.output-field {
+    width: 6.5rem;
 }
 
 .environment {
@@ -151,17 +154,151 @@ body {
     gap: 1.5rem;
 }
 
-#engine-img {
-    width: 90%;
+#evaluation-status {
+    min-height: 1.25rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+#evaluation-status.error {
+    color: rgb(150, 0, 0);
+}
+
+#evaluate-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
 }
 
 .engine-container {
     width: 100%;
-    height: 50%;
+    min-height: 16rem;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 0.75rem;
+    box-sizing: border-box;
+}
+
+.engine-flow-diagram {
+    width: 100%;
+    max-width: 46rem;
+    padding: 0.85rem;
+    border: 1px solid rgba(0, 0, 0, 0.55);
+    background: rgba(255, 255, 255, 0.28);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.flow-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.flow-branch {
+    display: grid;
+    grid-template-columns: minmax(3.5rem, auto) 1rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.3rem 0.45rem;
+    padding: 0.75rem 0;
+    border-top: 1px dashed rgba(0, 0, 0, 0.25);
+}
+
+.flow-branch > .flow-branch-label {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.flow-branch > .flow-branch-start {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.flow-branch > .flow-node,
+.flow-branch > .flow-exit,
+.flow-branch > .flow-arrow {
+    grid-column: 3;
+}
+
+.flow-branch > .flow-node,
+.flow-branch > .flow-exit {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.flow-branch > .flow-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+}
+
+.flow-node,
+.flow-split,
+.flow-exit,
+.flow-branch-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.flow-node {
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.flow-node small {
+    margin-top: 0.1rem;
+    font-size: 0.72em;
+    opacity: 0.7;
+}
+
+.flow-node-cold {
+    border-color: rgb(38, 91, 124);
+    background: rgba(88, 166, 210, 0.18);
+}
+
+.flow-node-hot {
+    border-color: rgb(145, 71, 28);
+    background: rgba(225, 125, 62, 0.2);
+}
+
+.flow-split,
+.flow-branch-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.flow-branch-label {
+    border: 0;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.flow-arrow,
+.flow-branch-start {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.flow-exit {
+    border-style: dashed;
+    font-weight: 700;
+}
+
+.shaft-note {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.55);
+    text-align: center;
+    font-size: 0.82em;
+    letter-spacing: 0.03em;
 }
 
 .engine-parameters-container-a {
