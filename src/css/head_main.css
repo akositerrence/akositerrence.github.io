@@ -6,9 +6,9 @@ html, body {
 }
 
 :root {
-    --color-bg1: rgb(53, 84, 59);
-    --color-bg2: rgb(29, 47, 31);
-    --color-bg3: rgb(5, 19, 10);
+    --color-bg1: rgb(45, 45, 45);
+    --color-bg2: rgb(25, 25, 25);
+    --color-bg3: rgb(5, 5, 5);
 
     --color-bg4: rgb(78, 104, 136);
     --color-bg5: rgb(38, 56, 82);
@@ -18,17 +18,17 @@ html, body {
     --color-bg5l : rgba(94, 78, 122, 0.625); 
     --color-bg6l : rgba(60, 56, 96, 0.625);  
 
-    --color-bg7 : rgb(255, 255, 255);
-    --color-bg8 : rgb(235, 235, 235);
-    --color-bg9 : rgb(205, 205, 205);  
+    --color-bg7 : rgb(45, 45, 45);
+    --color-bg8 : rgb(25, 25, 25);
+    --color-bg9 : rgb(5, 5, 5);  
 
-    --color-bg7l : rgba(255, 255, 255, 0.625); 
-    --color-bg8l : rgba(235, 235, 235, 0.625); 
-    --color-bg9l : rgba(205, 205, 205, 0.625);  
+    --color-bg7l : rgba(200, 200, 200, 0.5); 
+    --color-bg8l : rgba(180, 180, 180, 0.5); 
+    --color-bg9l : rgba(160, 160, 160, 0.5);  
 
-    --color-bg10 : rgb(53, 84, 59); 
-    --color-bg11 : rgb(29, 47, 31); 
-    --color-bg12 : rgb(5, 19, 10);  
+    --color-bg10 : rgb(45, 45, 45); 
+    --color-bg11 : rgb(25, 25, 25); 
+    --color-bg12 : rgb(5, 5, 5);  
 
     --color-interactive : 255, 255, 255;
     --circle-size: 120%;
@@ -529,9 +529,9 @@ html, body {
     border-radius: inherit;
     background: linear-gradient(
         135deg,
-        rgba(78, 78, 82, 0.75),  
-        rgba(32, 31, 32, 0.655),  
-        rgba(0, 0, 0, 0.625)
+        rgba(255, 255, 255, 0.75),  
+        rgba(250, 250, 250, 0.655),  
+        rgba(245, 245, 245, 0.625)
     );
     background-size: 200% 200%;
     animation: card-glow 14s ease-in-out infinite;
