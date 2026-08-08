@@ -190,6 +190,9 @@
   .fixed {
     position: fixed;
   }
+  .static {
+    position: static;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -208,9 +211,6 @@
       max-width: 96rem;
     }
   }
-  .flex {
-    display: flex;
-  }
   .grid {
     display: grid;
   }
@@ -225,10 +225,6 @@
   }
   .scroll-smooth {
     scroll-behavior: smooth;
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -2122,6 +2118,12 @@ html, body {
 .portfolio-list {
   padding-left: calc(var(--spacing) * 3);
 }
+.combat-robot-page .portfolio-list {
+  padding-left: calc(var(--spacing) * 3);
+  @media (width >= 48rem) {
+    padding-left: calc(var(--spacing) * 4);
+  }
+}
 .portfolio-final-gallery-container {
   padding-top: calc(var(--spacing) * 3);
   column-count: 4;
@@ -2199,11 +2201,6 @@ b {
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-outline-style {
   syntax: "*";
@@ -2313,6 +2310,11 @@ b {
   syntax: "*";
   inherits: false;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
@@ -2344,7 +2346,6 @@ b {
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
-      --tw-border-style: solid;
       --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
@@ -2370,6 +2371,7 @@ b {
       --tw-gradient-via-position: 50%;
       --tw-gradient-to-position: 100%;
       --tw-duration: initial;
+      --tw-border-style: solid;
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;

@@ -1119,6 +1119,10 @@ html, body {
     @apply pl-3;
 }
 
+.combat-robot-page .portfolio-list {
+    @apply pl-3 md:pl-4;
+}
+
 .portfolio-final-gallery-container {
     @apply pt-3;
     column-count: 4;
