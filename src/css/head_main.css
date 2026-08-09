@@ -922,7 +922,7 @@ body::before {
     width: 100%;
     height: auto;
     border-radius: inherit;
-    filter: brightness(0.98) contrast(0.92) saturate(0.82) sepia(0.08);
+    filter: brightness(0.98) contrast(0.97) saturate(0.95) sepia(0.05);
     transform: translateZ(0);
     backface-visibility: hidden;
 }

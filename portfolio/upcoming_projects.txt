@@ -1,48 +1,85 @@
+PAGES W.I.P:
+
 {
-        "title": "Home Training Board",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "Park Patch Collection",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "RC Airplane",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "L1 Rocket Certification",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "Bouldering Analytics",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "Mini Rocket Build",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
-    },
+    "title": "Turbofan Parameter Analysis",
+    "affiliation": "Propulsion Term Project",
+    "date": "2025",
+    "image": "./portfolio_thumbnails/turbofan.webp",
+    "alt": "-",
+    "href": "portfolio_pages/turbofan_analysis/turbofan.html"
+}, comments: should make a simulation model, this is pretty elementary
+{
+    "title": "Battlebot Weapon Impact Analysis",
+    "affiliation": "Independent Project",
+    "date": "2026",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "Combat Robot Weapon Impact Analysis",
+    "href": ""
+},
+{
+    "title": "Pultrusion Process Simulation",
+    "affiliation": "Heat Transfer Term Project",
+    "date": "2025",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "Pultrusion Process Simulation",
+    "href": ""
+}, comments: should make a simulation model, this is pretty elementary
+{
+    "title": "Starter Motor Modeling",
+    "affiliation": "CAD Term Project",
+    "date": "2023",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "-",
+    "href": ""
+}
+
+PLANNED:
+
+{
+    "title": "Home Training Board",
+    "affiliation": "Independent Project",
+    "date": "2026",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "-",
+    "href": ""
+},
+{
+    "title": "Park Patch Collection",
+    "affiliation": "Independent Project",
+    "date": "2026",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "-",
+    "href": ""
+},
+{
+    "title": "RC Airplane",
+    "affiliation": "Independent Project",
+    "date": "2026",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "-",
+    "href": ""
+},
+{
+    "title": "L1 Rocket Certification",
+    "affiliation": "Independent Project",
+    "date": "2026",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "-",
+    "href": ""
+},
+{
+    "title": "Bouldering Analytics",
+    "affiliation": "Independent Project",
+    "date": "2026",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "-",
+    "href": ""
+},
+{
+    "title": "Mini Rocket Build",
+    "affiliation": "Independent Project",
+    "date": "2026",
+    "image": "./portfolio_thumbnails/placeholder.jpg",
+    "alt": "-",
+    "href": ""
+},

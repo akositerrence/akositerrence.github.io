@@ -3,17 +3,9 @@
         "title": "Rocket Avionics Bay",
         "affiliation": "NDSU Rocketry",
         "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
+        "image": "./portfolio_thumbnails/rocket_datalogger.webp",
         "alt": "-",
-        "href": ""
-    },
-    {
-        "title": "Battlebot Weapon Impact Analysis",
-        "affiliation": "Independent Project",
-        "date": "2026",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "Combat Robot Weapon Impact Analysis",
-        "href": ""
+        "href": "./portfolio_pages/rocket_datalogger/rocket_datalogger.html"
     },
     {
         "title": "Boulderbot",
@@ -22,22 +14,6 @@
         "image": "./portfolio_thumbnails/boulderbot.webp",
         "alt": "-",
         "href": "./portfolio_pages/boulderbot/boulderbot.html"
-    },
-    {
-        "title": "Pultrusion Process Simulation",
-        "affiliation": "Heat Transfer Term Project",
-        "date": "2025",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "Pultrusion Process Simulation",
-        "href": ""
-    },
-    {
-        "title": "Turbofan Parameter Analysis",
-        "affiliation": "Propulsion Term Project",
-        "date": "2025",
-        "image": "./portfolio_thumbnails/turbofan.webp",
-        "alt": "-",
-        "href": "portfolio_pages/turbofan_analysis/turbofan.html"
     },
     {
         "title": "Cowbot",
@@ -51,16 +27,8 @@
         "title": "Personal Website",
         "affiliation": "Independent Project",
         "date": "2024",
-        "image": "./portfolio_thumbnails/website.jpg",
+        "image": "./portfolio_thumbnails/website.webp",
         "alt": "-",
         "href": "https://github.com/akositerrence/akositerrence.github.io"
-    },
-    {
-        "title": "Starter Motor Modeling",
-        "affiliation": "CAD Term Project",
-        "date": "2023",
-        "image": "./portfolio_thumbnails/placeholder.jpg",
-        "alt": "-",
-        "href": ""
     }
 ]
