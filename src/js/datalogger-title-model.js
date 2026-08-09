@@ -3,6 +3,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 const shell = document.getElementById("portfolioTitle3DShell");
 const canvas = document.getElementById("portfolioTitle3DCanvas");
+const crop = shell?.closest(".portfolio-title-3d-crop");
 
 if (!shell || !canvas) {
     throw new Error("Missing #portfolioTitle3DShell or #portfolioTitle3DCanvas");
@@ -19,11 +20,11 @@ renderer.setClearColor(0x000000, 0);
 
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 1000);
+const camera = new THREE.PerspectiveCamera(15, 1, 0.01, 1000);
 camera.position.set(0, 0, 8);
 camera.lookAt(0, 0, 0);
 
-const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+const ambient = new THREE.AmbientLight(0xffffff, 0.25);
 scene.add(ambient);
 
 const key = new THREE.DirectionalLight(0xffffff, 2.6);
@@ -39,6 +40,8 @@ rim.position.set(0, -3, 4);
 scene.add(rim);
 
 let model = null;
+const MOBILE_QUERY = window.matchMedia("(max-width: 767px)");
+const COARSE_POINTER_QUERY = window.matchMedia("(pointer: coarse)");
 
 function resizeRenderer() {
     const rect = shell.getBoundingClientRect();
@@ -53,11 +56,27 @@ function resizeRenderer() {
 resizeRenderer();
 window.addEventListener("resize", resizeRenderer);
 
+const resizeObserver = new ResizeObserver(resizeRenderer);
+resizeObserver.observe(shell);
+if (crop) resizeObserver.observe(crop);
+
 const loader = new GLTFLoader();
 const MODEL_URL = "/src/media/models/datalogger.glb";
 
 const BASE_ROT_X = -Math.PI / 2;
 const BASE_ROT_Y = -Math.PI / 2;
+const DESKTOP_ROT_Z = THREE.MathUtils.degToRad(-170);
+const MOBILE_ROT_Z = THREE.MathUtils.degToRad(-180);
+
+// Model position controls: new THREE.Vector3(X, Y, Z)
+const DESKTOP_POSITION = new THREE.Vector3(4, 0, 0);
+const MOBILE_POSITION = new THREE.Vector3(3.125, 0, 0);
+const DESKTOP_POSITION_WIDTH = 1440;
+const MOBILE_POSITION_WIDTH = 767;
+const responsivePosition = new THREE.Vector3();
+
+let isMobile = MOBILE_QUERY.matches;
+let baseRotZ = isMobile ? MOBILE_ROT_Z : DESKTOP_ROT_Z;
 
 let targetRotX = BASE_ROT_X;
 let currentRotX = BASE_ROT_X;
@@ -68,6 +87,40 @@ let baseCameraZ = 8;
 
 let targetCameraX = 0;
 let currentCameraX = 0;
+
+function getResponsivePosition() {
+    const positionProgress = THREE.MathUtils.clamp(
+        (window.innerWidth - MOBILE_POSITION_WIDTH) /
+            (DESKTOP_POSITION_WIDTH - MOBILE_POSITION_WIDTH),
+        0,
+        1
+    );
+
+    return responsivePosition.lerpVectors(
+        MOBILE_POSITION,
+        DESKTOP_POSITION,
+        positionProgress
+    );
+}
+
+function updateResponsiveLayout() {
+    isMobile = MOBILE_QUERY.matches;
+    baseRotZ = isMobile ? MOBILE_ROT_Z : DESKTOP_ROT_Z;
+
+    if (model) {
+        model.position.copy(getResponsivePosition());
+        model.rotation.set(BASE_ROT_X, BASE_ROT_Y, baseRotZ);
+    }
+
+    targetRotX = BASE_ROT_X;
+    currentRotX = BASE_ROT_X;
+    targetCameraX = baseCameraX;
+    currentCameraX = baseCameraX;
+    requestAnimationFrame(resizeRenderer);
+}
+
+MOBILE_QUERY.addEventListener("change", updateResponsiveLayout);
+window.addEventListener("resize", updateResponsiveLayout);
 
 loader.load(
     MODEL_URL,
@@ -112,9 +165,9 @@ loader.load(
             model.scale.setScalar(scale);
         }
 
-        model.position.set(3.25, 0.125, 0);
-        model.rotation.x = BASE_ROT_X;
-        model.rotation.y = BASE_ROT_Y;
+        model.position.copy(getResponsivePosition());
+        model.rotation.set(BASE_ROT_X, BASE_ROT_Y, baseRotZ);
+        model.updateMatrixWorld(true);
 
         const fittedBox = new THREE.Box3().setFromObject(model);
         const fittedSize = fittedBox.getSize(new THREE.Vector3());
@@ -122,7 +175,7 @@ loader.load(
 
         const fov = THREE.MathUtils.degToRad(camera.fov);
         let cameraZ = (fittedMaxDim / 2) / Math.tan(fov / 2);
-        cameraZ *= 0.625;
+        cameraZ *= 0.8;
 
         camera.position.set(0, fittedMaxDim * 0.12, cameraZ);
         camera.near = Math.max(cameraZ / 100, 0.01);
@@ -136,6 +189,7 @@ loader.load(
 
         targetCameraX = baseCameraX;
         currentCameraX = baseCameraX;
+        updateResponsiveLayout();
     },
     undefined,
     (error) => {
@@ -144,6 +198,8 @@ loader.load(
 );
 
 document.addEventListener("pointermove", (event) => {
+    if (isMobile || COARSE_POINTER_QUERY.matches) return;
+
     const nx = (event.clientX / window.innerWidth) * 2 - 1;
     const ny = (event.clientY / window.innerHeight) * 2 - 1;
 
@@ -163,8 +219,7 @@ function animate() {
         currentRotX += (targetRotX - currentRotX) * 0.08;
         currentCameraX += (targetCameraX - currentCameraX) * 0.08;
 
-        model.rotation.x = currentRotX;
-        model.rotation.y = BASE_ROT_Y;
+        model.rotation.set(currentRotX, BASE_ROT_Y, baseRotZ);
 
         camera.position.set(currentCameraX, baseCameraY, baseCameraZ);
         camera.lookAt(0, 0, 0);

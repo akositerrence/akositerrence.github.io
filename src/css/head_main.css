@@ -362,7 +362,7 @@ body::before {
 
 .browse-more {
     @apply font-normal flex flex-row items-center;
-    @apply text-amber-200;
+    @apply text-amber-100;
     animation: main-name-animation 10s linear infinite;
     background-size: 200% 200%;
     
@@ -1014,6 +1014,14 @@ body::before {
     @apply aspect-[4/3] w-full rounded-lg object-cover;
 }
 
+.project-image-container > .project-image-9-16 {
+    @apply aspect-[9/16];
+}
+
+.project-image-container > .project-image-natural {
+    @apply aspect-auto;
+}
+
 .cowbot-image-container > img:only-child,
 .project-image-container > img:only-child {
     @apply md:col-span-2;
@@ -1021,19 +1029,6 @@ body::before {
 
 #development-images-container {
     @apply flex flex-col gap-5;
-}
-
-/* datalogger */
-#datalogger-title {
-    @apply relative z-[10] flex flex-row items-center text-[5em] font-semibold;
-    @apply text-white;
-    mix-blend-mode: difference;
-}
-
-#portfolio-page-name-subtitle-rocketry {
-    @apply relative z-[10] flex flex-row items-center text-[1.625em] font-semibold;
-    @apply text-white;
-    mix-blend-mode: difference;
 }
 
 /* individual project pages */
@@ -1132,6 +1127,10 @@ body::before {
 }
 
 .combat-robot-page .portfolio-list {
+    @apply pl-3 md:pl-4;
+}
+
+.project-detail-page .portfolio-list {
     @apply pl-3 md:pl-4;
 }
 
