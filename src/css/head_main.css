@@ -146,7 +146,7 @@
 }
 
 .page-home .scroll-container {
-    @apply bg-site-text w-0 md:w-[2.5px];
+    @apply bg-site-text w-0 md:w-[0.125px];
     @apply md:ml-[41.5%];
     @apply bg-gradient-to-b from-site-grid-strong via-site-gold to-site-text-soft;
     animation: main-name-animation 10s linear infinite;
@@ -155,7 +155,7 @@
 }
 
 .page-project .scroll-container-portfolio {
-    @apply bg-site-text w-0 md:w-[2.5px];
+    @apply bg-site-text w-0 md:w-[0.125px];
     @apply md:ml-[41.5%];
     @apply bg-gradient-to-b from-site-grid-strong via-site-gold to-site-text-soft;
     animation: main-name-animation 10s linear infinite;

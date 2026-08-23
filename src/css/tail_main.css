@@ -369,7 +369,7 @@
   width: calc(var(--spacing) * 0);
   background-color: var(--color-site-text);
   @media (width >= 48rem) {
-    width: 2.5px;
+    width: 0.125px;
   }
   @media (width >= 48rem) {
     margin-left: 41.5%;
@@ -391,7 +391,7 @@
   width: calc(var(--spacing) * 0);
   background-color: var(--color-site-text);
   @media (width >= 48rem) {
-    width: 2.5px;
+    width: 0.125px;
   }
   @media (width >= 48rem) {
     margin-left: 41.5%;
