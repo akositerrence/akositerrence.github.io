@@ -9,22 +9,34 @@
     <title>akositerrence</title>
 </head>
 
-<body class="site-theme page-home">
+<body>
     <!-- background -->
-    <div class="site-background" aria-hidden="true"></div>
-    <canvas class="site-grid-canvas" data-site-grid aria-hidden="true"></canvas>
+    <div class="gradient-background">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradient-container">
+            <div class="interactive"></div>
+        </div>
+    </div>
     <!-- main -->
     <div class="main-container">
         <!-- col1 -->
-        <div class="title-container" data-grid-title>
+        <div class="title-container">
             <!-- header container -->
             <div class="header-container">
                 <header class="main-name"> 
                     <a href="https://akositerrence.com">
-                        Terrence Andre<br>San Gabriel
+                        Terrence Andre San Gabriel 
                     </a>
                 </header>
-                <h1 class="main-goal"> Structural Dynamics @ NASA </h1>
+                <h1 class="main-goal"> Mechanical (Aerospace) Engineer </h1>
             </div>
 
             <!-- link array -->
@@ -58,13 +70,13 @@
 
             <div class="page-links-container">   
 
-                <div class="page-link-button page-link-portfolio standard-text">
-                    <a class="page-link-text animated-underline" href="./portfolio/portfolio.html">↖ Portfolio</a>
+                <div id="portfolio-link" class="page-link-button standard-text">
+                    <a class="page-link-text animated-underline" href="./portfolio/portfolio.html">PORTFOLIO</a>
                 </div>
                 
                 
-                <div class="page-link-button page-link-gallery standard-text">
-                    <a class="page-link-text animated-underline" href="./gallery/gallery.html">↖ Gallery</a>
+                <div id="gallery-link" class="page-link-button standard-text">
+                    <a class="page-link-text animated-underline" href="./gallery/gallery.html">GALLERY</a>
                 </div>
 
             </div>
@@ -73,12 +85,12 @@
         </div>
 
         <!-- col2 -->
-        <div class="scroll-container" data-grid-divider></div>
+        <div class="scroll-container"></div>
 
         <!-- col3 -->
         <div class="content-container">
             <!-- about container -->
-            <div class="about-container" data-grid-anchor>
+            <div class="about-container">
                 <h2 class="content-section-header"> ABOUT </h2>
                 <p class="main-description standard-text"> 
                     Hey there, my name is Terrence. I'm a senior at
@@ -98,7 +110,7 @@
                     What started as a personal connection to the skies eventually grew into an obsession with aerospace.
                 </p>
                 <p class="main-description standard-text"> 
-                    My family soon immigrated to the United States when I was thirteen. After completing middle and high school
+                    My family soon immigrated to the United States when I was 13. After completing middle and high school 
                     in Bismarck, North Dakota, I moved to Fargo to study Mechanical Engineering at North Dakota State University 
                     with the intent of focusing on aerospace applications. I'm the first engineer in my family.
                 </p>
@@ -114,7 +126,7 @@
             <div class="experience-container">
                 <h2 class="content-section-header"> EXPERIENCE </h2>
                 <!-- national aeronautics and space administration -->
-                <div class="experience-instance experience-3" data-grid-highlight="panel">
+                <div class="experience-instance experience-3">
                     <div class="experience-col">
                         <div class="experience-separator">
                             <div>
@@ -123,7 +135,7 @@
                             <div>
                                 <div class="experience-title standard-text"> 
                                     <h3 class="content-title-link" href="https://www.nasa.gov/" target="_blank">
-                                        Structural Dynamics Student Trainee
+                                        Structural and Thermal Systems Branch Student Trainee
                                     </h3>
                                 </div>
                                 <div class="experience-company standard-text"> NASA Langley Research Center </div>
@@ -141,7 +153,7 @@
                     </div>
                 </div>
                 <!-- entegris -->
-                <div class="experience-instance experience-3" data-grid-highlight="panel">
+                <div class="experience-instance experience-3">
                     <div class="experience-col">
                         <div class="experience-separator">
                             <div>
@@ -165,7 +177,7 @@
                     </div>
                 </div>
                 <!-- national aeronautics and space administration -->
-                <div class="experience-instance experience-3" data-grid-highlight="panel">
+                <div class="experience-instance experience-3">
                     <div class="experience-col">
                         <div class="experience-separator">
                             <div>
@@ -174,7 +186,7 @@
                             <div>
                                 <div class="experience-title standard-text"> 
                                     <h3 class="content-title-link" href="https://www.nasa.gov/" target="_blank">
-                                        Structural Dynamics Intern
+                                        Structural and Thermal Systems Branch Intern 
                                     </h3>
                                 </div>
                                 <div class="experience-company standard-text"> NASA Langley Research Center </div>
@@ -196,7 +208,7 @@
                     </div>
                 </div>
                 <!-- marvin composites -->
-                <div class="experience-instance experience-2" data-grid-highlight="panel">
+                <div class="experience-instance experience-2">
                     <div class="experience-col">
                         <div class="experience-separator">
                             <div>
@@ -221,7 +233,7 @@
                     </div>
                 </div>
                 <!-- aigen -->
-                <div class="experience-instance experience-1" data-grid-highlight="panel">
+                <div class="experience-instance experience-1">
                     <div class="experience-col">
                         <div class="experience-separator">
                             <div>
@@ -250,7 +262,7 @@
             <div class="portfolio-container">
                 <h2 class="content-section-header"> FEATURED PROJECTS </h2>
                 <!-- high powered rocket -->
-                <div class="portfolio-instance" data-grid-highlight="panel">
+                <div class="portfolio-instance">
                     <div class="portfolio-img-col">
                         <a href="" class="portfolio-img-container">
                             <img class="portfolio-img" src="./src/media/portfolio/rocket-logger.webp">
@@ -270,7 +282,7 @@
                     </div>
                 </div>
                 <!-- combat robot -->
-                <div class="portfolio-instance" data-grid-highlight="panel">
+                <div class="portfolio-instance">
                     <div class="portfolio-img-col">
                         <a href="" class="portfolio-img-container">
                             <img class="portfolio-img" src="./src/media/portfolio/combat-robot.webp">
@@ -290,7 +302,7 @@
                     </div>
                 </div>
                 <!-- personal website -->
-                <div class="portfolio-instance" data-grid-highlight="panel">
+                <div class="portfolio-instance">
                     <div class="portfolio-img-col">
                         <a href="https://github.com/akositerrence/akositerrence.github.io" class="portfolio-img-container" target="_blank">
                             <img class="portfolio-img" src="./src/media/portfolio/website.webp">
@@ -323,7 +335,7 @@
             <!--
             <div class="publication-container">
                 <h2 class="content-section-header"> PUBLICATIONS </h2>
-                <div class="publication-instance" data-grid-highlight="panel">
+                <div class="publication-instance">
                     <div class="publication-col">
                         <div class="standard-text">
                             soon
@@ -337,7 +349,7 @@
             <div class="education-container">
                 <h2 class="content-section-header"> EDUCATION </h2>
                 <!-- north dakota state university -->
-                <div class="education-instance" data-grid-highlight="panel">
+                <div class="education-instance">
                     <div class="education-logo-col"> 
                     </div>
                     <div class="education-col">
@@ -363,7 +375,7 @@
                     </div>
                 </div>
                 <!-- century high school -->
-                <div class="education-instance" data-grid-highlight="panel">
+                <div class="education-instance">
                     <div class="education-logo-col"> 
                     </div>
                     <div class="education-col">
@@ -382,7 +394,7 @@
             <div class="certifications-container">
                 <h2 class="content-section-header"> CERTIFICATIONS </h2>
                 <!-- private pilot certificate -->
-                <div class="certifications-instance" data-grid-highlight="panel">
+                <div class="certifications-instance">
                     <div class="certifications-col">
                         <div class="certifications-title standard-text">
                             <h3 class="content-title-link">Private Pilot Certificate (ASEL)</h3>
@@ -397,7 +409,7 @@
 
         </div>
     </div>
-    <script defer src="./src/js/site-grid.js"></script>
+    <script src="./src/js/main.js"></script>
 </body>
 
 </html>

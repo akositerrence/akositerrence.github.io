@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx @tailwindcss/cli -i ./src/css/head_main.css -o ./src/css/tail_main.css --watch"
+    "build:css": "tailwindcss -i ./src/css/head_main.css -o ./src/css/tail_main.css",
+    "watch:css": "tailwindcss -i ./src/css/head_main.css -o ./src/css/tail_main.css --watch",
+    "dev": "npm run watch:css"
   },
   "author": "terrence andre san gabriel",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.7",
+    "@tailwindcss/cli": "4.1.7",
     "masonry-layout": "^4.2.2",
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "4.1.7"
   }
 }

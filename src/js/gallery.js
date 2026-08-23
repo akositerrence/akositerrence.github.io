@@ -30,10 +30,13 @@ async function loadGallery(grid) {
             grid.appendChild(card);
         });
         createLightbox();
-        initMasonry(grid);
     } catch (error) {
-        console.error(error);
+        console.error("Gallery failed to load:", error);
+
+        showGalleryError(grid);
+    } finally {
         initMasonry(grid);
+        revealGalleryGrid(grid);
     }
 }
 
@@ -55,13 +58,18 @@ function createPhotoCard(photo, index) {
         </button>
     `;
     const img = card.querySelector("img");
-    if (img.complete) {
+    const markImageLoaded = () => {
         img.classList.add("gallery-img-loaded");
+        requestGalleryLayout();
+    };
+
+    if (img.complete) {
+        markImageLoaded();
     } else {
-        img.addEventListener("load", () => {
-            img.classList.add("gallery-img-loaded");
-        });
+        img.addEventListener("load", markImageLoaded, { once: true });
+        img.addEventListener("error", markImageLoaded, { once: true });
     }
+
     const button = card.querySelector(".gallery-photo-button");
     button.addEventListener("click", () => {
         openLightbox(index);
@@ -70,17 +78,101 @@ function createPhotoCard(photo, index) {
 }
 
 function initMasonry(grid) {
-    msnry = new Masonry(grid, {
-        itemSelector: ".brick",
-        columnWidth: ".brick",
-        gutter: 0,
-        percentPosition: true
-    });
+    grid.classList.remove("feed-masonry-enhanced");
+
+    if (typeof window.Masonry !== "function") {
+        console.warn(
+            "Masonry is unavailable; using the gallery fallback layout."
+        );
+        resetGalleryMasonryStyles(grid);
+        return false;
+    }
+
+    let masonry = null;
+
+    try {
+        masonry = new window.Masonry(grid, {
+            itemSelector: ".brick",
+            columnWidth: ".brick",
+            gutter: 0,
+            percentPosition: true
+        });
+
+        msnry = masonry;
+        grid.classList.add("feed-masonry-enhanced");
+
+        if (typeof window.imagesLoaded === "function") {
+            const imageTracker = window.imagesLoaded(grid);
+
+            if (imageTracker && typeof imageTracker.on === "function") {
+                imageTracker.on("progress", requestGalleryLayout);
+                imageTracker.on("always", requestGalleryLayout);
+            }
+        } else {
+            console.warn(
+                "imagesLoaded is unavailable; native image events will update the gallery layout."
+            );
+        }
+
+        return true;
+    } catch (error) {
+        console.error(
+            "Gallery Masonry initialization failed; using the fallback layout:",
+            error
+        );
+
+        if (masonry && typeof masonry.destroy === "function") {
+            try {
+                masonry.destroy();
+            } catch (destroyError) {
+                console.warn(
+                    "Could not fully destroy the partial gallery layout:",
+                    destroyError
+                );
+            }
+        }
+
+        msnry = null;
+        resetGalleryMasonryStyles(grid);
+        return false;
+    }
+}
+
+function revealGalleryGrid(grid) {
     grid.classList.remove("gallery-loading");
     grid.classList.add("gallery-ready");
-    imagesLoaded(grid).on("progress", () => {
+}
+
+function requestGalleryLayout() {
+    if (msnry && typeof msnry.layout === "function") {
         msnry.layout();
+    }
+}
+
+function resetGalleryMasonryStyles(grid) {
+    grid.classList.remove("feed-masonry-enhanced");
+    grid.style.removeProperty("height");
+    grid.style.removeProperty("position");
+
+    grid.querySelectorAll(".brick").forEach(item => {
+        item.style.removeProperty("bottom");
+        item.style.removeProperty("left");
+        item.style.removeProperty("position");
+        item.style.removeProperty("right");
+        item.style.removeProperty("top");
+        item.style.removeProperty("transform");
     });
+}
+
+function showGalleryError(grid) {
+    if (grid.querySelector(".gallery-load-error")) {
+        return;
+    }
+
+    const message = document.createElement("p");
+    message.className = "gallery-load-error standard-text brick";
+    message.textContent = "Photos could not be loaded.";
+    grid.appendChild(message);
 }
 
 function createLightbox() {
@@ -172,22 +264,40 @@ function showNextPhoto() {
 function updateLightboxPhoto(onReady) {
     const photo = photos[currentPhotoIndex];
     const lightbox = document.querySelector(".gallery-lightbox");
+    if (!photo || !lightbox) {
+        return;
+    }
+
     const img = lightbox.querySelector(".gallery-lightbox-img");
     const details = lightbox.querySelector(".gallery-lightbox-details");
+    if (!img || !details) {
+        return;
+    }
+
     const photoDetails = getPhotoDetails(photo);
     const loadId = ++lightboxLoadId;
     const fullImg = new Image();
-    fullImg.onload = () => {
+
+    const revealPhoto = (src) => {
         if (loadId !== lightboxLoadId) {
             return;
         }
-        img.src = photo.src;
+
+        img.src = src;
         img.alt = photo.alt || photoDetails || "gallery photo";
         details.textContent = photoDetails;
+
         if (onReady) {
             onReady();
         }
+    };
+
+    fullImg.onload = () => {
+        revealPhoto(photo.src);
         preloadNearbyPhotos();
+    };
+    fullImg.onerror = () => {
+        revealPhoto(getThumbnailSrc(photo.src));
     };
     fullImg.src = photo.src;
 }

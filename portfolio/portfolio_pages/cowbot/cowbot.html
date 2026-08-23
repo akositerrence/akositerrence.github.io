@@ -8,27 +8,15 @@
     <link rel="icon" type="image/x-icon" href="/src/media/favicon.png">
     <title>akositerrence - Cowbot</title>
 </head>
-<body class="combat-robot-page">
+<body class="combat-robot-page site-theme page-project">
     <!-- background -->
-    <div class="gradient-background-portfolio-page">
-        <svg xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-            </defs>
-        </svg>
-        <div class="gradient-container">
-            <div class="interactive"></div>
-        </div>
-    </div>
+    <div class="site-background" aria-hidden="true"></div>
+    <canvas class="site-grid-canvas" data-site-grid aria-hidden="true"></canvas>
 
     <!-- main -->
     <div class="main-container">
         <!-- project title column -->
-        <aside class="title-container project-title-container">
+        <aside class="title-container project-title-container" data-grid-title>
 
             
             <div class="header-container">
@@ -93,16 +81,16 @@
             </p>
 
             <div class="page-links-container">
-                 <div id="portfolio-link" class="page-link-button standard-text">
-                    <a class="page-link-text animated-underline" href="/index.html">HOME</a>
+                 <div class="page-link-button page-link-home standard-text">
+                    <a class="page-link-text animated-underline" href="/index.html">↖ Home</a>
                 </div>
 
-                <div id="portfolio-link" class="page-link-button standard-text">
-                    <a class="page-link-text animated-underline" href="/portfolio/portfolio.html">PORTFOLIO</a>
+                <div class="page-link-button page-link-portfolio standard-text">
+                    <a class="page-link-text animated-underline" href="/portfolio/portfolio.html">↖ Portfolio</a>
                 </div>
 
-                <div id="gallery-link" class="page-link-button standard-text">
-                    <a class="page-link-text animated-underline" href="/gallery/gallery.html">GALLERY</a>
+                <div class="page-link-button page-link-gallery standard-text">
+                    <a class="page-link-text animated-underline" href="/gallery/gallery.html">↖ Gallery</a>
                 </div>
             </div>
 
@@ -111,10 +99,10 @@
         </aside>
 
         <!-- vertical divider, matching the index page -->
-        <div class="scroll-container-portfolio" aria-hidden="true"></div>
+        <div class="scroll-container-portfolio" data-grid-divider aria-hidden="true"></div>
 
         <!-- project content column, full-width stacked sections -->
-        <main class="content-container">
+        <main class="content-container" data-grid-anchor>
             <div class="portfolio-page-col-generator">
                 <div class="portfolio-page-content-container">
                     <div class="content-section-header"> CONTEXT </div>
@@ -270,7 +258,7 @@
         </div>
         </main>
     </div>
-    <script src="/src/js/main.js"></script>
+    <script src="/src/js/site-grid.js" defer></script>
     <script type="importmap">
         {
             "imports": {

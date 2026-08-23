@@ -9,24 +9,13 @@
     <title>akositerrence - Gallery</title>
 </head>
 
-<body>
+<body class="site-theme page-feed page-gallery">
     <!-- background -->
-    <div class="gradient-background-feed">
-        <svg xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-            </defs>
-        </svg>
-        <div class="gradient-container">
-            <div class="interactive"></div>
-        </div>
-    </div>
+    <div class="site-background" aria-hidden="true"></div>
+    <canvas class="site-grid-canvas" data-site-grid aria-hidden="true"></canvas>
+
     <!-- main -->
-    <div class="main-portfolio-container">
+    <main class="main-portfolio-container">
 
         <!-- col1 -->
         <div class="portfolio-content-container">
@@ -37,11 +26,15 @@
                     </div>
                 </div>
 
-                <div class="project-gallery gallery-loading">
+                <div
+                    class="project-gallery gallery-loading"
+                    data-grid-anchor
+                    data-grid-columns="responsive"
+                >
 
                     <!-- instance -->
                     <div class="page-title-card brick">
-                        <span class="page-title">
+                        <div class="page-title">
                             <div class="page-title-group">
                                 <div id="gallery-page-title-text" class="standard-text">
                                     GALLERY
@@ -50,16 +43,18 @@
                                     <a href="../index.html"> Back to Home ↗ </a>
                                 </div>
                             </div>
-                        </span>
+                        </div>
                     </div>
 
-            </div>    
+                </div>
+            </div>
         </div>
-    </div>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="/src/js/main.js"></script>
-    <script src="/src/js/gallery.js"></script>
+    </main>
+
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js" defer></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer></script>
+    <script src="/src/js/site-grid.js" defer></script>
+    <script src="/src/js/gallery.js" defer></script>
 </body>
 
 </html>
