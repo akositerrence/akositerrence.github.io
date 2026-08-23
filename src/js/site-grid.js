@@ -41,6 +41,7 @@
 
         const root = document.documentElement;
         const body = document.body;
+        const splitGapTiles = 2;
         const title = document.querySelector(SELECTORS.title);
         const divider = document.querySelector(SELECTORS.divider);
         const desktopMedia = window.matchMedia(DESKTOP_QUERY);
@@ -120,7 +121,7 @@
             }
 
             const titleBounds = title.getBoundingClientRect();
-            const desiredTitleRight = gridOffsetX - 4 * tileSize;
+            const desiredTitleRight = gridOffsetX - 2 * splitGapTiles * tileSize;
             const desiredTitleWidth = desiredTitleRight - titleBounds.left;
 
             if (desiredTitleWidth > 0) {
@@ -133,7 +134,7 @@
             const dividerBaseCenter = dividerBounds.left
                 + dividerBounds.width / 2
                 - dividerTranslation;
-            const desiredDividerCenter = gridOffsetX - 2 * tileSize;
+            const desiredDividerCenter = gridOffsetX - splitGapTiles * tileSize;
             dividerTranslation = desiredDividerCenter - dividerBaseCenter;
             divider.style.transform = `translateX(${dividerTranslation}px)`;
         };
