@@ -184,12 +184,13 @@ function createLightbox() {
     lightbox.innerHTML = `
         <button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button">‹</button>
         <button class="gallery-lightbox-arrow gallery-lightbox-next" type="button">›</button>
+        <div class="gallery-lightbox-date"></div>
+        <button class="gallery-lightbox-close" type="button">Close</button>
         <div class="gallery-lightbox-content">
-            <button class="gallery-lightbox-close" type="button">Close</button>
             <img class="gallery-lightbox-img" src="" alt="">
-            <div class="gallery-lightbox-info">
-                <div class="gallery-lightbox-details"></div>
-            </div>
+        </div>
+        <div class="gallery-lightbox-info">
+            <div class="gallery-lightbox-location"></div>
         </div>
     `;
     document.body.appendChild(lightbox);
@@ -269,8 +270,9 @@ function updateLightboxPhoto(onReady) {
     }
 
     const img = lightbox.querySelector(".gallery-lightbox-img");
-    const details = lightbox.querySelector(".gallery-lightbox-details");
-    if (!img || !details) {
+    const date = lightbox.querySelector(".gallery-lightbox-date");
+    const location = lightbox.querySelector(".gallery-lightbox-location");
+    if (!img || !date || !location) {
         return;
     }
 
@@ -285,7 +287,8 @@ function updateLightboxPhoto(onReady) {
 
         img.src = src;
         img.alt = photo.alt || photoDetails || "gallery photo";
-        details.textContent = photoDetails;
+        date.textContent = String(photo.date || "");
+        location.textContent = String(photo.location || "");
 
         if (onReady) {
             onReady();
