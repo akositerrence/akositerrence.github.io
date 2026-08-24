@@ -2,6 +2,9 @@
 body {
     background-color: rgb(210, 210, 200);
     font-size: 0.875em;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .standard-text {

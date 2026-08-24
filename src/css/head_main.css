@@ -21,7 +21,7 @@
     --color-site-panel-border: rgba(254, 243, 199, 0.1);
     --color-site-panel-hover: rgba(254, 243, 199, 0.045);
     --color-site-grid-line: rgba(216, 222, 232, 0.016);
-    --color-site-lightbox-edge: rgb(255, 255, 255);
+    --color-site-lightbox-edge: rgba(255, 255, 255, 0.75);
     --color-site-thumbnail-edge: rgba(255, 255, 255, 0.1);
 }
 
@@ -33,6 +33,9 @@
     color: var(--color-site-text);
     background: var(--color-site-bg-bottom);
     isolation: isolate;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .site-theme::before {
