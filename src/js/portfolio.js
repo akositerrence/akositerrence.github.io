@@ -1,6 +1,20 @@
 console.log("portfolio.js loaded");
 
 let portfolioMasonry = null;
+let portfolioProjects = [];
+let portfolioCards = [];
+let visiblePortfolioCards = [];
+let deferredPortfolioCards = [];
+let portfolioExpanded = false;
+let portfolioInitialized = false;
+let portfolioViewportSegments = 1;
+let portfolioResizeFrame = 0;
+let portfolioGrid = null;
+let portfolioLoadMoreRow = null;
+let portfolioLoadMoreButton = null;
+
+const MOBILE_PORTFOLIO_VIEWPORT_INCREMENT = 1.5;
+const DESKTOP_PORTFOLIO_VIEWPORT_INCREMENT = 2;
 
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".portfolio-grid");
@@ -9,6 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn(".portfolio-grid element not found");
         return;
     }
+
+    portfolioGrid = grid;
+    portfolioLoadMoreRow = document.querySelector(".portfolio-load-more-row");
+    portfolioLoadMoreButton = document.querySelector(".portfolio-load-more-button");
+    portfolioLoadMoreButton?.addEventListener("click", revealNextPortfolioBatch);
 
     loadProjects(grid);
 });
@@ -23,27 +42,34 @@ async function loadProjects(grid) {
             );
         }
 
-        const projects = await response.json();
+        portfolioProjects = await response.json();
 
-        if (!Array.isArray(projects)) {
+        if (!Array.isArray(portfolioProjects)) {
             throw new Error("projects.json must contain an array");
         }
 
-        const fragment = document.createDocumentFragment();
+        portfolioCards = portfolioProjects.map(createProjectCard);
 
-        projects.forEach((project, index) => {
-            const card = createProjectCard(project, index);
-            fragment.appendChild(card);
-        });
+        initPortfolioMasonry(grid);
+        selectPortfolioCardsForCurrentPage();
+        updatePortfolioLoadMoreVisibility();
+        revealPortfolioGrid(grid);
 
-        grid.appendChild(fragment);
+        await Promise.all(
+            visiblePortfolioCards.map((entry, index) =>
+                loadPortfolioImage(entry, index < 3 ? "high" : "auto")
+            )
+        );
+
+        portfolioInitialized = true;
+        beginDeferredPortfolioPreload();
+        startPortfolioResizeTracking();
     } catch (error) {
         console.error("Portfolio failed to load:", error);
-
         showPortfolioError(grid);
-    } finally {
         initPortfolioMasonry(grid);
         revealPortfolioGrid(grid);
+        hidePortfolioLoadMore();
     }
 }
 
@@ -57,45 +83,22 @@ function createProjectCard(project, index) {
     link.target = "";
     link.rel = "noopener noreferrer";
 
-    const projectTitle = String(
-        project.title || "Untitled project"
-    );
-
-    link.setAttribute(
-        "aria-label",
-        `View project: ${projectTitle}`
-    );
+    const projectTitle = String(project.title || "Untitled project");
+    link.setAttribute("aria-label", `View project: ${projectTitle}`);
 
     const image = document.createElement("img");
-    image.className =
-        "portfolio-project-image portfolio-img-loading";
+    image.className = "portfolio-project-image portfolio-img-loading";
+    image.alt = String(project.alt || project.title || "Portfolio project");
 
-    image.src = String(project.image || "");
-    image.alt = String(
-        project.alt ||
-        project.title ||
-        "Portfolio project"
-    );
+    const width = project.width;
+    const height = project.height;
+    const hasDimensions = Number.isFinite(width) && width > 0 &&
+        Number.isFinite(height) && height > 0;
 
-    image.loading = index < 6 ? "eager" : "lazy";
-    image.fetchPriority = index < 3 ? "high" : "auto";
-
-    image.addEventListener("load", () => {
-        image.classList.add("portfolio-img-loaded");
-        requestPortfolioLayout();
-    });
-
-    image.addEventListener("error", () => {
-        console.warn(
-            `Could not load project image: ${image.src}`
-        );
-
-        image.classList.add("portfolio-img-loaded");
-        requestPortfolioLayout();
-    });
-
-    if (image.complete) {
-        image.classList.add("portfolio-img-loaded");
+    if (hasDimensions) {
+        image.width = width;
+        image.height = height;
+        image.style.aspectRatio = `${width} / ${height}`;
     }
 
     const overlay = document.createElement("div");
@@ -104,7 +107,6 @@ function createProjectCard(project, index) {
     const title = document.createElement("div");
     title.className = "project-img-title";
     title.textContent = projectTitle;
-
     overlay.appendChild(title);
 
     const details = [project.date, project.affiliation]
@@ -113,19 +115,311 @@ function createProjectCard(project, index) {
 
     if (details) {
         const detailLine = document.createElement("div");
-
-        detailLine.className =
-            "project-img-title-affiliation";
-
+        detailLine.className = "project-img-title-affiliation";
         detailLine.textContent = details;
-
         overlay.appendChild(detailLine);
     }
 
     link.append(image, overlay);
     article.appendChild(link);
 
-    return article;
+    return {
+        article,
+        image,
+        index,
+        imageSource: String(project.image || ""),
+        width,
+        height,
+        hasDimensions,
+        loadPromise: null
+    };
+}
+
+function selectPortfolioCardsForCurrentPage() {
+    if (!portfolioGrid || portfolioExpanded) {
+        return;
+    }
+
+    const previouslyVisibleCards = new Set(
+        portfolioCards.filter(entry => entry.article.isConnected)
+    );
+    portfolioCards.forEach(entry => entry.article.remove());
+    refreshPortfolioItems();
+
+    visiblePortfolioCards = [];
+    deferredPortfolioCards = [];
+    const layout = getInitialPortfolioLayout();
+
+    portfolioCards.forEach(entry => {
+        if (!entry.hasDimensions) {
+            deferredPortfolioCards.push(entry);
+            return;
+        }
+
+        const columnIndex = getShortestPortfolioColumn(layout.columnHeights);
+        const imageHeight = layout.imageWidth * entry.height / entry.width;
+        const cardBottom = layout.columnHeights[columnIndex] +
+            layout.verticalChrome + imageHeight;
+
+        if (cardBottom <= layout.relativeBoundary + 0.5) {
+            layout.columnHeights[columnIndex] = cardBottom;
+            visiblePortfolioCards.push(entry);
+            return;
+        }
+
+        deferredPortfolioCards.push(entry);
+    });
+
+    const fragment = document.createDocumentFragment();
+    visiblePortfolioCards.forEach(entry => {
+        if (!previouslyVisibleCards.has(entry)) {
+            startPortfolioCardReveal(entry);
+        }
+        fragment.appendChild(entry.article);
+    });
+    portfolioGrid.appendChild(fragment);
+    visiblePortfolioCards.forEach(reservePortfolioImageGeometry);
+    refreshPortfolioItems();
+
+    portfolioGrid.dataset.visibleCardCount = String(visiblePortfolioCards.length);
+    portfolioGrid.dataset.deferredCardCount = String(deferredPortfolioCards.length);
+    portfolioGrid.dataset.viewportSegments = String(portfolioViewportSegments);
+}
+
+function getInitialPortfolioLayout() {
+    const gridBounds = portfolioGrid.getBoundingClientRect();
+    const columnCount = window.matchMedia("(min-width: 768px)").matches ? 3 : 2;
+    const columnWidth = gridBounds.width / columnCount;
+    const titleCard = portfolioGrid.querySelector(".page-title-card");
+    const titleHeight = titleCard?.getBoundingClientRect().height || 400;
+    const chrome = measurePortfolioCardChrome();
+    const gridDocumentTop = gridBounds.top + window.scrollY;
+
+    return {
+        columnHeights: [titleHeight, ...Array(columnCount - 1).fill(0)],
+        imageWidth: Math.max(1, columnWidth - chrome.horizontal),
+        verticalChrome: chrome.vertical,
+        relativeBoundary: Math.max(
+            0,
+            getPortfolioDocumentBoundary() - gridDocumentTop
+        )
+    };
+}
+
+function measurePortfolioCardChrome() {
+    const probe = portfolioCards.find(entry => entry.hasDimensions);
+    if (!probe) {
+        return { horizontal: 14, vertical: 14 };
+    }
+
+    portfolioGrid.appendChild(probe.article);
+    const cardStyle = window.getComputedStyle(probe.article);
+    const link = probe.article.querySelector(".portfolio-project-link");
+    const linkStyle = window.getComputedStyle(link);
+    const horizontal = getPortfolioHorizontalChrome(cardStyle) +
+        getPortfolioHorizontalChrome(linkStyle);
+    const vertical = getPortfolioVerticalChrome(cardStyle) +
+        getPortfolioVerticalChrome(linkStyle);
+    probe.article.remove();
+    refreshPortfolioItems();
+
+    return { horizontal, vertical };
+}
+
+function getPortfolioHorizontalChrome(style) {
+    return getPortfolioCssPixels(style.paddingLeft) +
+        getPortfolioCssPixels(style.paddingRight) +
+        getPortfolioCssPixels(style.borderLeftWidth) +
+        getPortfolioCssPixels(style.borderRightWidth);
+}
+
+function getPortfolioVerticalChrome(style) {
+    return getPortfolioCssPixels(style.paddingTop) +
+        getPortfolioCssPixels(style.paddingBottom) +
+        getPortfolioCssPixels(style.borderTopWidth) +
+        getPortfolioCssPixels(style.borderBottomWidth);
+}
+
+function getPortfolioCssPixels(value) {
+    const pixels = Number.parseFloat(value);
+    return Number.isFinite(pixels) ? pixels : 0;
+}
+
+function getShortestPortfolioColumn(columnHeights) {
+    return columnHeights.reduce(
+        (shortest, height, index) =>
+            height < columnHeights[shortest] ? index : shortest,
+        0
+    );
+}
+
+function getPortfolioDocumentBoundary() {
+    const viewportHeight = window.visualViewport?.height || window.innerHeight;
+    const viewportIncrement = window.matchMedia("(min-width: 768px)").matches
+        ? DESKTOP_PORTFOLIO_VIEWPORT_INCREMENT
+        : MOBILE_PORTFOLIO_VIEWPORT_INCREMENT;
+    return viewportHeight * viewportIncrement * portfolioViewportSegments;
+}
+
+function reservePortfolioImageGeometry(entry) {
+    if (entry.image.naturalWidth > 0) {
+        entry.image.style.removeProperty("height");
+        return;
+    }
+
+    const imageWidth = entry.image.getBoundingClientRect().width;
+    if (imageWidth > 0) {
+        entry.image.style.height = `${imageWidth * entry.height / entry.width}px`;
+    }
+}
+
+function startPortfolioCardReveal(entry) {
+    const card = entry.article;
+    card.classList.remove("portfolio-card-revealing");
+    card.classList.add("portfolio-card-revealing");
+
+    const finish = () => {
+        card.classList.remove("portfolio-card-revealing");
+    };
+
+    card.addEventListener("animationend", finish, { once: true });
+    window.setTimeout(finish, 700);
+}
+
+function loadPortfolioImage(entry, priority = "auto") {
+    if (entry.loadPromise) {
+        return entry.loadPromise;
+    }
+
+    entry.image.loading = "eager";
+    entry.image.fetchPriority = priority;
+    entry.loadPromise = new Promise(resolve => {
+        let settled = false;
+        const settle = (failed = false) => {
+            if (settled) {
+                return;
+            }
+            settled = true;
+            entry.image.removeEventListener("load", handleLoad);
+            entry.image.removeEventListener("error", handleError);
+            if (failed) {
+                console.warn(`Could not load project image: ${entry.imageSource}`);
+            }
+            if (entry.image.naturalWidth > 0) {
+                entry.image.style.removeProperty("height");
+            }
+            entry.image.classList.add("portfolio-img-loaded");
+            if (entry.article.isConnected) {
+                requestPortfolioLayout();
+            }
+            resolve();
+        };
+        const handleLoad = () => settle(false);
+        const handleError = () => settle(true);
+
+        entry.image.addEventListener("load", handleLoad, { once: true });
+        entry.image.addEventListener("error", handleError, { once: true });
+        entry.image.src = entry.imageSource;
+
+        if (entry.image.complete) {
+            settle(entry.image.naturalWidth === 0);
+        }
+    });
+
+    return entry.loadPromise;
+}
+
+function beginDeferredPortfolioPreload() {
+    deferredPortfolioCards.forEach(entry => {
+        loadPortfolioImage(entry, "low");
+    });
+}
+
+function revealNextPortfolioBatch() {
+    if (portfolioExpanded || !portfolioGrid) {
+        return;
+    }
+
+    const scrollLeft = window.scrollX;
+    const scrollTop = window.scrollY;
+    portfolioLoadMoreButton?.blur();
+
+    portfolioViewportSegments += 1;
+    selectPortfolioCardsForCurrentPage();
+    visiblePortfolioCards.forEach(entry => {
+        loadPortfolioImage(entry, "low");
+    });
+
+    portfolioExpanded = deferredPortfolioCards.length === 0;
+    portfolioLoadMoreButton?.setAttribute(
+        "aria-expanded",
+        String(portfolioExpanded)
+    );
+    updatePortfolioLoadMoreVisibility();
+    restorePortfolioScrollPosition(scrollLeft, scrollTop);
+}
+
+function restorePortfolioScrollPosition(left, top) {
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+
+    const restore = () => window.scrollTo(left, top);
+    restore();
+    window.requestAnimationFrame(() => {
+        restore();
+        if (previousScrollBehavior) {
+            root.style.scrollBehavior = previousScrollBehavior;
+        } else {
+            root.style.removeProperty("scroll-behavior");
+        }
+    });
+}
+
+function updatePortfolioLoadMoreVisibility() {
+    if (!portfolioLoadMoreRow || !portfolioLoadMoreButton) {
+        return;
+    }
+
+    portfolioLoadMoreRow.hidden = portfolioExpanded ||
+        deferredPortfolioCards.length === 0;
+}
+
+function hidePortfolioLoadMore() {
+    if (portfolioLoadMoreRow) {
+        portfolioLoadMoreRow.hidden = true;
+    }
+}
+
+function startPortfolioResizeTracking() {
+    const schedule = () => {
+        if (portfolioExpanded || portfolioResizeFrame) {
+            return;
+        }
+        portfolioResizeFrame = window.requestAnimationFrame(() => {
+            portfolioResizeFrame = 0;
+            if (!portfolioInitialized || portfolioExpanded) {
+                return;
+            }
+            selectPortfolioCardsForCurrentPage();
+            updatePortfolioLoadMoreVisibility();
+        });
+    };
+
+    window.addEventListener("resize", schedule, { passive: true });
+    window.visualViewport?.addEventListener("resize", schedule, { passive: true });
+}
+
+function refreshPortfolioItems() {
+    if (!portfolioGrid || !portfolioMasonry) {
+        return;
+    }
+    if (typeof portfolioMasonry.reloadItems === "function") {
+        portfolioMasonry.reloadItems();
+    }
+    if (typeof portfolioMasonry.layout === "function") {
+        portfolioMasonry.layout();
+    }
 }
 
 function initPortfolioMasonry(grid) {
@@ -146,7 +440,8 @@ function initPortfolioMasonry(grid) {
             itemSelector: ".brick",
             columnWidth: ".brick",
             gutter: 0,
-            percentPosition: true
+            percentPosition: true,
+            transitionDuration: 0
         });
 
         portfolioMasonry = masonry;
@@ -195,10 +490,7 @@ function revealPortfolioGrid(grid) {
 }
 
 function requestPortfolioLayout() {
-    if (
-        portfolioMasonry &&
-        typeof portfolioMasonry.layout === "function"
-    ) {
+    if (portfolioMasonry && typeof portfolioMasonry.layout === "function") {
         portfolioMasonry.layout();
     }
 }
@@ -219,26 +511,18 @@ function resetPortfolioMasonryStyles(grid) {
 }
 
 function showPortfolioError(grid) {
+    if (grid.querySelector(".portfolio-load-error")) {
+        return;
+    }
+
     const message = document.createElement("p");
-
-    message.className =
-        "portfolio-load-error standard-text brick";
-
-    message.textContent =
-        "Projects could not be loaded.";
-
+    message.className = "portfolio-load-error standard-text brick";
+    message.textContent = "Projects could not be loaded.";
     grid.appendChild(message);
 }
 
 function getSafeHref(value) {
     const href = String(value || "#").trim();
-
-    const unsafeProtocol =
-        /^(javascript|data|vbscript):/i;
-
-    if (unsafeProtocol.test(href)) {
-        return "#";
-    }
-
-    return href;
+    const unsafeProtocol = /^(javascript|data|vbscript):/i;
+    return unsafeProtocol.test(href) ? "#" : href;
 }

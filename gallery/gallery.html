@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link href="/src/css/tail_main.css" rel="stylesheet">
+    <link href="/src/css/tail_main.css?v=gallery-load-more-8" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/src/media/favicon.png">
     <title>akositerrence - Gallery</title>
 </head>
@@ -27,15 +27,16 @@
                 </div>
 
                 <div
+                    id="gallery-grid"
                     class="project-gallery gallery-loading"
                     data-grid-anchor
                     data-grid-columns="responsive"
                 >
 
                     <!-- instance -->
-                    <div class="page-title-card brick">
+                    <div class="page-title-card brick" data-fit-card>
                         <div class="page-title">
-                            <div class="page-title-group">
+                            <div class="page-title-group" data-fit-card-text>
                                 <div id="gallery-page-title-text" class="standard-text">
                                     GALLERY
                                 </div>
@@ -47,6 +48,17 @@
                     </div>
 
                 </div>
+
+                <div class="gallery-load-more-row" hidden>
+                    <button
+                        class="gallery-load-more-button"
+                        type="button"
+                        aria-controls="gallery-grid"
+                        aria-expanded="false"
+                    >
+                        <span class="animated-underline">&#x2193;&#xFE0E; Load More &#x2193;&#xFE0E;</span>
+                    </button>
+                </div>
             </div>
         </div>
     </main>
@@ -54,7 +66,8 @@
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js" defer></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer></script>
     <script src="/src/js/site-grid.js" defer></script>
-    <script src="/src/js/gallery.js" defer></script>
+    <script src="/src/js/site-text-fit.js" defer></script>
+    <script src="/src/js/gallery.js?v=gallery-load-more-9" defer></script>
 </body>
 
 </html>

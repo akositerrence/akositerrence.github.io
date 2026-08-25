@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/src/css/tail_main.css" rel="stylesheet">
+    <link href="/src/css/tail_main.css?v=portfolio-load-more-1" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/src/media/favicon.png">
 
     <title>akositerrence - Portfolio</title>
@@ -26,14 +26,15 @@
                 </div>
 
                 <div
+                    id="portfolio-grid"
                     class="project-gallery portfolio-grid gallery-loading"
                     data-grid-anchor
                     data-grid-columns="responsive"
                 >
 
-                    <div class="page-title-card brick">
+                    <div class="page-title-card brick" data-fit-card>
                         <div class="page-title">
-                            <div class="page-title-group">
+                            <div class="page-title-group" data-fit-card-text>
 
                                 <div
                                     id="portfolio-page-title-text"
@@ -55,6 +56,17 @@
                     <!-- Project cards are inserted here by portfolio.js -->
 
                 </div>
+
+                <div class="portfolio-load-more-row" hidden>
+                    <button
+                        class="portfolio-load-more-button"
+                        type="button"
+                        aria-controls="portfolio-grid"
+                        aria-expanded="false"
+                    >
+                        <span class="animated-underline">&#x2193;&#xFE0E; Load More &#x2193;&#xFE0E;</span>
+                    </button>
+                </div>
             </div>
         </div>
     </main>
@@ -62,7 +74,8 @@
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js" defer></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer></script>
     <script src="/src/js/site-grid.js" defer></script>
-    <script src="/src/js/portfolio.js" defer></script>
+    <script src="/src/js/site-text-fit.js" defer></script>
+    <script src="/src/js/portfolio.js?v=portfolio-load-more-1" defer></script>
 </body>
 
 </html>

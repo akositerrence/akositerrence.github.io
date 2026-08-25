@@ -1,28 +1,38 @@
 [
     {
         "src": "./photos/082326.webp",
+        "width": 900,
+        "height": 648,
         "location": "The Priest, Virginia",
         "date": "08·23·26"
     },
 
     {
         "src": "./photos/071926a.webp",
+        "width": 4128,
+        "height": 5264,
         "location": "Old Rag Mountain, Virginia",
         "date": "07·19·26"
     },
     {
         "src": "./photos/071926b.webp",
+        "width": 6192,
+        "height": 4128,
         "location": "Old Rag Mountain, Virginia",
         "date": "07·19·26"
     },
 
     {
         "src": "./photos/070526a.webp",
+        "width": 900,
+        "height": 600,
         "location": "Natural Bridge, Virginia",
         "date": "07·05·26"
     },
     {
         "src": "./photos/070526b.webp",
+        "width": 900,
+        "height": 344,
         "location": "Afton Mountain, Virginia",
         "date": "07·06·26"
     },
@@ -31,26 +41,36 @@
 
     {
         "src": "./photos/070426a.webp",
+        "width": 900,
+        "height": 1350,
         "location": "New River Gorge, West Virginia",
         "date": "07·04·26"
     },
     {
         "src": "./photos/070426b.webp",
+        "width": 900,
+        "height": 759,
         "location": "New River Gorge, West Virginia",
         "date": "07·04·26"
     },
     {
         "src": "./photos/070426c.webp",
+        "width": 900,
+        "height": 671,
         "location": "New River Gorge, West Virginia",
         "date": "07·04·26"
     },
     {
         "src": "./photos/070426d.webp",
+        "width": 900,
+        "height": 633,
         "location": "New River Gorge, West Virginia",
         "date": "07·04·26"
     },
     {
         "src": "./photos/070426e.webp",
+        "width": 900,
+        "height": 706,
         "location": "New River Gorge, West Virginia",
         "date": "07·04·26"
     },
@@ -59,11 +79,15 @@
 
     {
         "src": "./photos/062026a.webp",
+        "width": 900,
+        "height": 600,
         "location": "Norfolk, Virginia",
         "date": "06·20·26"
     },
     {
         "src": "./photos/062026b.webp",
+        "width": 900,
+        "height": 1290,
         "location": "Norfolk, Virginia",
         "date": "06·20·26"
     },
@@ -72,11 +96,15 @@
 
     {
         "src": "./photos/061326a.webp",
+        "width": 900,
+        "height": 600,
         "location": "Philadelphia, Pennsylvania",
         "date": "06·13·26"
     },
     {
         "src": "./photos/061326b.webp",
+        "width": 900,
+        "height": 656,
         "location": "Philadelphia, Pennsylvania",
         "date": "06·13·26"
     },
@@ -85,6 +113,8 @@
 
     {
         "src": "./photos/060626a.webp",
+        "width": 900,
+        "height": 1350,
         "location": "Lincoln Woods, Rhode Island",
         "date": "06·06·26"
     },
@@ -93,6 +123,8 @@
 
     {
         "src": "./photos/053026a.webp",
+        "width": 900,
+        "height": 748,
         "location": "Acadia National Park, Maine",
         "date": "05·30·26"
     },
@@ -101,16 +133,22 @@
 
     {
         "src": "./photos/052426a.webp",
+        "width": 900,
+        "height": 600,
         "location": "Acadia National Park, Maine",
         "date": "05·24·26"
     },
     {
         "src": "./photos/052426b.webp",
+        "width": 900,
+        "height": 600,
         "location": "Acadia National Park, Maine",
         "date": "05·24·26"
     },
     {
         "src": "./photos/052426c.webp",
+        "width": 900,
+        "height": 1260,
         "location": "Acadia National Park, Maine",
         "date": "05·24·26"
     },
@@ -119,6 +157,8 @@
 
     {
         "src": "./photos/052326.webp",
+        "width": 900,
+        "height": 506,
         "location": "Mount Lafayette, New Hampshire",
         "date": "05·23·26"
     },
@@ -127,6 +167,8 @@
 
     {
         "src": "./photos/051026a.webp",
+        "width": 900,
+        "height": 1350,
         "location": "Boston, Massachusetts",
         "date": "05·10·26"
     },
@@ -135,11 +177,15 @@
 
     {
         "src": "./photos/042126a.webp",
+        "width": 900,
+        "height": 600,
         "location": "Boston, Massachusetts",
         "date": "04·21·26"
     },
     {
         "src": "./photos/042126b.webp",
+        "width": 900,
+        "height": 600,
         "location": "Boston, Massachusetts",
         "date": "04·21·26"
     },
@@ -148,6 +194,8 @@
 
     {
         "src": "./photos/041826.webp",
+        "width": 900,
+        "height": 600,
         "location": "Mount Monadnock, New Hampshire",
         "date": "04·18·26"
     },
@@ -157,11 +205,15 @@
 
     {
         "src": "./photos/031226.webp",
+        "width": 900,
+        "height": 961,
         "location": "The Flatirons, Colorado",
         "date": "03·12·26"
     },
     {
         "src": "./photos/031026.webp",
+        "width": 900,
+        "height": 900,
         "location": "South Table Mountain, Colorado",
         "date": "03·10·26"
     },
@@ -170,16 +222,22 @@
 
     {
         "src": "./photos/021526a.webp",
+        "width": 900,
+        "height": 600,
         "location": "Acadia National Park, Maine",
         "date": "02·15·26"
     },
     {
         "src": "./photos/021526b.webp",
+        "width": 900,
+        "height": 600,
         "location": "Acadia National Park, Maine",
         "date": "02·15·26"
     },
     {
         "src": "./photos/021526c.webp",
+        "width": 900,
+        "height": 600,
         "location": "Acadia National Park, Maine",
         "date": "02·15·26"
     },
@@ -188,21 +246,29 @@
 
     {
         "src": "./photos/091325a.webp",
+        "width": 900,
+        "height": 601,
         "location": "Taylors Falls, Minnesota",
         "date": "09·13·25"
     },
     {
         "src": "./photos/091325b.webp",
+        "width": 900,
+        "height": 601,
         "location": "Taylors Falls, Minnesota",
         "date": "09·13·25"
     },
     {
         "src": "./photos/091325c.webp",
+        "width": 900,
+        "height": 601,
         "location": "Taylors Falls, Minnesota",
         "date": "09·13·25"
     },
     {
         "src": "./photos/091325d.webp",
+        "width": 900,
+        "height": 601,
         "location": "Taylors Falls, Minnesota",
         "date": "09·13·25"
     },
@@ -211,6 +277,8 @@
 
     {
         "src": "./photos/081625a.webp",
+        "width": 900,
+        "height": 601,
         "location": "Estes Park, Colorado",
         "date": "08·16·25"
     },
@@ -219,6 +287,8 @@
 
     {
         "src": "./photos/081325a.webp",
+        "width": 900,
+        "height": 1347,
         "location": "Mammoth Cave, Kentucky",
         "date": "08·13·25"
     },
@@ -227,16 +297,22 @@
 
     {
         "src": "./photos/081325b.webp",
+        "width": 900,
+        "height": 601,
         "location": "Gateway Arch, Missouri",
         "date": "08·13·25"
     },
     {
         "src": "./photos/081325c.webp",
+        "width": 900,
+        "height": 601,
         "location": "St Louis, Missouri",
         "date": "08·13·25"
     },
     {
         "src": "./photos/081325d.webp",
+        "width": 900,
+        "height": 601,
         "location": "St Louis, Missouri",
         "date": "08·13·25"
     },
@@ -245,21 +321,29 @@
 
     {
         "src": "./photos/081025a.webp",
+        "width": 900,
+        "height": 601,
         "location": "New River Gorge, West Virginia",
         "date": "08·10·25"
     },
     {
         "src": "./photos/081025b.webp",
+        "width": 900,
+        "height": 601,
         "location": "New River Gorge, West Virginia",
         "date": "08·10·25"
     },
     {
         "src": "./photos/081025c.webp",
+        "width": 900,
+        "height": 601,
         "location": "New River Gorge, West Virginia",
         "date": "08·10·25"
     },
     {
         "src": "./photos/081025d.webp",
+        "width": 900,
+        "height": 601,
         "location": "New River Gorge, West Virginia",
         "date": "08·10·25"
     }
