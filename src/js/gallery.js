@@ -114,7 +114,7 @@ function createPhotoCard(photo, index) {
     };
 }
 
-function selectGalleryCardsForCurrentPage() {
+function selectGalleryCardsForCurrentPage(preserveExistingCards = false) {
     if (!galleryGrid || galleryExpanded) {
         return;
     }
@@ -122,8 +122,10 @@ function selectGalleryCardsForCurrentPage() {
     const previouslyVisibleCards = new Set(
         galleryCards.filter(entry => entry.card.isConnected)
     );
-    galleryCards.forEach(entry => entry.card.remove());
-    refreshGalleryItems();
+    if (!preserveExistingCards) {
+        galleryCards.forEach(entry => entry.card.remove());
+        refreshGalleryItems();
+    }
 
     visibleGalleryCards = [];
     deferredGalleryCards = [];
@@ -148,20 +150,50 @@ function selectGalleryCardsForCurrentPage() {
         deferredGalleryCards.push(entry);
     });
 
-    const fragment = document.createDocumentFragment();
-    visibleGalleryCards.forEach(entry => {
-        if (!previouslyVisibleCards.has(entry)) {
-            startGalleryCardReveal(entry);
-        }
-        fragment.appendChild(entry.card);
-    });
-    galleryGrid.appendChild(fragment);
-    visibleGalleryCards.forEach(reserveThumbnailGeometry);
+    if (preserveExistingCards) {
+        const selectedCards = new Set(visibleGalleryCards);
+        visibleGalleryCards = galleryCards.filter(entry =>
+            previouslyVisibleCards.has(entry) || selectedCards.has(entry)
+        );
+        const retainedCards = new Set(visibleGalleryCards);
+        deferredGalleryCards = galleryCards.filter(entry =>
+            !retainedCards.has(entry)
+        );
+    }
+
+    if (preserveExistingCards) {
+        insertNewGalleryCards(previouslyVisibleCards);
+    } else {
+        const fragment = document.createDocumentFragment();
+        visibleGalleryCards.forEach(entry => {
+            if (!previouslyVisibleCards.has(entry)) {
+                startGalleryCardReveal(entry);
+            }
+            fragment.appendChild(entry.card);
+        });
+        galleryGrid.appendChild(fragment);
+        visibleGalleryCards.forEach(reserveThumbnailGeometry);
+    }
     refreshGalleryItems();
 
     galleryGrid.dataset.visibleCardCount = String(visibleGalleryCards.length);
     galleryGrid.dataset.deferredCardCount = String(deferredGalleryCards.length);
     galleryGrid.dataset.viewportSegments = String(galleryViewportSegments);
+}
+
+function insertNewGalleryCards(previouslyVisibleCards) {
+    visibleGalleryCards.forEach((entry, index) => {
+        if (previouslyVisibleCards.has(entry)) {
+            return;
+        }
+
+        startGalleryCardReveal(entry);
+        const nextVisibleCard = visibleGalleryCards
+            .slice(index + 1)
+            .find(candidate => candidate.card.isConnected);
+        galleryGrid.insertBefore(entry.card, nextVisibleCard?.card || null);
+        reserveThumbnailGeometry(entry);
+    });
 }
 
 function startGalleryCardReveal(entry) {
@@ -200,14 +232,19 @@ function measureGalleryCardChrome() {
         return { horizontal: 14, vertical: 14 };
     }
 
-    galleryGrid.appendChild(probe.card);
+    const probeWasConnected = probe.card.isConnected;
+    if (!probeWasConnected) {
+        galleryGrid.appendChild(probe.card);
+    }
     const cardStyle = window.getComputedStyle(probe.card);
     const button = probe.card.querySelector(".gallery-photo-button");
     const buttonStyle = window.getComputedStyle(button);
     const horizontal = getHorizontalChrome(cardStyle) + getHorizontalChrome(buttonStyle);
     const vertical = getVerticalChrome(cardStyle) + getVerticalChrome(buttonStyle);
-    probe.card.remove();
-    refreshGalleryItems();
+    if (!probeWasConnected) {
+        probe.card.remove();
+        refreshGalleryItems();
+    }
 
     return { horizontal, vertical };
 }
@@ -303,12 +340,10 @@ function revealNextGalleryBatch() {
         return;
     }
 
-    const scrollLeft = window.scrollX;
-    const scrollTop = window.scrollY;
     loadMoreButton?.blur();
 
     galleryViewportSegments += 1;
-    selectGalleryCardsForCurrentPage();
+    selectGalleryCardsForCurrentPage(true);
     visibleGalleryCards.forEach(entry => {
         loadThumbnail(entry, "low");
     });
@@ -319,27 +354,6 @@ function revealNextGalleryBatch() {
         loadMoreButton.setAttribute("aria-expanded", String(galleryExpanded));
     }
     updateLoadMoreVisibility();
-    restoreGalleryScrollPosition(scrollLeft, scrollTop);
-}
-
-function restoreGalleryScrollPosition(left, top) {
-    const root = document.documentElement;
-    const previousScrollBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = "auto";
-
-    const restore = () => {
-        window.scrollTo(left, top);
-    };
-
-    restore();
-    window.requestAnimationFrame(() => {
-        restore();
-        if (previousScrollBehavior) {
-            root.style.scrollBehavior = previousScrollBehavior;
-        } else {
-            root.style.removeProperty("scroll-behavior");
-        }
-    });
 }
 
 function updateLoadMoreVisibility() {
@@ -366,7 +380,7 @@ function startGalleryResizeTracking() {
             if (!galleryInitialized || galleryExpanded) {
                 return;
             }
-            selectGalleryCardsForCurrentPage();
+            selectGalleryCardsForCurrentPage(true);
             updateLoadMoreVisibility();
         });
     };
