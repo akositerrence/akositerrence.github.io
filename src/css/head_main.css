@@ -608,7 +608,7 @@
 
 .page-gallery .gallery-load-more-row,
 .page-portfolio .portfolio-load-more-row {
-    @apply flex w-[95%] justify-center pb-2.5 pt-6 md:w-[90%] md:pt-3;
+    @apply flex w-[95%] justify-center pb-2.5 pt-8 md:w-[90%] md:pt-3;
     position: relative;
     z-index: 3;
 }
@@ -620,14 +620,16 @@
 
 .page-gallery .gallery-load-more-button,
 .page-portfolio .portfolio-load-more-button {
-    width: 50%;
-    height: 60px;
+    width: auto;
+    height: auto;
+    padding: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
     color: var(--color-site-gold);
     font: inherit;
-    opacity: 0.95;
+    font-size: 0.875em;
+    opacity: 0.85;
     cursor: pointer;
     transition: opacity 200ms ease-out;
 }
@@ -636,13 +638,6 @@
 .page-portfolio .portfolio-load-more-button:focus-visible {
     outline: 1px solid var(--color-site-gold);
     outline-offset: 3px;
-}
-
-@media (min-width: 768px) {
-    .page-gallery .gallery-load-more-button,
-    .page-portfolio .portfolio-load-more-button {
-        width: calc(100% / 3);
-    }
 }
 
 @media (hover: hover) and (pointer: fine) {
