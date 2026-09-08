@@ -4,6 +4,8 @@
         "affiliation": "NDSU Rocketry",
         "date": "2026",
         "image": "./portfolio_thumbnails/rocket_datalogger.webp",
+        "width": 1202,
+        "height": 869,
         "alt": "-",
         "href": "./portfolio_pages/rocket_datalogger/rocket_datalogger.html"
     },
@@ -12,6 +14,8 @@
         "affiliation": "NDSU Combat Robotics",
         "date": "2026",
         "image": "./portfolio_thumbnails/boulderbot.webp",
+        "width": 2091,
+        "height": 1396,
         "alt": "-",
         "href": "./portfolio_pages/boulderbot/boulderbot.html"
     },
@@ -20,6 +24,8 @@
         "affiliation": "NDSU Combat Robotics",
         "date": "2025",
         "image": "./portfolio_thumbnails/cowbot.webp",
+        "width": 3024,
+        "height": 3024,
         "alt": "-",
         "href": "./portfolio_pages/cowbot/cowbot.html"
     },
@@ -28,6 +34,8 @@
         "affiliation": "Independent Project",
         "date": "2024",
         "image": "./portfolio_thumbnails/website.webp",
+        "width": 520,
+        "height": 545,
         "alt": "-",
         "href": "https://github.com/akositerrence/akositerrence.github.io"
     }
