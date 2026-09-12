@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-roman.css");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@variable&display=swap");
 @import "tailwindcss" source(none);
 @source "../../index.html";
 @source "../../gallery/**/*.html";
@@ -9,7 +9,7 @@
 @source "../js/**/*.js";
 
 @theme {
-    --font-site: "Latin Modern Roman", "Computer Modern", "Times New Roman", serif;
+    --font-site: "Satoshi", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --color-site-bg-top: rgb(26, 28, 33);
     --color-site-bg-middle: rgb(14, 16, 20);
     --color-site-bg-bottom: rgb(6, 8, 11);
@@ -64,13 +64,13 @@
 /* main */
 
 .site-theme .standard-text {
-    @apply text-[0.875em] font-extralight;
+    @apply text-[0.875em] font-normal;
     color: var(--color-site-text);
     opacity: 0.875;
 }
 
 .site-theme .bolded-standard-text {
-    @apply font-light;
+    @apply font-medium;
     color: var(--color-site-gold);
     opacity: 0.95;
 }
@@ -327,7 +327,7 @@
 }
 
 .page-home .experience-dates-location {
-    @apply font-extralight mb-1.5 opacity-62.5;
+    @apply font-normal mb-1.5 opacity-62.5;
 }
 
 .page-home .experience-title {
@@ -339,7 +339,7 @@
 }
 
 .page-home .experience-company {
-    @apply font-extralight;
+    @apply font-normal;
 }
 
 .page-home .experience-separator {
@@ -404,7 +404,7 @@
 }
 
 .page-home .project-date {
-    @apply font-extralight mb-1.5 opacity-62.5;
+    @apply font-normal mb-1.5 opacity-62.5;
 }
 
 .page-project .last-update {
@@ -435,7 +435,7 @@
 }
 
 .page-home .certificate-source {
-    @apply font-extralight mb-1.5 opacity-62.5;
+    @apply font-normal mb-1.5 opacity-62.5;
 }
 
 .page-home .copyright-container {
@@ -460,7 +460,7 @@
 }
 
 .page-home .education-dates-location {
-    @apply font-extralight opacity-62.5;
+    @apply font-normal opacity-62.5;
 }
 
 .page-home .education-description {
@@ -862,7 +862,7 @@
 
 .page-gallery .gallery-lightbox-close {
     font: inherit;
-    @apply fixed right-8 top-8 z-[1002] m-0 cursor-pointer border-0 bg-transparent p-0 text-[0.75rem] font-extralight text-white/70 transition-colors duration-[250ms] ease-out;
+    @apply fixed right-8 top-8 z-[1002] m-0 cursor-pointer border-0 bg-transparent p-0 text-[0.75rem] font-normal text-white/70 transition-colors duration-[250ms] ease-out;
 }
 
 .page-gallery .gallery-lightbox-close:hover {
@@ -896,7 +896,7 @@
 
 .page-gallery .gallery-lightbox-date,
 .page-gallery .gallery-lightbox-location {
-    @apply m-0 text-[0.75rem] font-extralight text-white/[0.68];
+    @apply m-0 text-[0.75rem] font-normal text-white/[0.68];
     white-space: normal;
 }
 
@@ -1073,7 +1073,7 @@
 .page-home .page-link-text,
 .page-project .page-link-text {
     color: var(--color-site-gold);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-medium);
     opacity: 0.95;
 }
 
