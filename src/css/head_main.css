@@ -152,7 +152,7 @@
 
 .page-home .scroll-container {
     @apply bg-site-text w-0 md:w-[0.125px];
-    @apply md:ml-[41.5%];
+    @apply md:ml-[33.333333%];
     @apply bg-gradient-to-b from-site-grid-strong via-site-gold to-site-text-soft;
     animation: main-name-animation 10s linear infinite;
     background-size: 200% 200%;
@@ -172,6 +172,22 @@
 .page-project .content-container {
     @apply flex flex-col gap-y-10;
     @apply md:ml-10;
+}
+
+@media (min-width: 48rem) {
+    .page-home .title-container {
+        width: calc(80vw / 3 - 20px);
+        margin-right: 0;
+    }
+
+    .page-home .scroll-container {
+        flex-shrink: 0;
+    }
+
+    .page-home .content-container {
+        flex: 1;
+        min-width: 0;
+    }
 }
 
 .page-feed .portfolio-content-container {
@@ -290,7 +306,12 @@
         calc(var(--grid-tile-size) + var(--grid-tile-size));
     border: 0;
     border-left: 0.125px solid var(--color-site-panel-border);
+    border-bottom: 0.125px solid var(--color-site-panel-border);
     border-radius: 0;
+}
+
+.page-home .about-container {
+    padding-bottom: calc(2 * var(--grid-tile-size));
 }
 
 .page-home .content-section-header {
@@ -1300,6 +1321,7 @@
     padding: 0 var(--grid-tile-size) var(--grid-tile-size);
     border: 0;
     border-left: 0.125px solid var(--color-site-panel-border);
+    border-bottom: 0.125px solid var(--color-site-panel-border);
     border-radius: 0;
 }
 
