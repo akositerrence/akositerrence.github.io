@@ -1,5 +1,16 @@
 [
     {
+        "src": "./photos/090526a.webp",
+        "location": "Grayson Highlands, Virginia",
+        "date": "09·05·26"
+    },
+    {
+        "src": "./photos/090526b.webp",
+        "location": "Grayson Highlands, Virginia",
+        "date": "09·05·26"
+    },
+
+    {
         "src": "./photos/082326.webp",
         "width": 900,
         "height": 648,
