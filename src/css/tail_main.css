@@ -666,11 +666,11 @@
   padding: 0 var(--grid-tile-size) var(--grid-tile-size) calc(var(--grid-tile-size) + var(--grid-tile-size));
   border: 0;
   border-left: 0.125px solid var(--color-site-panel-border);
-  border-bottom: 0.125px solid var(--color-site-panel-border);
+  border-top: 0.125px solid var(--color-site-panel-border);
   border-radius: 0;
 }
-.page-home .about-container {
-  padding-bottom: calc(2 * var(--grid-tile-size));
+.page-home .about-container, .page-home .experience-container, .page-home .portfolio-container, .page-home .education-container, .page-home .certifications-container, .page-home .publication-container {
+  padding-top: var(--grid-tile-size);
 }
 .page-home .content-section-header {
   padding-right: 0;
@@ -1864,10 +1864,10 @@
   width: 100%;
   flex-direction: column;
   row-gap: var(--grid-tile-size);
-  padding: 0 var(--grid-tile-size) var(--grid-tile-size);
+  padding: var(--grid-tile-size);
   border: 0;
   border-left: 0.125px solid var(--color-site-panel-border);
-  border-bottom: 0.125px solid var(--color-site-panel-border);
+  border-top: 0.125px solid var(--color-site-panel-border);
   border-radius: 0;
 }
 .page-project .portfolio-content-section-text, .page-project .content-section-header {
