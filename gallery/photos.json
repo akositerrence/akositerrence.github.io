@@ -1,11 +1,38 @@
 [
     {
+        "src": "./photos/092026a.webp",
+        "width": 6192,
+        "height": 4128,
+        "location": "Seattle, Washington",
+        "date": "09·20·26"
+    },
+    {
+        "src": "./photos/092026b.webp",
+        "width": 6192,
+        "height": 3545,
+        "location": "Seattle, Washington",
+        "date": "09·20·26"
+    },
+
+    {
+        "src": "./photos/091926.webp",
+        "width": 4128,
+        "height": 5409,
+        "location": "Virginia Beach, Virginia",
+        "date": "09·20·26"
+    },
+
+    {
         "src": "./photos/090526a.webp",
+        "width": 6192,
+        "height": 3031,
         "location": "Grayson Highlands, Virginia",
         "date": "09·05·26"
     },
     {
         "src": "./photos/090526b.webp",
+        "width": 1449,
+        "height": 811,
         "location": "Grayson Highlands, Virginia",
         "date": "09·05·26"
     },
