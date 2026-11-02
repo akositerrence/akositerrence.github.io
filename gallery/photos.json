@@ -1,11 +1,36 @@
 [
     {
-        "src": "./photos/092026a.webp",
-        "width": 6192,
-        "height": 4128,
-        "location": "Seattle, Washington",
-        "date": "09·20·26"
+        "src": "./photos/110126.webp",
+        "width": 4128,
+        "height": 5504,
+        "location": "Humpback Rocks, Virginia",
+        "date": "11·01·26"
     },
+
+    {
+        "src": "./photos/103126.webp",
+        "width": 5504,
+        "height": 4128,
+        "location": "Richmond, Virginia",
+        "date": "10·31·26"
+    },
+
+    {
+        "src": "./photos/101026.webp",
+        "width": 5504,
+        "height": 4128,
+        "location": "San Miguel, Philippines",
+        "date": "10·10·26"
+    },
+
+    {
+        "src": "./photos/100926.webp",
+        "width": 5504,
+        "height": 4128,
+        "location": "Home",
+        "date": "10·09·26"
+    },
+
     {
         "src": "./photos/092026b.webp",
         "width": 6192,
