@@ -778,7 +778,7 @@
     width: 100%;
     height: auto;
     border-radius: inherit;
-    filter: brightness(0.925) contrast(0.925) saturate(0.87) sepia(0.03);
+    filter: brightness(0.925) contrast(var(--gallery-photo-contrast, 0.925)) saturate(0.87) sepia(0.03);
     transform: translateZ(0);
     backface-visibility: hidden;
 }
@@ -795,7 +795,7 @@
 /* lightbox image filter */
 .page-feed .gallery-lightbox-img {
     @apply block max-h-[78vh] max-w-[92vw] object-contain rounded bg-site-lightbox-edge p-px md:max-h-[75vh] md:max-w-[75vw];
-    filter: brightness(0.96) contrast(0.92) saturate(0.92) sepia(0.06);
+    filter: brightness(0.96) contrast(var(--gallery-photo-contrast, 0.92)) saturate(0.92) sepia(0.06);
     transform: translateZ(0);
     backface-visibility: hidden;
 }

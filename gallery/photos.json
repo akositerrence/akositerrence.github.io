@@ -36,7 +36,8 @@
         "width": 6192,
         "height": 3545,
         "location": "Seattle, Washington",
-        "date": "09·20·26"
+        "date": "09·20·26",
+        "contrast": 0.9
     },
 
     {
@@ -44,14 +45,16 @@
         "width": 6192,
         "height": 3031,
         "location": "Grayson Highlands, Virginia",
-        "date": "09·05·26"
+        "date": "09·05·26",
+        "contrast": 0.85
     },
     {
         "src": "./photos/090526b.webp",
         "width": 1449,
         "height": 811,
         "location": "Grayson Highlands, Virginia",
-        "date": "09·05·26"
+        "date": "09·05·26",
+        "contrast": 0.85
     },
 
     {
@@ -59,7 +62,8 @@
         "width": 900,
         "height": 648,
         "location": "The Priest, Virginia",
-        "date": "08·23·26"
+        "date": "08·23·26",
+        "contrast": 0.85
     },
 
     {
@@ -67,14 +71,16 @@
         "width": 4128,
         "height": 5264,
         "location": "Old Rag Mountain, Virginia",
-        "date": "07·19·26"
+        "date": "07·19·26",
+        "contrast": 0.85
     },
     {
         "src": "./photos/071926b.webp",
         "width": 6192,
         "height": 4128,
         "location": "Old Rag Mountain, Virginia",
-        "date": "07·19·26"
+        "date": "07·19·26",
+        "contrast": 0.85
     },
 
     {
@@ -82,14 +88,16 @@
         "width": 900,
         "height": 600,
         "location": "Natural Bridge, Virginia",
-        "date": "07·05·26"
+        "date": "07·05·26",
+        "contrast": 0.85
     },
     {
         "src": "./photos/070526b.webp",
         "width": 900,
         "height": 344,
         "location": "Afton Mountain, Virginia",
-        "date": "07·06·26"
+        "date": "07·06·26",
+        "contrast": 0.85
     },
 
 
@@ -318,14 +326,16 @@
         "width": 900,
         "height": 601,
         "location": "Taylors Falls, Minnesota",
-        "date": "09·13·25"
+        "date": "09·13·25",
+        "contrast": 0.9
     },
     {
         "src": "./photos/091325d.webp",
         "width": 900,
         "height": 601,
         "location": "Taylors Falls, Minnesota",
-        "date": "09·13·25"
+        "date": "09·13·25",
+        "contrast": 0.9
     },
 
 
@@ -335,7 +345,8 @@
         "width": 900,
         "height": 601,
         "location": "Estes Park, Colorado",
-        "date": "08·16·25"
+        "date": "08·16·25",
+        "contrast": 0.9
     },
 
 
@@ -345,7 +356,8 @@
         "width": 900,
         "height": 1347,
         "location": "Mammoth Cave, Kentucky",
-        "date": "08·13·25"
+        "date": "08·13·25",
+        "contrast": 0.8
     },
 
 
@@ -355,7 +367,8 @@
         "width": 900,
         "height": 601,
         "location": "Gateway Arch, Missouri",
-        "date": "08·13·25"
+        "date": "08·13·25",
+        "contrast": 0.9
     },
     {
         "src": "./photos/081325c.webp",
@@ -400,6 +413,7 @@
         "width": 900,
         "height": 601,
         "location": "New River Gorge, West Virginia",
-        "date": "08·10·25"
+        "date": "08·10·25",
+        "contrast": 0.9
     }
 ]

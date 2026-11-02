@@ -220,9 +220,6 @@
   .hidden {
     display: none;
   }
-  .inline {
-    display: inline;
-  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
@@ -1194,7 +1191,7 @@
   width: 100%;
   height: auto;
   border-radius: inherit;
-  filter: brightness(0.925) contrast(0.925) saturate(0.87) sepia(0.03);
+  filter: brightness(0.925) contrast(var(--gallery-photo-contrast, 0.925)) saturate(0.87) sepia(0.03);
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -1219,7 +1216,7 @@
   @media (width >= 48rem) {
     max-width: 75vw;
   }
-  filter: brightness(0.96) contrast(0.92) saturate(0.92) sepia(0.06);
+  filter: brightness(0.96) contrast(var(--gallery-photo-contrast, 0.92)) saturate(0.92) sepia(0.06);
   transform: translateZ(0);
   backface-visibility: hidden;
 }

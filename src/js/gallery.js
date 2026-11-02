@@ -93,6 +93,7 @@ function createPhotoCard(photo, index) {
         </button>
     `;
     const img = card.querySelector("img");
+    applyPhotoContrast(img, photo);
     if (hasDimensions) {
         img.style.aspectRatio = `${width} / ${height}`;
     }
@@ -611,6 +612,7 @@ function updateLightboxPhoto(onReady) {
             return;
         }
 
+        applyPhotoContrast(img, photo);
         img.src = src;
         img.alt = photo.alt || photoDetails || "gallery photo";
         date.textContent = String(photo.date || "");
@@ -646,6 +648,14 @@ function preloadNearbyPhotos() {
         img.src = src;
         preloadedPhotoSrcs.add(src);
     });
+}
+
+function applyPhotoContrast(img, photo) {
+    if (Number.isFinite(photo.contrast) && photo.contrast >= 0) {
+        img.style.setProperty("--gallery-photo-contrast", String(photo.contrast));
+    } else {
+        img.style.removeProperty("--gallery-photo-contrast");
+    }
 }
 
 function getPhotoDetails(photo) {
