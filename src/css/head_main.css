@@ -222,7 +222,15 @@
 
 .page-home .main-goal,
 .page-project .main-goal {
-    @apply text-[1.375em] text-site-text font-normal mt-2 md:text-right;
+    @apply text-[1.25em] text-site-text font-normal mt-2 md:text-right;
+    @apply bg-gradient-to-l from-site-highlight via-site-text to-site-gold;
+    @apply bg-clip-text text-transparent;
+    animation: main-name-animation 7.5s linear infinite;
+    background-size: 200% 200%;
+}
+
+.main-location {
+    @apply text-[1.25em] text-site-text font-normal mt-2 md:text-right;
     @apply bg-gradient-to-l from-site-highlight via-site-text to-site-gold;
     @apply bg-clip-text text-transparent;
     animation: main-name-animation 7.5s linear infinite;
